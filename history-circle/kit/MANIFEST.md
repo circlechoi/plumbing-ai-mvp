@@ -82,3 +82,25 @@
 ## 4. 실행 검사
 - 구문 검사: .py 24개 중 23개 통과. 실패 1개는 wrap_patch 조각(함수 일부라 단독 구문이 아님 — 정상).
 - render.py 실제 렌더: **생략.** 이 환경에 한글 폰트 0종(fc-list), scenes.json·이미지·내레이션 입력 없음. PIL 12.3·numpy 2.5·ffmpeg는 있음. 2일차 재렌더 동일성 확인 때 폰트(G-1 GitHub)와 기존 편 입력이 필요.
+
+---
+
+## 11/04 sandbox 키트 백업 (유실 위험 해소)
+
+- 대상: Higgsfield sandbox `~/jupil`(주필산 4편) · `~/tools`(온조 자동 검수 도구) · `~/t25`(백제 1편 렌더) · `~/salsu`(전투 3편) · `~/r`(롱폼 렌더러) · `~/spr`(도트 rider·sneak)
+- 범위: .py · .sh 전부 + 200KB 미만 .json (영상·음성·이미지 제외)
+- 파일: `kit_backup_1104.tar.gz` — 279개, 504,959바이트, md5 `af1f1b6a27c80861f908bab3c89d508c`
+- 위치: Higgsfield 일반 파일 media_id `a5ad0721-6b3e-4a22-8358-54570d9b1d03`
+  - `https://d2ol7oe51mr4n9.cloudfront.net/user_3Juf1bLtazzBl3p1xDJV2TokuBm/a5ad0721-6b3e-4a22-8358-54570d9b1d03.gz` (업로드 HTTP 200, confirm 완료)
+- git 반입: **아직 안 됨**. 이 Claude Code 환경의 네트워크 정책이 `d2ol7oe51mr4n9.cloudfront.net`을 막음(connect_rejected). 허용 도메인에 추가하면 내려받아 `kit/`에 풀고 이 표를 갱신한다.
+
+| 폴더 | 파일 수 | 주요 파일 |
+|---|---|---|
+| jupil | 46 | anim4.py(+v1·v2·v4), scenes.py, lay2.py, layout.py, unit.py, icons.py, pv.py, thumb.py, topo.py, chk.py, mux.sh~mux10.sh, runseg.sh, b/(split4·pauses·tight·sw) |
+| tools | 7 | qa.py, liven.py, assemble.py, postfix.py, vio.py, segdb.py, patch14.py |
+| t25 | 194 | t0d.py, t1c.py, tboard.py, mix0d.py, mixer.py, mixall.py, normvo*.py, kanji2.py, yearfmt.py, run*.sh, up*.sh, full38~41.sh, r39a~c.sh, fin36.sh, tl*.json, vo*/asr |
+| salsu | 23 | anim.py(+v2~v4), salsu.py, v3.py, b/·a/ 내레이션 분할 |
+| r | 6 | render_long.py, render_long_v12.py, oper.json, strat.json |
+| spr | 3 | pxlib.py, rider.py, sneak.py |
+
+- 관찰: 같은 스크립트가 번호로만 갈라져 있다(normvo 1~12, run2~38, up26~37, anim4_v1~v4). 어느 것이 현행인지 파일만으로는 알 수 없다 → git으로 옮긴 뒤 현행만 남기고 나머지는 이력으로.
