@@ -1,0 +1,210 @@
+{
+ "canvas": {
+  "w": 1080,
+  "h": 1920
+ },
+ "forbidden": [
+  {
+   "id": "title_band",
+   "bbox": [
+    0,
+    0,
+    1080,
+    236
+   ],
+   "allow_kinds": [
+    "title",
+    "badge"
+   ]
+  },
+  {
+   "id": "subtitle_band",
+   "bbox": [
+    0,
+    1270,
+    1080,
+    300
+   ],
+   "allow_kinds": [
+    "subtitle"
+   ]
+  },
+  {
+   "id": "right_ui",
+   "bbox": [
+    900,
+    236,
+    180,
+    1034
+   ],
+   "allow_kinds": [
+    "arrow",
+    "effect"
+   ]
+  },
+  {
+   "id": "legend_band",
+   "bbox": [
+    0,
+    1790,
+    1080,
+    130
+   ],
+   "allow_kinds": [
+    "badge",
+    "label"
+   ]
+  }
+ ],
+ "scenes": [
+  {
+   "id": "c_battle",
+   "elements": [
+    {
+     "id": "title",
+     "kind": "title",
+     "bbox": [
+      0.0,
+      140.0,
+      1080.0,
+      96.0
+     ]
+    },
+    {
+     "id": "g1",
+     "kind": "block",
+     "bbox": [
+      132.9,
+      735.5,
+      137.4,
+      168.9
+     ],
+     "faction": "goguryeo",
+     "size_class_nominal": "M",
+     "nominal_wh": [
+      150,
+      64
+     ],
+     "angle": -60
+    },
+    {
+     "id": "g2",
+     "kind": "block",
+     "bbox": [
+      272.1,
+      678.5,
+      152.4,
+      163.0
+     ],
+     "faction": "goguryeo",
+     "size_class_nominal": "M",
+     "nominal_wh": [
+      150,
+      64
+     ],
+     "angle": -50
+    },
+    {
+     "id": "g3",
+     "kind": "block",
+     "bbox": [
+      434.6,
+      653.8,
+      163.0,
+      152.4
+     ],
+     "faction": "goguryeo",
+     "size_class_nominal": "M",
+     "nominal_wh": [
+      150,
+      64
+     ],
+     "angle": -40
+    },
+    {
+     "id": "g4",
+     "kind": "block",
+     "bbox": [
+      599.4,
+      621.0,
+      168.9,
+      137.4
+     ],
+     "faction": "goguryeo",
+     "size_class_nominal": "M",
+     "nominal_wh": [
+      150,
+      64
+     ],
+     "angle": -30
+    },
+    {
+     "id": "g5",
+     "kind": "block",
+     "bbox": [
+      615.1,
+      768.5,
+      169.8,
+      126.8
+     ],
+     "faction": "goguryeo",
+     "size_class_nominal": "M",
+     "nominal_wh": [
+      150,
+      64
+     ],
+     "angle": -20
+    },
+    {
+     "id": "g6",
+     "kind": "block",
+     "bbox": [
+      659.1,
+      899.8,
+      201.7,
+      132.3
+     ],
+     "faction": "malgal",
+     "size_class_nominal": "L",
+     "nominal_wh": [
+      184,
+      78
+     ],
+     "angle": -10
+    },
+    {
+     "id": "ansi",
+     "kind": "icon",
+     "bbox": [
+      279.5,
+      1059.5,
+      101.0,
+      101.0
+     ],
+     "fort": "sanseong"
+    },
+    {
+     "id": "ansi_l",
+     "kind": "label",
+     "bbox": [
+      407.0,
+      1084.5,
+      106.0,
+      46.0
+     ]
+    },
+    {
+     "id": "subtitle",
+     "kind": "subtitle",
+     "bbox": [
+      192.5,
+      1392.0,
+      694.5,
+      48.0
+     ]
+    }
+   ]
+  }
+ ],
+ "episode": "preview"
+}
