@@ -111,15 +111,74 @@ def probe_size(path):
     return int(w), int(h)
 
 
-def load_gray_frames(path, fps, width=160):
-    """fps로 표본 추출한 축소 흑백 프레임 (N, H, W) float32."""
+def _crop_filter(band, w0, h0):
+    """band=(y0, y1) 원본 픽셀 → ffmpeg crop. 롱폼 레터박스 그림 띠(138~942)만 볼 때 쓴다."""
+    if not band:
+        return "", w0, h0
+    y0, y1 = int(band[0]), int(band[1])
+    y0, y1 = max(0, y0), min(h0, y1)
+    return "crop=%d:%d:0:%d," % (w0, y1 - y0, y0), w0, y1 - y0
+
+
+def load_gray_frames(path, fps, width=160, band=None):
+    """fps로 표본 추출한 축소 흑백 프레임 (N, H, W) float32. fps=None이면 원래 프레임 전부."""
     w0, h0 = probe_size(path)
-    h = max(2, int(round(h0 * width / w0 / 2)) * 2)
-    p = _run(["ffmpeg", "-v", "error", "-i", path, "-vf", "fps=%g,scale=%d:%d,format=gray" % (fps, width, h),
-              "-f", "rawvideo", "-"])
+    crop, w1, h1 = _crop_filter(band, w0, h0)
+    h = max(2, int(round(h1 * width / w1 / 2)) * 2)
+    vf = ("fps=%g," % fps if fps else "") + crop + "scale=%d:%d,format=gray" % (width, h)
+    sync = [] if fps else ["-vsync", "0"]  # 원래 프레임 그대로(복제 프레임 검출용)
+    p = _run(["ffmpeg", "-v", "error", "-i", path, "-vf", vf] + sync + ["-f", "rawvideo", "-"])
     buf = np.frombuffer(p.stdout, dtype=np.uint8)
     n = len(buf) // (width * h)
     return buf[: n * width * h].reshape(n, h, width).astype(np.float32)
+
+
+def load_rgb_frames(path, fps, width=64, band=None):
+    """축소 RGB 프레임 (N, H, W, 3) float32 — 채도(흑백 회상 판별)용."""
+    w0, h0 = probe_size(path)
+    crop, w1, h1 = _crop_filter(band, w0, h0)
+    h = max(2, int(round(h1 * width / w1 / 2)) * 2)
+    p = _run(["ffmpeg", "-v", "error", "-i", path, "-vf", "fps=%g,%sscale=%d:%d,format=rgb24" % (fps, crop, width, h),
+              "-f", "rawvideo", "-"])
+    buf = np.frombuffer(p.stdout, dtype=np.uint8)
+    n = len(buf) // (width * h * 3)
+    return buf[: n * width * h * 3].reshape(n, h, width, 3).astype(np.float32)
+
+
+def video_fps(path):
+    p = _run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=r_frame_rate",
+              "-of", "csv=p=0", path])
+    a, _, b = p.stdout.decode().strip().partition("/")
+    return float(a) / float(b or 1)
+
+
+def media_duration(path):
+    p = _run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path])
+    return float(p.stdout.decode().strip())
+
+
+def silence_runs(path, noise_db, min_s):
+    """ffmpeg silencedetect로 무음 구간 [(start, end), ...]. 끝까지 무음이면 end = 길이."""
+    p = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", path, "-vn", "-af",
+                        "silencedetect=n=%gdB:d=%g" % (noise_db, min_s), "-f", "null", "-"],
+                       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    err = p.stderr.decode("utf-8", "replace")
+    st = [float(x) for x in re.findall(r"silence_start: (-?[\d.]+)", err)]
+    en = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", err)]
+    if len(en) < len(st):
+        en.append(media_duration(path))
+    return [(max(0.0, a), b) for a, b in zip(st, en)]
+
+
+def band_for(path, fmt):
+    """롱폼 1920×1080이면 레터박스 그림 띠(138~942)만 본다(qa.py PY0·PY1). 그 외는 전체 화면."""
+    if fmt != "longform":
+        return None
+    try:
+        w, h = probe_size(path)
+    except Exception:
+        return None
+    return (138, 942) if (w, h) == (1920, 1080) else None
 
 
 def frame_diffs(frames):

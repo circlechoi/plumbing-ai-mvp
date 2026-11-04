@@ -1,9 +1,13 @@
 """폴더 하나를 받아 있는 파일에 해당하는 검사만 돌리고 요약표를 찍는다.
 
-사용: python3 run_all.py <편 폴더> [--profile explain|battle] [--json out.json]
+사용: python3 run_all.py <편 폴더> [--profile explain|battle] [--format shorts|longform]
+                         [--script-format battle|shorts|longform|architecture] [--asr] [--json out.json]
 
 폴더 규약(있는 것만 검사):
-  final.mp4 (또는 *.mp4 중 하나)  → audio_loudness, video_static, video_pan_repeat
+  final.mp4 (또는 *.mp4 중 하나)  → audio_loudness, audio_silence, video_static, video_pan_repeat, video_repeat
+                                    (+ --asr이면 audio_asr — faster-whisper 없으면 건너뜀)
+  script.txt 또는 script.md       → script_lint (대본 형식은 script_lint.py 참고)
+  src/ (렌더 소스·자막·라벨)      → src_text (남은 태그·금지 기호)
   vo.wav + sfx.wav                → audio_sfx_vs_vo
   scenes/*.wav                    → audio_isolated_syllable, audio_midpause
   scenes/<이름>.words.json        → audio_midpause 단어 시각(있으면)
@@ -17,12 +21,17 @@ import json
 import os
 import sys
 
+import audio_asr
 import audio_isolated_syllable
 import audio_loudness
 import audio_midpause
 import audio_sfx_vs_vo
+import audio_silence
 import layout_overlap
+import script_lint
+import src_text
 import video_pan_repeat
+import video_repeat
 import video_static
 
 
@@ -31,7 +40,7 @@ def _opt(folder, name):
     return p if os.path.exists(p) else None
 
 
-def run(folder, profile="explain", fmt="shorts"):
+def run(folder, profile="explain", fmt="shorts", script_fmt=None, asr=False):
     results = []
 
     def safe(name, fn, *a):
@@ -46,8 +55,19 @@ def run(folder, profile="explain", fmt="shorts"):
     sections, cuts = _opt(folder, "sections.json"), _opt(folder, "cuts.json")
     if video:
         safe("audio_loudness", audio_loudness.check, video, fmt)
-        safe("video_static", video_static.check, video, profile, sections, cuts)
+        safe("audio_silence", audio_silence.check, video)
+        safe("video_static", video_static.check, video, profile, sections, cuts, fmt)
         safe("video_pan_repeat", video_pan_repeat.check, video, cuts)
+        safe("video_repeat", video_repeat.check, video, cuts, fmt)
+        if asr:
+            safe("audio_asr", audio_asr.check, video)
+    script = _opt(folder, "script.txt") or _opt(folder, "script.md")
+    if script:
+        sf = script_fmt or ("longform" if fmt == "longform" else "battle" if profile == "battle" else "shorts")
+        safe("script_lint", script_lint.check, script, sf)
+    src = _opt(folder, "src")
+    if src:
+        safe("src_text", src_text.check, [src])
     vo, sfx = _opt(folder, "vo.wav"), _opt(folder, "sfx.wav")
     if vo and sfx:
         safe("audio_sfx_vs_vo", audio_sfx_vs_vo.check, vo, sfx, sections)
@@ -80,9 +100,11 @@ if __name__ == "__main__":
     ap.add_argument("folder")
     ap.add_argument("--profile", default="explain", choices=["explain", "battle"])
     ap.add_argument("--format", default="shorts", choices=["shorts", "longform"])
+    ap.add_argument("--script-format", choices=["battle", "shorts", "longform", "architecture"])
+    ap.add_argument("--asr", action="store_true")
     ap.add_argument("--json")
     a = ap.parse_args()
-    res = run(a.folder, a.profile, a.format)
+    res = run(a.folder, a.profile, a.format, a.script_format, a.asr)
     if not res:
         print("검사할 파일이 없음 — 폴더 규약은 --help 참고")
         sys.exit(1)
