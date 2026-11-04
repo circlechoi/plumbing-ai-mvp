@@ -1,0 +1,733 @@
+[
+ {
+  "skill": "history-architecture-shorts",
+  "kind": "section",
+  "to": "reference-upload.md",
+  "heading": "10. 메타데이터",
+  "lines": [
+   139,
+   164
+  ],
+  "reason": "업로드 메타데이터를 쓸"
+ },
+ {
+  "skill": "history-architecture-shorts",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "도시의 일생 비트(보류 — v0.2 기록)",
+  "lines": [
+   30,
+   39
+  ],
+  "reason": "보류 형식(10/23 '도시의 일생' 보류)"
+ },
+ {
+  "skill": "history-architecture-shorts",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "11. 결정 기록",
+  "lines": [
+   165,
+   173
+  ],
+  "reason": "변경 이력 표 — 현행 값은 원장"
+ },
+ {
+  "skill": "history-battle-shorts",
+  "kind": "section",
+  "to": "reference-upload.md",
+  "heading": "7. 업로드 메타",
+  "lines": [
+   167,
+   179
+  ],
+  "reason": "업로드 메타데이터를 쓸"
+ },
+ {
+  "skill": "history-battle-shorts",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "시청자 피드백 메모 (참고용)",
+  "lines": [
+   59,
+   64
+  ],
+  "reason": "참고용 메모"
+ },
+ {
+  "skill": "history-battle-shorts",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "10. 실패 기록",
+  "lines": [
+   220,
+   238
+  ],
+  "reason": "편별 실패 이력 — 반복 금지 교훈은 golden/segments.yaml(G03~G26)과 채점표로"
+ },
+ {
+  "skill": "history-channel-concept",
+  "kind": "section",
+  "to": "reference-planning.md",
+  "heading": "8. 형식과 주기",
+  "lines": [
+   248,
+   291
+  ],
+  "reason": "시즌·편성을 기획할"
+ },
+ {
+  "skill": "history-channel-concept",
+  "kind": "section",
+  "to": "reference-planning.md",
+  "heading": "9. 아직 정하지 않은 것 (하나씩 확정)",
+  "lines": [
+   292,
+   305
+  ],
+  "reason": "미정 항목을 정할"
+ },
+ {
+  "skill": "history-channel-concept",
+  "kind": "section",
+  "to": "reference-planning.md",
+  "heading": "11. 레퍼런스 영상",
+  "lines": [
+   342,
+   349
+  ],
+  "reason": "레퍼런스를 찾을"
+ },
+ {
+  "skill": "history-channel-concept",
+  "kind": "section",
+  "to": "reference-architecture.md",
+  "heading": "12. 건축·도시 시리즈 [신설 10/13 · 10/17 도시의 일생 · 10/18 '그 시절' 재출발 · 10/23 두 형식 확정]",
+  "lines": [
+   350,
+   368
+  ],
+  "reason": "건축·도시 시리즈를 기획할"
+ },
+ {
+  "skill": "history-channel-concept",
+  "kind": "section",
+  "to": "reference-architecture.md",
+  "heading": "12-3. 편 공식 [제안 — 첫 편 후 확정]",
+  "lines": [
+   438,
+   441
+  ],
+  "reason": "건축·도시 시리즈를 기획할"
+ },
+ {
+  "skill": "history-channel-concept",
+  "kind": "section",
+  "to": "reference-architecture.md",
+  "heading": "12-4. 고증 [확정 10/13 — 원칙, 10/17 보강]",
+  "lines": [
+   442,
+   449
+  ],
+  "reason": "건축·도시 시리즈를 기획할"
+ },
+ {
+  "skill": "history-channel-concept",
+  "kind": "section",
+  "to": "reference-architecture.md",
+  "heading": "12-5. 도시 후보 [제안 — 사실관계 원문 확인 전]",
+  "lines": [
+   450,
+   459
+  ],
+  "reason": "건축·도시 시리즈를 기획할"
+ },
+ {
+  "skill": "history-channel-concept",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "10. 결정 기록",
+  "lines": [
+   306,
+   341
+  ],
+  "reason": "변경 이력 표 — 현행 값은 원장"
+ },
+ {
+  "skill": "history-channel-concept",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "12-1. 프롬프트 — 도시의 일생 [확정 10/17]",
+  "lines": [
+   369,
+   429
+  ],
+  "reason": "보류 형식 '도시의 일생' 프롬프트"
+ },
+ {
+  "skill": "history-channel-concept",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "12-2. 레퍼런스에서 가져오는 원리 — 블록 성장 지도 [확정 10/17 — 그림체는 첫 편 시안으로 확정]",
+  "lines": [
+   430,
+   437
+  ],
+  "reason": "보류 형식 '도시의 일생'"
+ },
+ {
+  "skill": "history-longform",
+  "kind": "section",
+  "to": "reference-upload.md",
+  "heading": "H. 설명란·업로드",
+  "lines": [
+   319,
+   323
+  ],
+  "reason": "설명란·업로드를 할"
+ },
+ {
+  "skill": "history-longform",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "0. 현재 상태 (2026-10-12, 10/14·10/17 보강)",
+  "lines": [
+   16,
+   27
+  ],
+  "reason": "1~3부 작업 현황(편별 이력)"
+ },
+ {
+  "skill": "history-longform",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "B. 결정 로그",
+  "lines": [
+   65,
+   106
+  ],
+  "reason": "변경 이력 표 — 현행 값은 원장"
+ },
+ {
+  "skill": "history-longform",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "G-1. 렌더러 render_long.py v1.2 → v1.3 (10/16, sandbox `~/r/render_long.py` — 키트 zip에는 아직 없음)",
+  "lines": [
+   287,
+   296
+  ],
+  "reason": "렌더러 버전 이력 — 현행 v1.4는 kit/longform"
+ },
+ {
+  "skill": "history-longform",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "G-2. 빌더 p2lib.py + p2build.py (키트 zip build/) · 3부 p3lib.py + p3build.py",
+  "lines": [
+   297,
+   304
+  ],
+  "reason": "2·3부 빌더 기록(p3lib 유실, 11/04 sandbox 백업 참고)"
+ },
+ {
+  "skill": "history-longform",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "K-3. 3부 음악 (10/17, 사용자 승인 '굳굳')",
+  "lines": [
+   363,
+   368
+  ],
+  "reason": "3부 편별 기록"
+ },
+ {
+  "skill": "history-longform-craft",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "0. 현재 상태 — 백제 1편 온조 (11/04)",
+  "lines": [
+   16,
+   27
+  ],
+  "reason": "온조 편 작업 현황(편별 이력)"
+ },
+ {
+  "skill": "history-longform-craft",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "2. 결정 로그",
+  "lines": [
+   49,
+   66
+  ],
+  "reason": "변경 이력 표 — 현행 값은 원장"
+ },
+ {
+  "skill": "history-map-v4",
+  "kind": "code→kit",
+  "lines": [
+   88,
+   97
+  ],
+  "kit": "kit/map/mapvid_fullscreen.snippet.py"
+ },
+ {
+  "skill": "history-production-standards",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "7. 결정 기록",
+  "lines": [
+   132,
+   140
+  ],
+  "reason": "변경 이력 표 — 현행 값은 원장"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-planning.md",
+  "heading": "A. 곁가지 후보 발굴 도구: '이야기 사슬' (v8.1)",
+  "lines": [
+   53,
+   55
+  ],
+  "reason": "곁가지 신작 후보를 고를"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-planning.md",
+  "heading": "A-1. 다음 편으로 가는 3가지 방향",
+  "lines": [
+   56,
+   65
+  ],
+  "reason": "곁가지 신작 후보를 고를"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-planning.md",
+  "heading": "A-2. 파생 질문 발굴 틀 (앵커마다 훑어보고 후보를 사용자에게 제시)",
+  "lines": [
+   66,
+   70
+  ],
+  "reason": "곁가지 신작 후보를 고를"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-planning.md",
+  "heading": "A-3. 편성표(에피소드 트래커)",
+  "lines": [
+   71,
+   74
+  ],
+  "reason": "곁가지 신작 후보를 고를"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-planning.md",
+  "heading": "A-5. 장기 서사 아크 (사용자 결정, 2026-09-29 · 순서 변경 2026-10-04 — 완료된 아크, 기록용)",
+  "lines": [
+   92,
+   111
+  ],
+  "reason": "곁가지 신작 후보를 고를"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-planning.md",
+  "heading": "K. 앵커 후보 (시대순, 사용자와 선택)",
+  "lines": [
+   967,
+   971
+  ],
+  "reason": "곁가지 신작 후보를 고를"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-upload.md",
+  "heading": "J. 유튜브 업로드 메타데이터 템플릿",
+  "lines": [
+   934,
+   966
+  ],
+  "reason": "업로드 메타데이터를 쓸"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-map-legacy.md",
+  "heading": "(대체용) 채색 지도 (v7: 코드 밑그림 + AI 재채색 + 코드 표지)",
+  "lines": [
+   984,
+   986
+  ],
+  "reason": "v4-S가 아닌 AI 재채색·라이브러리 지도를 쓸"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-map-legacy.md",
+  "heading": "L-1. 언제 쓰나",
+  "lines": [
+   987,
+   993
+  ],
+  "reason": "v4-S가 아닌 AI 재채색·라이브러리 지도를 쓸"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-map-legacy.md",
+  "heading": "L-2. 지도 고증 규칙",
+  "lines": [
+   994,
+   1003
+  ],
+  "reason": "지도 고증을 점검할"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-map-legacy.md",
+  "heading": "L-3. spec 형식 (ep/m_이름.json) — anim.py 입력",
+  "lines": [
+   1004,
+   1019
+  ],
+  "reason": "v4-S가 아닌 AI 재채색·라이브러리 지도를 쓸"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-map-legacy.md",
+  "heading": "L-4. 새 지도 만들기 (라이브러리에 같은 범위가 없을 때)",
+  "lines": [
+   1020,
+   1048
+  ],
+  "reason": "v4-S가 아닌 AI 재채색·라이브러리 지도를 쓸"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-map-legacy.md",
+  "heading": "L-5. 승인 지도·이미지 라이브러리 (재사용 — 같은 범위면 새로 만들지 않는다)",
+  "lines": [
+   1049,
+   1059
+  ],
+  "reason": "지난 편 지도·이미지를 재사용할"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-map-legacy.md",
+  "heading": "L-6. 스크립트",
+  "lines": [
+   1060,
+   1295
+  ],
+  "reason": "v4-S가 아닌 AI 재채색·라이브러리 지도를 쓸"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-remix.md",
+  "heading": "M. 롱폼 재편집 숏츠 (v8.0 — 2026-10-07 대무신왕 1부 5편 제작 방식, 사용자 승인)",
+  "lines": [
+   1495,
+   1497
+  ],
+  "reason": "롱폼 재편집 쇼츠를 만들"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-remix.md",
+  "heading": "M-1. 편 고르기 (롱폼 1편당 3~5편, 사용자 결정 10/7 '추천 5편')",
+  "lines": [
+   1498,
+   1510
+  ],
+  "reason": "롱폼 재편집 쇼츠를 만들"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-remix.md",
+  "heading": "M-2. 원본 준비",
+  "lines": [
+   1511,
+   1525
+  ],
+  "reason": "롱폼 재편집 쇼츠를 만들"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-remix.md",
+  "heading": "M-3. 화면 배치 — 혼합(사용자 결정 10/7)",
+  "lines": [
+   1526,
+   1534
+  ],
+  "reason": "롱폼 재편집 쇼츠를 만들"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-remix.md",
+  "heading": "M-4. 화면 글자 (ASS, 1080x1920)",
+  "lines": [
+   1535,
+   1544
+  ],
+  "reason": "롱폼 재편집 쇼츠를 만들"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-remix.md",
+  "heading": "M-5. 소리와 컷 경계",
+  "lines": [
+   1545,
+   1549
+  ],
+  "reason": "롱폼 재편집 쇼츠를 만들"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-remix.md",
+  "heading": "M-6. 렌더·QA·전달",
+  "lines": [
+   1550,
+   1557
+  ],
+  "reason": "롱폼 재편집 쇼츠를 만들"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "reference-remix.md",
+  "heading": "M-7. build_short.py (8,368바이트 — v8.0 구판. **v8.1은 드라이브 `kit_build_short_v81.py`(id 1IZveJgYtsIoi9jn4kIGearse5LypZnNA)에서 받아 쓴다**: `curl -sSL -o build_short.py \"https://drive.usercontent.google.com/download?id=1IZveJgYtsIoi9jn4kIGearse5LypZnNA&export=download&confirm=t\"` 후 md5 1362e95870c47298b02436fd37ab0ba3 확인. 폰트: fd/에 B.ttf·X.ttf·SM.ttf·SEAL.ttf·NSKBlack.ttf(M-2). sandbox에서 fontTools가 없으면 `env -u PYTHONPATH python3 -m pip install --target ~/pylib fonttools` 후 `PYTHONPATH=~/pylib`)",
+  "lines": [
+   1558,
+   1687
+  ],
+  "reason": "롱폼 재편집 쇼츠를 만들"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "A-4. 사슬 진행 상황 (2026-10-12 기준)",
+  "lines": [
+   75,
+   91
+  ],
+  "reason": "10/12 기준 진행 현황(편별 이력)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "L-0. 지도 v3 (v8.0 채널 표준 — 사용자 결정 2026-10-12, 롱폼과 통일)",
+  "lines": [
+   973,
+   983
+  ],
+  "reason": "지도 v3 표준 → 현행은 history-map-v4 v4-S(원장 C1, 11/04). v3 문법 중 유지 항목은 원장 map_version"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "L-7. 대체용: 코드로 그리는 채색 지도 (map.py v7)",
+  "lines": [
+   1296,
+   1494
+  ],
+  "reason": "대체용 map.py v7 — 코드는 kit/map/map_v7.py"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "M-8. 설정 예 (10/7 ③ 매복 작전 — 자막 일부 생략)",
+  "lines": [
+   1688,
+   1702
+  ],
+  "reason": "10/7 편별 설정 예 — 코드는 kit/shorts/cfgs_example_ep1-3.py"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "line",
+  "line": 10,
+  "reason": "머리말의 버전별 변경 이력(v6~v8.1)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "line",
+  "line": 15,
+  "reason": "머리말의 버전별 변경 이력(v6~v8.1)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "line",
+  "line": 17,
+  "reason": "머리말의 버전별 변경 이력(v6~v8.1)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "line",
+  "line": 19,
+  "reason": "머리말의 버전별 변경 이력(v6~v8.1)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "line",
+  "line": 21,
+  "reason": "머리말의 버전별 변경 이력(v6~v8.1)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "line",
+  "line": 23,
+  "reason": "머리말의 버전별 변경 이력(v6~v8.1)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "line",
+  "line": 24,
+  "reason": "머리말의 버전별 변경 이력(v6~v8.1)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "line",
+  "line": 26,
+  "reason": "머리말의 버전별 변경 이력(v6~v8.1)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "line",
+  "line": 27,
+  "reason": "머리말의 버전별 변경 이력(v6~v8.1)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "line",
+  "line": 28,
+  "reason": "머리말의 버전별 변경 이력(v6~v8.1)"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "code→kit",
+  "lines": [
+   368,
+   380
+  ],
+  "kit": "kit/shorts/scenes_example.snippet.json"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "code→kit",
+  "lines": [
+   396,
+   613
+  ],
+  "kit": "kit/shorts/render_v76.py"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "code→kit",
+  "lines": [
+   615,
+   834
+  ],
+  "kit": "kit/shorts/render_v76.py"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "code→kit",
+  "lines": [
+   836,
+   898
+  ],
+  "kit": "kit/shorts/sprite.py"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "code→kit",
+  "lines": [
+   1062,
+   1111
+  ],
+  "kit": "kit/map/ctl.py"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "code→kit",
+  "lines": [
+   1113,
+   1156
+  ],
+  "kit": "kit/map/qa.py"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "code→kit",
+  "lines": [
+   1158,
+   1193
+  ],
+  "kit": "kit/map/anim_shorts_map.py"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "code→kit",
+  "lines": [
+   1197,
+   1241
+  ],
+  "kit": "kit/map/han_mask.py"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "code→kit",
+  "lines": [
+   1245,
+   1293
+  ],
+  "kit": "kit/map/fix_river.py"
+ },
+ {
+  "skill": "history-shorts",
+  "kind": "code→kit",
+  "lines": [
+   1559,
+   1683
+  ],
+  "kit": "kit/shorts/build_short_v80.skill.py"
+ },
+ {
+  "skill": "history-shorts-craft",
+  "kind": "section",
+  "to": "archive.md",
+  "heading": "0. 편 기록",
+  "lines": [
+   10,
+   14
+  ],
+  "reason": "오노성 편 기록(편별 이력)"
+ }
+]

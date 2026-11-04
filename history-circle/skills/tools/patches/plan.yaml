@@ -1,0 +1,80 @@
+# 스킬 재구조화 계획 — build_skills.py 입력. 원본은 수정하지 않는다. 이동만 하고 삭제는 없다.
+# move_sections: heading = 제목 줄(# 제외) 앞부분 일치. children=true면 하위 절까지 함께.
+# move_lines: 정규식에 맞는 줄(코드 밖)을 archive '옮긴 줄'로.
+# 코드 블록: 8줄 이상이고 모든 줄이 kit 파일에 그대로 있으면 kit 참조로 바꾼다(자동).
+skills:
+  history-architecture-shorts:
+    move_sections:
+      - {heading: "10. 메타데이터", to: reference-upload.md, reason: "업로드 메타데이터를 쓸"}
+      - {heading: "도시의 일생 비트(보류", reason: "보류 형식(10/23 '도시의 일생' 보류)"}
+      - {heading: "11. 결정 기록", reason: "변경 이력 표 — 현행 값은 원장"}
+  history-battle-shorts:
+    move_sections:
+      - {heading: "7. 업로드 메타", to: reference-upload.md, reason: "업로드 메타데이터를 쓸"}
+      - {heading: "시청자 피드백 메모", reason: "참고용 메모"}
+      - {heading: "10. 실패 기록", reason: "편별 실패 이력 — 반복 금지 교훈은 golden/segments.yaml(G03~G26)과 채점표로"}
+  history-channel-concept:
+    move_sections:
+      - {heading: "8. 형식과 주기", to: reference-planning.md, reason: "시즌·편성을 기획할"}
+      - {heading: "9. 아직 정하지 않은 것", to: reference-planning.md, reason: "미정 항목을 정할"}
+      - {heading: "11. 레퍼런스 영상", to: reference-planning.md, reason: "레퍼런스를 찾을"}
+      - {heading: "12. 건축·도시 시리즈", children: false, to: reference-architecture.md, reason: "건축·도시 시리즈를 기획할"}
+      - {heading: "12-3. 편 공식", to: reference-architecture.md, reason: "건축·도시 시리즈를 기획할"}
+      - {heading: "12-4. 고증", to: reference-architecture.md, reason: "건축·도시 시리즈를 기획할"}
+      - {heading: "12-5. 도시 후보", to: reference-architecture.md, reason: "건축·도시 시리즈를 기획할"}
+      - {heading: "10. 결정 기록", reason: "변경 이력 표 — 현행 값은 원장"}
+      - {heading: "12-1. 프롬프트 — 도시의 일생", reason: "보류 형식 '도시의 일생' 프롬프트"}
+      - {heading: "12-2. 레퍼런스에서 가져오는 원리 — 블록 성장 지도", reason: "보류 형식 '도시의 일생'"}
+  history-longform:
+    move_sections:
+      - {heading: "H. 설명란·업로드", to: reference-upload.md, reason: "설명란·업로드를 할"}
+      - {heading: "0. 현재 상태", reason: "1~3부 작업 현황(편별 이력)"}
+      - {heading: "B. 결정 로그", reason: "변경 이력 표 — 현행 값은 원장"}
+      - {heading: "G-1. 렌더러 render_long.py", reason: "렌더러 버전 이력 — 현행 v1.4는 kit/longform"}
+      - {heading: "G-2. 빌더 p2lib.py", reason: "2·3부 빌더 기록(p3lib 유실, 11/04 sandbox 백업 참고)"}
+      - {heading: "K-3. 3부 음악", reason: "3부 편별 기록"}
+  history-longform-craft:
+    move_sections:
+      - {heading: "0. 현재 상태", reason: "온조 편 작업 현황(편별 이력)"}
+      - {heading: "2. 결정 로그", reason: "변경 이력 표 — 현행 값은 원장"}
+  history-map-v4:
+    move_sections: []
+  history-production-standards:
+    move_sections:
+      - {heading: "7. 결정 기록", reason: "변경 이력 표 — 현행 값은 원장"}
+  history-shorts:
+    move_sections:
+      - {heading: "A. 곁가지 후보 발굴 도구", children: false, to: reference-planning.md, reason: "곁가지 신작 후보를 고를"}
+      - {heading: "A-1. 다음 편으로 가는", to: reference-planning.md, reason: "곁가지 신작 후보를 고를"}
+      - {heading: "A-2. 파생 질문 발굴 틀", to: reference-planning.md, reason: "곁가지 신작 후보를 고를"}
+      - {heading: "A-3. 편성표", to: reference-planning.md, reason: "곁가지 신작 후보를 고를"}
+      - {heading: "A-5. 장기 서사 아크", to: reference-planning.md, reason: "곁가지 신작 후보를 고를"}
+      - {heading: "K. 앵커 후보", to: reference-planning.md, reason: "곁가지 신작 후보를 고를"}
+      - {heading: "J. 유튜브 업로드 메타데이터 템플릿", to: reference-upload.md, reason: "업로드 메타데이터를 쓸"}
+      - {heading: "(대체용) 채색 지도", to: reference-map-legacy.md, reason: "v4-S가 아닌 AI 재채색·라이브러리 지도를 쓸"}
+      - {heading: "L-1. 언제 쓰나", to: reference-map-legacy.md, reason: "v4-S가 아닌 AI 재채색·라이브러리 지도를 쓸"}
+      - {heading: "L-2. 지도 고증 규칙", to: reference-map-legacy.md, reason: "지도 고증을 점검할"}
+      - {heading: "L-3. spec 형식", to: reference-map-legacy.md, reason: "v4-S가 아닌 AI 재채색·라이브러리 지도를 쓸"}
+      - {heading: "L-4. 새 지도 만들기", to: reference-map-legacy.md, reason: "v4-S가 아닌 AI 재채색·라이브러리 지도를 쓸"}
+      - {heading: "L-5. 승인 지도·이미지 라이브러리", to: reference-map-legacy.md, reason: "지난 편 지도·이미지를 재사용할"}
+      - {heading: "L-6. 스크립트", to: reference-map-legacy.md, reason: "v4-S가 아닌 AI 재채색·라이브러리 지도를 쓸"}
+      - {heading: "M. 롱폼 재편집 숏츠", children: false, to: reference-remix.md, reason: "롱폼 재편집 쇼츠를 만들"}
+      - {heading: "M-1. 편 고르기", to: reference-remix.md, reason: "롱폼 재편집 쇼츠를 만들"}
+      - {heading: "M-2. 원본 준비", to: reference-remix.md, reason: "롱폼 재편집 쇼츠를 만들"}
+      - {heading: "M-3. 화면 배치", to: reference-remix.md, reason: "롱폼 재편집 쇼츠를 만들"}
+      - {heading: "M-4. 화면 글자", to: reference-remix.md, reason: "롱폼 재편집 쇼츠를 만들"}
+      - {heading: "M-5. 소리와 컷 경계", to: reference-remix.md, reason: "롱폼 재편집 쇼츠를 만들"}
+      - {heading: "M-6. 렌더·QA·전달", to: reference-remix.md, reason: "롱폼 재편집 쇼츠를 만들"}
+      - {heading: "M-7. build_short.py", to: reference-remix.md, reason: "롱폼 재편집 쇼츠를 만들"}
+      - {heading: "A-4. 사슬 진행 상황", reason: "10/12 기준 진행 현황(편별 이력)"}
+      - {heading: "L-0. 지도 v3", reason: "지도 v3 표준 → 현행은 history-map-v4 v4-S(원장 C1, 11/04). v3 문법 중 유지 항목은 원장 map_version"}
+      - {heading: "L-7. 대체용: 코드로 그리는 채색 지도", reason: "대체용 map.py v7 — 코드는 kit/map/map_v7.py"}
+      - {heading: "M-8. 설정 예", reason: "10/7 편별 설정 예 — 코드는 kit/shorts/cfgs_example_ep1-3.py"}
+    move_lines:
+      - {regex: "^v\\d+(\\.\\d+)? ?변경|^v\\d+(\\.\\d+)?\\(20|^v6 변경", reason: "머리말의 버전별 변경 이력(v6~v8.1)"}
+  history-shorts-craft:
+    move_sections:
+      - {heading: "0. 편 기록", reason: "오노성 편 기록(편별 이력)"}
+# 모든 스킬 공통: 아래 줄은 core 규칙 포인터로 바꾼다(원문은 archive '교체 원문').
+precedence_regex: "^> \\*\\*우선순위\\(10/23 확정\\)\\*\\*"
+precedence_new: "> **충돌 규칙(11/04 개편 — history-core)**: 현행 값은 원장(decisions.yaml) 하나뿐이다. 이 스킬 본문과 원장이 다르면 원장을 따른다. 원장에 없는 항목끼리 부딪히면 기존 '날짜가 붙은 최신 사용자 결정' 원칙을 따른다(원문은 archive.md '교체 원문')."

@@ -1,0 +1,86 @@
+[
+ {
+  "skill": "history-architecture-shorts",
+  "line": 11,
+  "original": "> **우선순위(10/23 확정)**: 스킬끼리 충돌하면 **날짜가 붙은 최신 사용자 결정**을 따른다. 날짜가 같거나 없으면 history-channel-concept > history-longform · history-architecture-shorts > history-shorts. 작업 중 낡은 문장을 발견하면 그 문장을 따르지 말고, 사용자에게 알리며 고칠 곳을 제안한다.",
+  "new": "> **충돌 규칙(11/04 개편 — history-core)**: 현행 값은 원장(decisions.yaml) 하나뿐이다. 이 스킬 본문과 원장이 다르면 원장을 따른다. 원장에 없는 항목끼리 부딪히면 기존 '날짜가 붙은 최신 사용자 결정' 원칙을 따른다(원문은 archive.md '교체 원문')."
+ },
+ {
+  "skill": "history-architecture-shorts",
+  "line": 14,
+  "original": "- 지도 v3(지역 위치가 필요할 때만): history-shorts L-0, 롱폼 지도 키트",
+  "new": "- 지도 v4-S(지역 위치가 필요할 때만): history-map-v4(원장 C1 11/04 — 이전 표기 'history-shorts L-0 지도 v3'는 archive.md)"
+ },
+ {
+  "skill": "history-architecture-shorts",
+  "line": 23,
+  "original": "- 지도 위 표지는 render.py anim.json `markers`(붉은 원 + 이름 + `[통설] …` 부제)로. × 표시 대신 이 표지를 쓴다(10/19 사용자 지정)",
+  "new": "- 지도 위 표지는 render.py anim.json `markers`(붉은 원 + 이름. `[통설]` 등 화면 태그 부제는 빼고 설명란으로 — 원장 C5 11/04)로. × 표시 대신 이 표지를 쓴다(10/19 사용자 지정)"
+ },
+ {
+  "skill": "history-channel-concept",
+  "line": 9,
+  "original": "> **우선순위(10/23 확정)**: 스킬끼리 충돌하면 **날짜가 붙은 최신 사용자 결정**을 따른다. 날짜가 같거나 없으면 history-channel-concept > history-longform · history-architecture-shorts > history-shorts. 작업 중 낡은 문장을 발견하면 그 문장을 따르지 말고, 사용자에게 알리며 고칠 곳을 제안한다.",
+  "new": "> **충돌 규칙(11/04 개편 — history-core)**: 현행 값은 원장(decisions.yaml) 하나뿐이다. 이 스킬 본문과 원장이 다르면 원장을 따른다. 원장에 없는 항목끼리 부딪히면 기존 '날짜가 붙은 최신 사용자 결정' 원칙을 따른다(원문은 archive.md '교체 원문')."
+ },
+ {
+  "skill": "history-channel-concept",
+  "line": 220,
+  "original": "  - [확정 10/12] 세력 색(지도 v3): 고구려 = 짙은 적갈 (96,34,29) / 부여 = 짙은 남회 (42,58,86) / 신(新)·낙랑 = 짙은 올리브 (70,74,22) / 흉노·선비·옥저·삼한은 history-longform 지도 키트의 표. 백제 = **황금색 계열**(10/21~22, 옛 기록의 금칠 근거 — 청색에서 변경. RGB는 BC 1세기 프리셋 제작 때 정함, production-standards 2절). 신라·가야는 처음 나오는 편에서 정하고 시리즈 안에서 바꾸지 않는다(10/10의 '부여 = 회백·흑', '중원 = 남청' 안은 v3로 대체)",
+  "new": "  - [확정 10/12] 세력 색(지도 v3 → 바탕은 v4-S, 원장 C1·C4): 고구려 = 짙은 적갈 (96,34,29) / 부여 = 짙은 남회 (42,58,86) / 신(新) = 짙은 올리브 (70,74,22) / 낙랑 = 먹회색 (84,88,102)(11/04 원장 C4 — 당과 구분이 약한 편만 올리브 예외로 원장에 기록) / 흉노·선비·옥저·삼한은 history-longform 지도 키트의 표. 백제 = **황금색 계열**(10/21~22, 옛 기록의 금칠 근거 — 청색에서 변경. RGB는 BC 1세기 프리셋 제작 때 정함, production-standards 2절). 신라·가야는 처음 나오는 편에서 정하고 시리즈 안에서 바꾸지 않는다(10/10의 '부여 = 회백·흑', '중원 = 남청' 안은 v3로 대체)"
+ },
+ {
+  "skill": "history-channel-concept",
+  "line": 223,
+  "original": "  - [확정 10/12] 쇼츠도 같은 지도 v3(세로 판)를 쓴다. 이전 AI 재채색 한반도 지도는 도시 위치·이동 경로만 보일 때의 대체용",
+  "new": "  - [확정 10/12] 쇼츠도 롱폼과 같은 지도를 쓴다 — 현행 v4-S(세로 판·전체 화면은 history-map-v4 10절 mapvid, 원장 C1 11/04). 이전 AI 재채색 한반도 지도는 도시 위치·이동 경로만 보일 때의 대체용"
+ },
+ {
+  "skill": "history-longform",
+  "line": 12,
+  "original": "> **우선순위(10/23 확정)**: 스킬끼리 충돌하면 **날짜가 붙은 최신 사용자 결정**을 따른다. 날짜가 같거나 없으면 history-channel-concept > history-longform · history-architecture-shorts > history-shorts. 작업 중 낡은 문장을 발견하면 그 문장을 따르지 말고, 사용자에게 알리며 고칠 곳을 제안한다.",
+  "new": "> **충돌 규칙(11/04 개편 — history-core)**: 현행 값은 원장(decisions.yaml) 하나뿐이다. 이 스킬 본문과 원장이 다르면 원장을 따른다. 원장에 없는 항목끼리 부딪히면 기존 '날짜가 붙은 최신 사용자 결정' 원칙을 따른다(원문은 archive.md '교체 원문')."
+ },
+ {
+  "skill": "history-longform",
+  "line": 184,
+  "original": "### E-3. 지도 (v3, 10/12 확정)",
+  "new": "### E-3. 지도 (v3 문법, 10/12 확정 — 바탕은 v4-S, history-map-v4 우선 · 원장 C1)"
+ },
+ {
+  "skill": "history-longform",
+  "line": 193,
+  "original": "- 지도 위 부대 표시: 글자 토큰('고') 대신 도트 기마병 스프라이트(spr/rd0~1.png, 10/16 사용자 요청)",
+  "new": "- 지도 위 부대 표시: 글자 토큰('고') 대신 도트 기마병 스프라이트(spr/rd0~1.png, 10/16 사용자 요청) → 11/04 원장 C6: 전략·전술 도식의 부대 표시는 'ㅗ' 블록(history-battle-shorts 3절) 공통, 도트 기마병은 '매 편 도트' 장식으로만"
+ },
+ {
+  "skill": "history-production-standards",
+  "line": 10,
+  "original": "> **우선순위(10/23 확정)**: 스킬끼리 충돌하면 **날짜가 붙은 최신 사용자 결정**을 따른다. 날짜가 같거나 없으면 history-channel-concept > history-longform · history-architecture-shorts > history-shorts. 작업 중 낡은 문장을 발견하면 그 문장을 따르지 말고, 사용자에게 알리며 고칠 곳을 제안한다.",
+  "new": "> **충돌 규칙(11/04 개편 — history-core)**: 현행 값은 원장(decisions.yaml) 하나뿐이다. 이 스킬 본문과 원장이 다르면 원장을 따른다. 원장에 없는 항목끼리 부딪히면 기존 '날짜가 붙은 최신 사용자 결정' 원칙을 따른다(원문은 archive.md '교체 원문')."
+ },
+ {
+  "skill": "history-production-standards",
+  "line": 50,
+  "original": "- 새 지도는 지도 키트(longform E-3 mapkit, shorts L-0 지도 v3)로만 만든다. 편마다 즉석에서 따로 그리지 않는다. 예외: 건축·도시 시리즈의 한지 먹선 도해 지도(history-architecture-shorts 7번).",
+  "new": "- 새 지도는 지도 키트(history-map-v4 v4-S — 원장 C1 11/04. 이전 표기 'longform E-3 mapkit, shorts L-0 지도 v3'는 archive.md)로만 만든다. 편마다 즉석에서 따로 그리지 않는다. 예외: 건축·도시 시리즈의 한지 먹선 도해 지도(history-architecture-shorts 7번)."
+ },
+ {
+  "skill": "history-shorts",
+  "line": 6,
+  "original": "# 역사 숏폼 제작 파이프라인 (채널 표준 v8.1 · 2026-10-23 스킬 정비 · 두 형식: 롱폼 재편집 + 45초 신작 · 지도 v3 · 시그니처 3초 · 도트 필수)",
+  "new": "# 역사 숏폼 제작 파이프라인 (채널 표준 v8.1 · 2026-10-23 스킬 정비 · 두 형식: 롱폼 재편집 + 45초 신작 · 지도 v4-S(원장 C1) · 시그니처 3초 · 도트 필수)"
+ },
+ {
+  "skill": "history-shorts",
+  "line": 8,
+  "original": "> **우선순위(10/23 확정)**: 스킬끼리 충돌하면 **날짜가 붙은 최신 사용자 결정**을 따른다. 날짜가 같거나 없으면 history-channel-concept > history-longform · history-architecture-shorts > history-shorts. 작업 중 낡은 문장을 발견하면 그 문장을 따르지 말고, 사용자에게 알리며 고칠 곳을 제안한다.",
+  "new": "> **충돌 규칙(11/04 개편 — history-core)**: 현행 값은 원장(decisions.yaml) 하나뿐이다. 이 스킬 본문과 원장이 다르면 원장을 따른다. 원장에 없는 항목끼리 부딪히면 기존 '날짜가 붙은 최신 사용자 결정' 원칙을 따른다(원문은 archive.md '교체 원문')."
+ },
+ {
+  "skill": "history-shorts",
+  "line": 36,
+  "original": "4. **지도를 자주 쓴다.** 시청자가 도시 위치·나라 영역·이동 경로를 파악할 수 있도록 매 편 지도 장면을 넣는다(섹션 L, v8.0 표준은 지도 v3 — L-0).",
+  "new": "4. **지도를 자주 쓴다.** 시청자가 도시 위치·나라 영역·이동 경로를 파악할 수 있도록 매 편 지도 장면을 넣는다(섹션 L, 현행 표준은 지도 v4-S — history-map-v4, 원장 C1 11/04. v8.0의 지도 v3(L-0)은 archive.md)."
+ }
+]
