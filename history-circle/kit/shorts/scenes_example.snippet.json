@@ -1,0 +1,11 @@
+{"total":45.4,"title":"고구려, {주몽} 혼자 세웠을까?","watermark":"역사서클","source":"『삼국사기』 고구려본기 · 이미지는 AI 재현",
+ "narration":"nar.mp3","amb":"wind","out":"final.mp4",
+ "scenes":[
+  {"start":0,"video":"v1.mp4","image":"","cap":["고구려를 세운 건","정말 {주몽} 혼자?"],"year":"기록상 BC 37 무렵"},
+  {"start":4.14,"image":"https://…/scene2.png","move":"in","focus":[0.4,0.45],"trans":"ink","cap":["부여 왕자 {대소}","주몽을 없애려 하다"],"year":"기록상 BC 37 무렵"},
+  {"start":8.92,"image":"https://…/scene3.png","move":"pan_l","trans":"whip_l","fx":["shake"],"cap":["친구 셋과 탈출","뒤쫓는 {부여} 기병"]},
+  {"start":13.94,"image":"ai_korea.png","map":"maps/m_ep5.anim.json","move":"focus","trans":"ink","cap":["길에서 사람을 모아","{졸본}에 닿다"]},
+  {"start":18.22,"image":"https://…/sosuhno.png","move":"in","trans":"cut","sfx":"none","cap":["[여러 설] 졸본왕의 사위?","{소서노}의 도움?"]},
+  {"start":23.28,"image":"https://…/scene6.png","move":"punch","trans":"cut","cap":["비류국 왕 {송양}","끝내 무릎을 꿇다"],"punch":[{"text":"결국 {항복}!","at":2.24,"dur":0.9}]},
+  "…",
+  {"start":40.22,"image":"https://…/scene10.png","move":"in","trans":"ink","cap":["다음 이야기","주몽은 왜 {유리}를?"],"year":"기록상 BC 19"}]}
