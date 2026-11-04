@@ -1,0 +1,720 @@
+about: 역사서클 결정 원장 — 생성 파일. 고칠 때는 curated.yaml을 고치고 tools/build_ledger.py를 다시 돌린다. 원문은 decisions_raw.yaml.
+source_skills:
+  history-architecture-shorts:
+    lines: 173
+    md5: c4e3ad041384d70f4021359ecf9dcd24
+  history-battle-shorts:
+    lines: 238
+    md5: ee77b16d11127f1b26320cf2fd29769c
+  history-channel-concept:
+    lines: 459
+    md5: c20a1d24db1f2d9746977b72c903486a
+  history-longform-craft:
+    lines: 126
+    md5: 585b6b280143ca6ac40bd50f3837d91a
+  history-longform:
+    lines: 368
+    md5: 8b407b4e83b2c1930ef42a0b5eac949f
+  history-map-v4:
+    lines: 104
+    md5: 9b9ffa393bc5903432fc5c46b133b03f
+  history-production-standards:
+    lines: 140
+    md5: d10898712faf95752b22e0f0aec1147e
+  history-shorts-craft:
+    lines: 54
+    md5: d6b240c0ccfbc10b8034c5ff4eb30f03
+  history-shorts:
+    lines: 1702
+    md5: 5a9c4ebb20bfd8cb4283bd9c54003be0
+counts:
+  raw_total: 273
+  curated_items: 58
+  linked_by_curation: 238
+  kept_verbatim: 35
+  pending_user: 9
+meta:
+  principle: 충돌 시 날짜가 붙은 최신 사용자 결정 우선. 날짜가 같거나 없으면 channel-concept > longform·architecture-shorts > shorts (10/23)
+  principle_sources:
+  - channel-concept:9 (10/23)
+  - longform:12 (10/23)
+  - production-standards:10 (10/23)
+  - architecture-shorts:11 (10/23)
+  - shorts:8 (10/23)
+  - longform:102 (10/23)
+  - production-standards:136 (10/23)
+  user_over_review: 사용자와 대화로 정한 내용 > 검수 의견. 검수 의견이 합의 구성을 빼거나 흐리면 반영하지 말고 충돌을 보여 주고 고르게 한다 (10/25)
+  user_over_review_sources:
+  - production-standards:33 (10/25)
+  - production-standards:30 (10/25)
+  - production-standards:140 (10/25)
+topics:
+- name: 대본·오프닝
+  items:
+  - key: identity
+    current: 정체성 한 문장 '그 판단은 왜 그랬을까?' — 역사/전략 시네마틱. 한 편 = 결정 하나 = 질문 하나, 답 하나
+    status: 현행
+    sources:
+    - channel-concept:309 (10/07)
+    - channel-concept:68 (10/07)
+    - channel-concept:53 (10/07)
+    - channel-concept:312 (10/07)
+  - key: episode_formula
+    current: 딜레마 → 당신이라면?(선택지 한 줄씩) + 실제 선택(이유 둘 이내, 한 구간) → 결과 → 판단 분석(1~2분, 심의 메모 5칸, 초고는 사용자) → 남긴 것
+    status: 현행
+    sources:
+    - channel-concept:310 (10/07)
+    - channel-concept:71 (10/07)
+    - channel-concept:73 (10/12)
+    - channel-concept:74 (10/12)
+    - channel-concept:76 (10/14)
+    - channel-concept:325 (10/12)
+    - longform:86 (10/12)
+    - channel-concept:329 (10/14)
+    - longform:90 (10/14)
+    - channel-concept:97 (10/14)
+    - channel-concept:98 (10/14)
+    - channel-concept:62 (10/14)
+  - key: opening_hook
+    current: '편의 첫 화면 = 줄거리 요약 훅(배경지식 0·초등학생 기준): 아는 이름 → 약자의 출발 → 결말 한 문장 → ''어떻게'' 질문 → 시그니처 → 제목. 롱폼 내레이션 약 15초 + 시그니처 3초, 쇼츠(신작·재편집)는 2문장 6~8초'
+    status: 현행
+    sources:
+    - channel-concept:233 (10/25)
+    - channel-concept:340 (10/25)
+    - longform:104 (10/25)
+    - longform:208 (10/25)
+    - channel-concept:69 (10/25)
+    - channel-concept:6 (10/25)
+    superseded:
+    - channel-concept:324 (10/12)
+    - longform:85 (10/12)
+    - longform:98 (10/17)
+    - longform:216 (10/17)
+    - longform:103 (10/23)
+    - shorts:187 (09/29)
+    - shorts:26 (09/29)
+    - channel-concept:348 (10/12)
+    note: 10/12 콜드 오픈 → 10/17 전투 컷 플래시 → 10/23 E2 질문 먼저 → 10/25 줄거리 요약 훅(현행). 전투 컷 플래시는 결말 문장의 화면으로 흡수
+  - key: battle_shorts_first3s
+    current: 전투 해설 쇼츠 첫 3초 규칙 8항목(첫 문장 2.5초 안, 0초부터 화면 30% 이상 움직임, 훅에서 반전 답 공개 금지 등) + 배경 한 줄은 첫 10초 안(줄거리 요약 훅을 따름)
+    status: 현행
+    sources:
+    - battle-shorts:45 (11/03)
+    note: 원문 battle-shorts 1절(11/2) — 날짜 표기가 줄 머리에 없어 raw 추출에는 45행만 잡힘
+  - key: narration_style
+    current: 합니다체 바탕 + '~죠/~요/~인데, 하지만' 이어 말하기 대화체, 평서 '~다.' 종결 0회, 같은 어미 연속 0회. 롱폼은 딜레마 + 수 싸움 + 떡밥 (11/02)
+    status: 현행
+    sources:
+    - longform-craft:55 (11/02)
+    - shorts:201 (10/23)
+    - shorts:10 (10/19)
+    - longform:95 (10/16)
+    - longform:77 (10/05)
+    - shorts:200 (09/29)
+    - shorts:24 (09/29)
+    note: 10/5 '설명하듯 이어지는 합니다체' → 10/16 대화체 → 10/23 쇼츠 합니다+죠/요 → 11/02 롱폼 떡밥·이어 말하기. 서로 누적 관계(충돌 아님)
+  - key: opponent_rational
+    current: 상대를 바보로 그리지 않는다. 상대의 계산을 먼저 그럴 만하게 보여 주고, 진 쪽에도 판단의 논리를 준다
+    status: 현행
+    sources:
+    - channel-concept:56 (10/09)
+    - channel-concept:147 (10/09)
+    - channel-concept:315 (10/09)
+    - battle-shorts:16 (11/03)
+  - key: three_layer_question
+    current: 세 겹 질문(세계·나라·전장). 국제 정세는 '틈'으로 1~2분 안에, 깊이는 전장 겹. 전술 전에 전략의 이유 먼저
+    status: 현행
+    sources:
+    - channel-concept:57 (10/10)
+    - channel-concept:82 (10/10)
+    - channel-concept:91 (10/10)
+    - channel-concept:152 (10/10)
+    - channel-concept:79 (10/08)
+    - channel-concept:316 (10/10)
+    - channel-concept:345 (10/10)
+  - key: historical_imagination
+    current: 기록이 한 줄이어도 역사적 상상력으로 해석하되 상상임을 밝힌다. 신이한 기사는 '기록은 이렇게 전합니다 → 오늘의 눈으로 읽으면' 두 단계. 학설이 갈리면 주류 설로 진행, 나머지는 설명란
+    status: 현행
+    sources:
+    - channel-concept:58 (10/10)
+    - channel-concept:155 (10/10)
+    - channel-concept:156 (10/10)
+    - channel-concept:320 (10/10)
+    - channel-concept:150 (10/08)
+    - channel-concept:151 (10/08)
+    - shorts:145 (09/27)
+    - shorts:142 (09/27)
+  - key: radio_test
+    current: '라디오 기준: 소리만으로 이해되게. 화면에만 있는 정보는 없다(자막·지도·카드에 적힌 것은 모두 소리로도)'
+    status: 현행
+    sources:
+    - channel-concept:311 (10/07)
+    - channel-concept:120 (10/07)
+    - channel-concept:200 (10/07)
+  - key: battle_section
+    current: 전투 구간은 없애지 않고 영상미를 위해 충분히 둔다. 전투 해설 쇼츠는 결정적 전술 이름을 내레이션·화면·제목에서 분명히
+    status: 현행
+    sources:
+    - channel-concept:54 (10/07)
+    - channel-concept:132 (10/07)
+    - battle-shorts:45 (11/03)
+    - channel-concept:136 (10/07)
+    - channel-concept:313 (10/08)
+  - key: dot_sprite
+    current: '매 편 도트 그림 1곳 이상(롱폼·쇼츠·건축). 금지 구간: 죽음·비극, 판단 분석. 롱폼은 우측 하단 구석에 작게'
+    status: 현행
+    sources:
+    - channel-concept:60 (10/17)
+    - channel-concept:240 (10/17)
+    - channel-concept:241 (10/23)
+    - channel-concept:332 (10/17)
+    - shorts:192 (10/17)
+    - longform:96 (10/16)
+    superseded:
+    - shorts:17 (10/04)
+  - key: topic_filter
+    current: '뻔함 필터: 의외의 주인공·충격적 결정·처음 듣는 기록 중 하나 이상. 롱폼과 겹치는 사건은 신작으로 다시 만들지 않는다'
+    status: 현행
+    sources:
+    - shorts:68 (10/01)
+    - shorts:42 (10/12)
+  원문_보존:
+  - id: channel-concept:314
+    date: 10/08
+    status_hint: 현행후보
+    text: '| 10/8 | 2부 중심 질문은 "약한 나라가 왜 먼저 쳤나". 어떤 시기에 어떤 이유로 먼저 쳤고, 왕을 먼저 죽이면 이긴다는 판단이었음을 이해하게 한다. 신이한 기사는 현대식으로 재해석한다. 기획안은 Claude Docs 문서의 ''2부 기획안'' 탭 |'
+  - id: channel-concept:361
+    date: 10/13
+    status_hint: 현행후보
+    text: '- [확정 10/13] 역사서클 **안의 새 시리즈**(별도 채널 아님). 1번 정체성·3번 라디오 기준·5번 해석 원칙·5-1 상상 절차를 그대로 따른다'
+  - id: longform:68
+    date: 09/30
+    status_hint: 현행후보
+    text: '| 9/30 | 분할·범위 | 시간순 3부, 3부는 22년 7월 투항까지. 기록 뼈대 + 전투만 연출 확장 |'
+  - id: longform:69
+    date: 09/30
+    status_hint: 현행후보
+    text: '| 9/30 | 인물 | 무휼 1부 기록상 10세 + 무명 노장([연출], 실존 인물명 금지). 대소 = 합리적 강자. 괴유는 기록 문구까지만 |'
+  - id: longform:342
+    date: 10/14
+    status_hint: 현행후보
+    text: '- 사용자 만족도 자기평가(10/14): 약 70점. 진단 — 판단을 따지는 분량이 작고 사용자의 관점이 안 보인다 / 전투의 웅장함·자연스러움 부족 → 판단 분석 구간(concept 2-2) + 전투 문법(E-5)'
+  - id: shorts-craft:15
+    date: 10/31
+    status_hint: 현행후보
+    text: '## 1. 기획·대본 (10/31 사용자 피드백에서)'
+  - id: shorts:92
+    date: 09/29
+    status_hint: 현행후보
+    text: '### A-5. 장기 서사 아크 (사용자 결정, 2026-09-29 · 순서 변경 2026-10-04 — 완료된 아크, 기록용)'
+- name: 지도
+  items:
+  - key: map_version
+    current: 지도 바탕 = v4-S(실제 고도·하천 + 삼국전투기 스타일 산지), 롱폼·쇼츠 공통. v3의 '국경은 지형(분수령)·세력 면 진한 저채도' 문법은 v4-S 위에서 유지
+    status: 사용자확정대기
+    sources:
+    - map-v4:10 (10/28)
+    - map-v4:84 (10/31)
+    - longform:184 (10/12)
+    - longform:82 (10/12)
+    - channel-concept:207 (10/10)
+    - channel-concept:219 (10/12)
+    - channel-concept:322 (10/12)
+    - channel-concept:223 (10/12)
+    - shorts:973 (10/12)
+    - shorts:985 (09/28)
+    - shorts:1052 (09/28)
+    conflict: C1
+  - key: map_unit_marker
+    current: '부대 표시: 전투 해설 쇼츠 = ''ㅗ'' 블록 + 블록 안 병종 도트 아이콘(글자·범례 없음, 11/2). 롱폼 = 도트 기마병 스프라이트(10/16)'
+    status: 사용자확정대기
+    sources:
+    - battle-shorts:88 (11/02)
+    - longform:193 (10/16)
+    conflict: C6
+  - key: box_size_uniform
+    current: 붉은 인장 상자는 영상 전체에서 크기 통일(seal_uniform, 10/16). 유닛 블록·병력 박스의 고정 규격은 아직 없음 → 세션 2 지도 컴포넌트에서 규격 제안
+    status: 현행
+    sources:
+    - longform:97 (10/16)
+  - key: map_terrain_placement
+    current: 전장 배치는 DEM으로 능선·골짜기·고개를 읽고 기록 문구를 지형에 대응시킨 뒤 놓는다(근거는 [추정]으로 기획안에)
+    status: 현행
+    sources:
+    - battle-shorts:85 (11/02)
+  - key: map_territory_by_record
+    current: 영역은 그 시점의 기록으로 그린다(근거는 대본 표에). 전략도 보조 라벨은 그 편 판단에 필요한 것만
+    status: 현행
+    sources:
+    - channel-concept:221 (10/12)
+    - channel-concept:222 (10/12)
+    - longform:83 (10/12)
+  - key: map_markers_architecture
+    current: 건축 시리즈 지도 표지 = render.py markers(붉은 원 + 이름 + 부제)
+    status: 사용자확정대기
+    sources:
+    - architecture-shorts:23 (10/19)
+    conflict: C5
+    note: 부제 '[통설] …' 표기가 11/02 '화면 태그 전부 삭제'와 충돌
+  원문_보존:
+  - id: channel-concept:298
+    date: 10/12
+    status_hint: 현행후보
+    text: '- 쇼츠의 세부: 재편집 편 제목에 시리즈명을 붙일지, 신작 곁가지 후보 목록(쇼츠 두 형식·시그니처 3초·지도 v3는 10/12 확정)'
+  - id: channel-concept:430
+    date: 10/17
+    status_hint: 현행후보
+    text: '### 12-2. 레퍼런스에서 가져오는 원리 — 블록 성장 지도 [확정 10/17 — 그림체는 첫 편 시안으로 확정]'
+  - id: longform:78
+    date: 10/06
+    status_hint: 현행후보
+    text: '| 10/6 | 복기 구간 | 이미 본 컷 재사용 금지. 위기 → 지도 한 장 + 번호 인장 → 항목당 한 문장 → 한계 한 줄 |'
+  - id: shorts:23
+    date: 09/28
+    status_hint: 현행후보
+    text: 'v7 변경(2026-09-28, 사용자 요청): ① 지도 = 코드 밑그림(ctl.py) → gpt_image_2_5가 그림체만 다시 칠함 → 해안선 자동 검수(qa.py) → 표지·경로·글자는 코드(anim.py + render.py). **사용자가 승인한 한반도 지도의 그림체를 채널 표준으로 고정**(L-5 라이브러리) ② 이미지 STYLE을 무채색 → 청록산수 채색으로, 해상도 1k → 2k ③ 지도 라벨을 원본 좌표계에 그려 줌 중 글자 떨림 제거 ④ 자막을 실제 잉크 폭 기준으로 중앙 정렬(『』·[ ] 쏠림 해결) ⑤ 내레이션을 흥나는 이야기꾼 문체로(D-2) ⑥ 렌더 그레이딩: 채도↑·대비↑·따뜻한 하이라이트/청록 그림자.'
+  - id: shorts:84
+    date: 10/03
+    status_hint: 현행후보
+    text: '- ⑧ 부여 왕의 협박에 맞선 게 6살 왕자라고?(유리왕 28년, 기록상 AD 9) — **완료**(43.7초, 2026-10-03, v7.5 첫 적용: 9장면, 337자 42.9초 = 초당 7.9자, 지도는 국내성 표지). 무휼은 서기 4년생(한국민족문화대백과 ''대무신왕'') → 세는나이 6세, 원문 ''年尙幼少''. 알을 쌓는 비유(今有累卵於此), 부여 노파의 풀이. 결말에서 ''4년 뒤 대소의 군대'' 예고. 사용자 반응 "좋았어". **지표**: 게시 약 6시간 유효 조회 636, 계속 시청 62.6% / 이탈 37.4%, 평균 시청 0:48(초기 수치 — ⑦보다 반복 시청이 적음, 24시간 뒤 재확인)'
+  - id: shorts:1526
+    date: 10/07
+    status_hint: 현행후보
+    text: '### M-3. 화면 배치 — 혼합(사용자 결정 10/7)'
+- name: 화면·색
+  items:
+  - key: palette
+    current: 모든 편 바탕 = 정통 청록산수(차가운 석청·석록, 맑은 낮빛). 나라 색은 그 나라 왕·군사에만 포인트(백제 황금, 신라 주홍). golden hour 등 화면 전체 금빛 톤 프롬프트 금지
+    status: 현행
+    sources:
+    - production-standards:14 (10/25)
+    - production-standards:25 (10/25)
+    - production-standards:139 (10/25)
+    - shorts:252 (10/12)
+    - shorts:255 (09/28)
+    - production-standards:135 (10/23)
+  - key: faction_colors
+    current: 세력 색 RGB — conflicts.md C4에서 확정 필요(고구려 (96,34,29) / 부여 (42,58,86) / 백제 황금 (232,184,56) / 신라 주홍 (226,96,52) / 당 (70,74,84) / 왜 (206,32,46) / 마한 (178,120,168) / 말갈 (118,86,62) / 낙랑 = 올리브 (70,74,22) 또는 먹회색 (84,88,102))
+    status: 사용자확정대기
+    sources:
+    - channel-concept:220 (10/12)
+    - map-v4:54 (10/29)
+    conflict: C4
+  - key: costume_colors
+    current: '전투 컷 세력 색 엄수: 고구려 붉은 옷·붉은 깃발 / 부여 흰 옷·짙은 모피. 돌격 컷은 앞에 적의 색만, 뒤에 아군의 색만'
+    status: 현행
+    sources:
+    - channel-concept:204 (10/12)
+    - longform:71 (10/02)
+    - longform:87 (10/12)
+    - shorts:267 (10/03)
+    - channel-concept:326 (10/12)
+  - key: signature_opening
+    current: 시그니처 오프닝(수묵화 → 먹 번짐 → 실사) 채널 고정. 쇼츠는 3초 축약판, 건축은 건물 선묘 스케치
+    status: 현행
+    sources:
+    - channel-concept:59 (10/12)
+    - channel-concept:228 (10/12)
+    - channel-concept:231 (10/12)
+    - channel-concept:323 (10/12)
+    - longform:84 (10/12)
+    - longform:199 (10/12)
+    - shorts:188 (10/12)
+    - channel-concept:363 (10/13)
+  - key: ai_look_reduction
+    current: 'AI 티·반복 금지(E-6): 같은 컷 반복, 5초 클립 늘이기, 긴 정지 지도 금지. 정지 화면은 구간별 상한(편당 총량 상한은 폐지). 사람 컷 3초·원경 5초. 실사는 컷당 동작 하나, 실제 카메라 이동, 채도 낮은 필름 톤. 립싱크 금지'
+    status: 현행
+    sources:
+    - longform:101 (10/17)
+    - longform:240 (10/17)
+    - longform:102 (10/23)
+    - longform-craft:51 (10/30)
+    - longform-craft:57 (11/02)
+    - longform-craft:58 (11/02)
+    - channel-concept:303 (10/23)
+    - channel-concept:338 (10/23)
+  - key: parallax
+    current: 시점 흔들기 = 층 분리(B안)
+    status: 현행
+    sources:
+    - longform-craft:53 (10/30)
+    - longform-craft:111 (10/30)
+  - key: realshot_hook
+    current: 실사 훅 연출(11/02~03, 4차c 품질 승인) — longform-craft 9절
+    status: 현행
+    sources:
+    - longform-craft:118 (11/02)
+    - longform-craft:60 (11/03)
+    - longform-craft:59 (11/03)
+  - key: judgment_screen
+    current: 판단 분석 화면 = 먹 글씨(붉은 상자 라벨 금지). 판세 계기판 삭제
+    status: 현행
+    sources:
+    - longform:99 (10/17)
+    - longform:260 (10/17)
+    - longform-craft:61 (11/03)
+  - key: on_screen_tags
+    current: 화면의 [기록]/[통설]/[해석]/[연출] 태그·칩 전부 삭제(11/02) — 롱폼 확정. 쇼츠·건축 적용 범위는 C5
+    status: 사용자확정대기
+    sources:
+    - longform-craft:56 (11/02)
+    - shorts:19 (10/04)
+    conflict: C5
+  - key: gore
+    current: '피 수위: 튀는 피·피 묻은 얼굴·창끝까지. 상처 클로즈업·절단 금지, 참수는 화면 밖. 유튜브 ''변경·합성 콘텐츠'' 표시, 카테고리 교육'
+    status: 현행
+    sources:
+    - longform:72 (10/02)
+    - longform:322 (10/14)
+  - key: realism_physics
+    current: '고증이 몰입을 지킨다: 지형·계절의 물리(진창 깊이 등)·진영 규모가 어긋나면 결함'
+    status: 현행
+    sources:
+    - channel-concept:205 (10/12)
+    - longform:81 (10/11)
+    - channel-concept:143 (10/10)
+  - key: architecture_visual
+    current: '건축 시리즈: 실사 복원 + 한지 먹선 도해(진사 강조 1색). 그림이 주인공인 장면은 AI 그림 + 코드 표지. 청록산수 안 씀'
+    status: 현행
+    sources:
+    - channel-concept:364 (10/13)
+    - channel-concept:365 (10/14)
+    - architecture-shorts:17 (10/13)
+    - architecture-shorts:15 (10/13)
+  원문_보존:
+  - id: architecture-shorts:168
+    date: 10/13
+    status_hint: 현행후보
+    text: '| 10/13 | 시리즈 신설: 역사서클 안, 여러 시대·나라, 실사 복원 + 코드 도해, 양식 반·개발 논리 반. 세 역할 프롬프트(컨셉 12-1). 시그니처 3초는 건물 선묘 스케치로 유지 |'
+  - id: channel-concept:295
+    date: 10/17
+    status_hint: 현행후보
+    text: '- 판단 분석 구간(2-2)의 길이·판정 문구(화면은 10/17 먹 글씨로 확정, 길이는 시청 지속률 확인 후)'
+  - id: channel-concept:346
+    date: 10/10
+    status_hint: 현행후보
+    text: '| 10/10 | https://www.youtube.com/watch?v=sNbwSK8kO2g (제갈량 오장원 전투) | 실사 컷의 빛·구도·작은 움직임(4번) | 스틸 2장만 분석. AI 제작 여부 미확인 |'
+  - id: channel-concept:347
+    date: 10/07
+    status_hint: 현행후보
+    text: '| 10/7 | 〈란〉(1985) 소개 글 | 색·원경·음향·콘티 원리(4번) | 반영됨 |'
+- name: 자막·서체
+  items:
+  - key: shorts_captions
+    current: 쇼츠 자막 송명, 1줄 ≤13자 60px / 2줄 ≤10자 80px(마지막 84). 상단 제목 영상 내내(첫 장면 92px → 80% y392 고정). 연도 배지 = 붉은 낙관 '史' + 금색 글자. 워터마크 '역사서클' 글자
+    status: 현행
+    sources:
+    - shorts:235 (10/03)
+    - shorts:236 (10/04)
+    - shorts:237 (09/29)
+    - shorts:248 (09/29)
+    - shorts:249 (09/28)
+    - shorts:21 (10/03)
+    - architecture-shorts:19 (10/19)
+    - architecture-shorts:172 (10/19)
+  - key: battle_title_bar
+    current: 전투 해설 쇼츠 상단 = 편 제목 고정 한 줄(NotoSansKR Black 52), 강조어는 진빨강 (172,34,28) 둥근 상자 + 크림 글씨
+    status: 현행
+    sources:
+    - battle-shorts:66 (11/03)
+  - key: longform_captions
+    current: 롱폼 자막 서체·크기 — C7 확정 필요(10/4 나눔명조 ExtraBold 56 vs map-v4 레터박스 NotoSansKR Bold 46 vs craft 배역 대사 나눔명조 Bold 44)
+    status: 사용자확정대기
+    sources:
+    - longform:75 (10/04)
+    conflict: C7
+  - key: numbers
+    current: 내레이션 숫자는 한글로 쓰고 자막은 숫자로 따로
+    status: 현행
+    sources:
+    - longform-craft:72 (10/30)
+  원문_보존:
+  - id: shorts:1541
+    date: 10/07
+    status_hint: 현행후보
+    text: '- **끝 3초(사용자 결정 10/7)**: 제목 자리가 `▶ 전체 이야기는 롱폼에서`(금색) + `{시리즈명} {n}부 〈{부제}〉`로 바뀐다(`end`)'
+- name: 내레이션·TTS
+  items:
+  - key: voice
+    current: 내레이터 Harrison(qwen preset 573e5163…), language ko, instruction ≤128자 '차분한 다큐·또박또박·일정한 속도', seed 7. 판단 분석 구간은 사용자 직접 녹음(실험 E5)
+    status: 현행
+    sources:
+    - longform:70 (09/30)
+    - longform-craft:72 (10/30)
+    - battle-shorts:144 (10/30)
+    - channel-concept:111 (10/23)
+    - longform:277 (10/23)
+  - key: role_voices
+    current: 배역 목소리 원칙 — C8 확정 필요(10/29 '배역 목소리 폐기, 내레이터 인용' vs 11/03 '사신 목소리 Alistair')
+    status: 사용자확정대기
+    sources:
+    - longform-craft:50 (10/29)
+    - longform-craft:59 (11/03)
+    conflict: C8
+  - key: recording_unit
+    current: 문단 단위 통째 녹음 → loudnorm I=-17 → whisper 단어 시각 → 분할 → 같은 atempo. 고칠 줄만 같은 설정으로 다시 녹음. 고립 음절·문장 중간 쉼 자동 점검
+    status: 현행
+    sources:
+    - longform-craft:72 (10/30)
+    - battle-shorts:134 (11/03)
+  - key: tempo
+    current: TTS 배속 — C2 확정 필요(롱폼 1.10 / 쇼츠·전투 1.08, 편 안에서 단일 값 권장)
+    status: 사용자확정대기
+    sources:
+    - longform:76 (10/05)
+    - longform:95 (10/16)
+    conflict: C2
+  원문_보존:
+  - id: shorts:1543
+    date: 10/04
+    status_hint: 현행후보
+    text: '- 롱폼 대사 자막은 따옴표를 쓰지 않았지만(롱폼 B 10/4) 숏츠에서는 대사와 내레이션을 구분하려고 큰따옴표를 붙였다 — 사용자 지적이 있으면 바꾼다'
+- name: 음량·효과음
+  items:
+  - key: loudness
+    current: 내레이션 −17 LUFS. 최종 마스터 — C3 확정 필요(롱폼 −14 / 쇼츠 −15, TP −1.5 권장)
+    status: 사용자확정대기
+    sources:
+    - channel-concept:111 (10/23)
+    - longform:277 (10/23)
+    conflict: C3
+  - key: sfx_under_vo
+    current: '효과음 자동 상한: 모든 효과음은 내레이션보다 작게(10/16). 음량은 피크가 아니라 RMS 기준. 몰입 구간 현장음 앞, 해설 구간 정돈'
+    status: 현행
+    sources:
+    - longform:93 (10/16)
+    - longform:88 (10/12)
+    - channel-concept:135 (10/12)
+    - channel-concept:326 (10/12)
+    note: 'dB 여유폭(예: 효과음 RMS ≤ 내레이션 −3dB)은 수치로 정해진 적 없음 → C3에 함께 확정 요청'
+  - key: sfx_source
+    current: Kling 영상은 소리 끔(sound 'off' 문자열). 효과음은 mirelo로 따로, 쇼츠는 코드 합성 기본. 효과음 글자는 지도·도식에서만
+    status: 현행
+    sources:
+    - longform:94 (10/16)
+    - longform:281 (10/12)
+    - longform-craft:51 (10/30)
+  - key: music
+    current: 음악 = 사용자 Suno 유료 곡. 롱폼 현행 곡 Gayageum Hook. 장면별 곡 배정은 Claude가 RMS 곡선으로 고르고 사용자 승인. BGM 4무드(standards)
+    status: 현행
+    sources:
+    - longform:79 (10/06)
+    - longform-craft:54 (11/02)
+    - longform:100 (10/17)
+    - longform:363 (10/17)
+- name: 영상 생성·크레딧
+  items:
+  - key: video_model
+    current: 실사 컷 = Kling 3.0 pro 5초(Seedance 안 씀) + 전투 문법 조각 편집. 정지 그림을 시작 프레임으로 작은 움직임만
+    status: 현행
+    sources:
+    - longform:80 (10/11)
+    - channel-concept:321 (10/11)
+    - longform:91 (10/14)
+    - longform:92 (10/14)
+    - longform:220 (10/14)
+    - longform:237 (10/14)
+    - longform-craft:57 (11/02)
+    - channel-concept:143 (10/10)
+  - key: credit_cap
+    current: 롱폼 편당 800(560=70%에서 알림), 쇼츠 신작 편당 30 안팎. 배치마다 누적 사용량 기록
+    status: 현행
+    sources:
+    - production-standards:44 (10/24)
+    - production-standards:138 (10/24)
+    - channel-concept:339 (10/24)
+  - key: confirm_before_generate
+    current: '생성 전 최종 확인: 검수 뒤에도 바뀐 대본·장면·크레딧을 보여 주고 확인받은 뒤 생성. 새 인물은 시안 먼저. 설명보다 정지 시안(0크레딧) 먼저'
+    status: 현행
+    sources:
+    - production-standards:30 (10/25)
+    - production-standards:140 (10/25)
+    - battle-shorts:28 (11/02)
+    - longform:73 (10/03)
+  - key: reference_sheet
+    current: 온조 기준 시트 s20 job 576bfba9… (낙랑 구간 5차 승인)
+    status: 현행
+    sources:
+    - longform-craft:52 (10/30)
+- name: 관문·검수
+  items:
+  - key: gates
+    current: 롱폼 3관문(비트시트 → 대본 → 스토리보드). 리뷰어 3역할(첫 시청자=배경지식 0 / 유튜브 디렉터 / 역사영화 작가는 대본 관문만), 사학자 리뷰어 없음, 리뷰어끼리 서로 안 봄
+    status: 현행
+    sources:
+    - longform:40 (10/23)
+    - longform:49 (10/24)
+    - longform:50 (10/25)
+    - longform:105 (10/24)
+    - channel-concept:13 (10/23)
+    - channel-concept:12 (10/10)
+    - longform:102 (10/23)
+  - key: user_touchpoints
+    current: 사용자 개입 = 결정 3곳(비트시트·대본·가편집) + 직접 작업 2곳(판단 분석 초고·녹음)
+    status: 현행
+    sources:
+    - longform:57 (10/24)
+    - channel-concept:339 (10/24)
+  - key: tts_review
+    current: 전문 한국인 내레이터 렌즈 검수 2회(별도 에이전트) + 위험 단어 치환표
+    status: 현행
+    sources:
+    - longform-craft:72 (10/30)
+  - key: cut_checklist
+    current: 영상 규칙은 '컷 점검표 8항목' 하나로 합친다(초안은 온조 스토리보드에서) — 아직 미작성
+    status: 보류
+    sources:
+    - channel-concept:303 (10/23)
+    - channel-concept:338 (10/23)
+- name: 운영·백업
+  items:
+  - key: cadence
+    current: 롱폼 편당 약 10분(8~12분 허용), 2주에 1편 — 온조 실측 시간으로 재판단. 편 수 = 결정 수
+    status: 현행
+    sources:
+    - channel-concept:249 (10/10)
+    - channel-concept:250 (10/10)
+    - channel-concept:252 (10/24)
+    - channel-concept:317 (10/10)
+    - channel-concept:319 (10/10)
+    - longform:74 (10/04)
+  - key: season_structure
+    current: 시즌 = 시대순, 나라별 가닥(고구려·백제 → 신라·가야)을 쌓다가 두 나라가 부딪히는 전쟁에서 폭발. 다음 롱폼 = 백제 1편 온조(10/19)
+    status: 현행
+    sources:
+    - channel-concept:269 (10/10)
+    - channel-concept:318 (10/10)
+    - channel-concept:282 (10/19)
+    - shorts:94 (10/04)
+  - key: shorts_two_formats
+    current: '쇼츠 두 형식 병행: 롱폼 재편집 3~5편 + 곁가지 45초 신작'
+    status: 현행
+    sources:
+    - channel-concept:265 (10/12)
+    - channel-concept:327 (10/12)
+    - shorts:15 (10/12)
+    - shorts:42 (10/12)
+    - shorts:1495 (10/07)
+    - shorts:1498 (10/07)
+  - key: description_template
+    current: '쇼츠 설명란 = 10/19 사용자 양식(요약 2문장 → ※ 핵심 주석 1개 → 출처 → 고지 → 해시태그, 깨알 정보 없음). 건축은 그림 고지 첫 줄 + #건축'
+    status: 현행
+    sources:
+    - shorts:936 (10/19)
+    - shorts:945 (10/19)
+    - battle-shorts:176 (10/19)
+    - architecture-shorts:141 (10/19)
+    - architecture-shorts:148 (10/19)
+    - longform:320 (10/19)
+  - key: packaging
+    current: 롱폼 제목·썸네일 3안 필수(판단 질문형 / 결과 반전형 / 30~40대형) Studio 테스트. 쇼츠 업로드 제목은 시리즈명·편 번호 유지
+    status: 현행
+    sources:
+    - longform:321 (10/23)
+    - shorts:935 (09/29)
+    - shorts-craft:36 (10/31)
+  - key: target_audience
+    current: 핵심층 45~64세 한국 남성 역사 애호가 + 30~40대 확장 시험. 해외는 보류
+    status: 현행
+    sources:
+    - channel-concept:63 (10/23)
+    - channel-concept:336 (10/23)
+    - channel-concept:337 (10/23)
+  - key: kit_backup
+    current: 세션 끝마다 스크립트 백업(Drive). 롱폼 렌더러 v1.3은 유실 — 온조 렌더 전 복구
+    status: 현행
+    sources:
+    - production-standards:138 (10/24)
+    - production-standards:137 (10/23)
+    note: 세션 1 작업 B(키트 git 이전)로 대체 예정
+- name: 건축 시리즈
+  items:
+  - key: arch_format
+    current: '기본 = ''그 시절 ○○''(판단 프레임: 그 시대 사람들은 왜 그렇게 짓기로 했을까 — 제약 → 선택 → 대가). ''도시의 일생''·수도 세 번 이사 편은 보류. 화면은 history-shorts 표준 필수'
+    status: 현행
+    sources:
+    - architecture-shorts:26 (10/23)
+    - architecture-shorts:27 (10/23)
+    - channel-concept:350 (10/17)
+    - channel-concept:351 (10/23)
+    - channel-concept:352 (10/23)
+    - architecture-shorts:173 (10/23)
+    - channel-concept:335 (10/23)
+    - architecture-shorts:171 (10/18)
+    - channel-concept:333 (10/18)
+    - architecture-shorts:19 (10/19)
+    superseded:
+    - channel-concept:61 (10/17)
+    - channel-concept:330 (10/17)
+    - channel-concept:331 (10/17)
+    - channel-concept:359 (10/17)
+    - channel-concept:453 (10/18)
+    - architecture-shorts:170 (10/17)
+  원문_보존:
+  - id: architecture-shorts:31
+    date: 10/17
+    status_hint: 현행후보
+    text: '- 시리즈의 주인공은 도시다(10/17 사용자 결정). 기획은 컨셉 12-1 프롬프트(도시공학자 / 건축사학자 / 기획자)의 출력 순서를 따른다: 도시 후보 표 → 도시 연표 + 건축 카드 → 키프레임 + 대본 → 미확인·결정 사항. 기획 산출물은 Claude Docs 제작 문서로'
+  - id: channel-concept:47
+    date: 10/17
+    status_hint: 현행후보
+    text: '- [확정 10/17] **건축·도시 시리즈(''도시의 일생'')는 12-1 프롬프트의 세 역할(도시공학자 / 건축사학자 / 유튜브 기획자 겸 영상 디자이너)로 검토한다** — 12-1'
+  - id: channel-concept:267
+    date: 10/13
+    status_hint: 보류후보
+    text: '- [확정 10/13] 건축·도시 시리즈는 우선 **쇼츠 45초**로 시작한다(history-architecture-shorts). 롱폼 확장은 반응을 보고 정한다 [제안]. 도시의 일생 1편은 약 58초(10/17)'
+  - id: channel-concept:328
+    date: 10/13
+    status_hint: 현행후보
+    text: '| 10/13 | 건축·도시 시리즈 신설(역사서클 안). 여러 시대·나라, 실사 복원 + 코드 도해, 양식 반·개발 논리 반. 역할 3(건축·도시 전문가) 추가. 쇼츠부터 시작(12번, history-architecture-shorts) |'
+  - id: channel-concept:356
+    date: 10/17
+    status_hint: 현행후보
+    text: '- [확정 10/17] **시리즈의 주인공은 도시다.** 사용자가 궁금한 것: "한 도시가 왜 그 자리에서, 그 모양으로 자랐고, 시대마다 건물은 왜 그렇게 생겼나." 성곽·궁궐·탑 같은 개별 건축은 그 이야기의 부품으로 다룬다'
+  - id: channel-concept:360
+    date: 10/17
+    status_hint: 현행후보
+    text: '- [확정 10/17] **해석을 적극적으로 쓴다**(5·5-1번): 단계마다 "이때 수도는 숨는 곳이었다"처럼 [해석] 한 줄로 도시의 성격을 이름 붙인다. 기록·발굴과 해석은 대본 태그 열과 설명란에서 구분한다'
+  - id: channel-concept:366
+    date: 10/13
+    status_hint: 현행후보
+    text: '- [확정 10/13] 관점: 양식 반, 개발 논리 반 — 도시의 일생에서는 ''개발 논리''가 입지·확장·밀도·인프라 해석으로 들어간다. 사용자 본업(상업용 부동산 개발·투자)이 검토 관점이다. 개발 논리 비유는 대본에 넣는다(10/17 1편: ''집과 대피소를 한 단지에 모은 복합 개발'')'
+  - id: channel-concept:369
+    date: 10/17
+    status_hint: 현행후보
+    text: '### 12-1. 프롬프트 — 도시의 일생 [확정 10/17]'
+  - id: channel-concept:427
+    date: 10/17
+    status_hint: 현행후보
+    text: '- 자료 충분도가 낮은 도시(수도 기간이 짧거나 면적·가로망 자료가 없는 곳)는 단독 편으로 만들지 않고, 이어지는 도시들과 묶어 ''이사'' 또는 ''비교'' 편으로 만든다(10/17 졸본 사례) [확정 10/17]'
+  - id: shorts:85
+    date: 10/04
+    status_hint: 현행후보
+    text: '- ⑨ 활 하나 꺾었다고 태자가 죽어야 했다고?(해명태자, 기록상 AD 8~9) — **완료**(45.16초, 2026-10-04, v7.6 첫 적용: 8장면, 약 300자 44.4초 = 초당 6.7자). 사용자 요청으로 ''사건''이 아니라 **외교 문제**(굽힐 것인가 맞설 것인가)로 구성. 근거: 한국민족문화대백과 ''해명''(책봉 AD 4, 졸본 잔류, 황룡국 왕의 활을 꺾음, 유리왕이 황룡국에 죽여 달라고 청함, 황룡국 왕은 죽이지 못함, AD 9 칼을 내려 자결 명령, 여원 동쪽 들에서 창에 찔려 죽음, 창원). 나이 21세·대사는 위키백과 인용(원문 미확인, 생몰년 BC 12~AD 9와는 일치). ''복종하라는 활''·''외교 마찰''은 [해석](나무위키 각주 수준 — 설명란 고지). 황룡국 위치는 [미상] → 졸본 서쪽에 임의 색칠 영역. 6번 장면에 도트 기마 무사. 끝은 시청자 질문("여러분이 왕이었다면…"), 다음 편 예고는 고정 댓글. 크레딧 약 21.6(첫 장면 후보 8장 포함)'
+  - id: shorts:86
+    date: 10/23
+    status_hint: 현행후보
+    text: '- **⑩ 이후 (2026-10-23 갱신)**: 롱폼 대무신왕 3부작 완성(1부 10/6 · 2부 10/14 · 3부 10/17). 재편집 숏츠: 1부 5편(10/7 — ① 예고편 0:00–0:57 ② 열 살에게 맡겼다고? ③ 매복을 길가에 안 숨겼다고? ④ 대군이 한 줄로 갇혔다고? ⑤ 붉은 까마귀), 2부 5편(history-longform 0번), 3부 진행(설정 백업 history-production-standards 4절). 신작: 온조 비트 예고편 v2(10/20, 음악만 — standards 5절). 건축: 「고구려 수도에 성이 두 개였다고?」(10/14) · 온돌 편(10/19, history-architecture-shorts). 업로드 여부·지표는 미기록 → 다음 작업 때 사용자에게 받아 적는다. 다음 롱폼 = 백제 온조(마한 병합). 롱폼 진행 상황은 history-longform 0번이 기준'
+- name: 기타
+  items: []
+  원문_보존:
+  - id: channel-concept:362
+    date: 10/13
+    status_hint: 현행후보
+    text: '- [확정 10/13] 범위: 한국에 국한하지 않고 여러 시대·여러 나라. 우선 한국사 도시부터(시대 무관: 고구려·백제·신라·고려·조선)'
+  - id: channel-concept:442
+    date: 10/13
+    status_hint: 현행후보
+    text: '### 12-4. 고증 [확정 10/13 — 원칙, 10/17 보강]'
+  - id: longform-craft:8
+    date: 10/28
+    status_hint: 현행후보
+    text: 이 스킬은 history-longform(v2.7, 10/25)을 보완한다. 10/28~11/03 백제 1편 〈온조〉 시안에서 편집장이 확정한 규칙·파이프라인·로그 방식을 담는다.
+  - id: longform:89
+    date: 10/12
+    status_hint: 현행후보
+    text: '| 10/12 | 문서 정리 | 제작 문서를 ''안내 → 1부 → 2부 → 레퍼런스'' 탭 구조로 정리(0번) |'
+  - id: shorts:164
+    date: 09/29
+    status_hint: 현행후보
+    text: '2026-09-29 교훈: ⑤ 초안이 ''3세기 5부''와 ''기원전 1세기 유리 태자 책봉''을 "실마리는 여기!"로 억지 연결했고, 사용자가 개연성을 지적함. 또 2~4번 문장이 사실 나열이라 흐름이 끊김.'
