@@ -1,0 +1,246 @@
+# 역사서클 골든 예시 — 구간 단위 (11/04 사용자 승인: 편 단위 대신 구간 단위)
+# 규칙
+# - 새로 판정하지 않는다. 스킬에 이미 적힌 사용자·편집장 판정만 옮긴다.
+# - anchor = 스킬 원문에 그대로 있는 문구(줄 번호 대신). tools/verify_golden.py가 존재를 검사한다.
+# - bad = 사용자가 지적한 구간 / good = 고친 뒤 또는 사용자가 좋다고 한 구간
+# - dim = 채점표(rubric.md)의 항목. catch = 이 실수를 잡는 장치(lint 검사명 / reviewer / 사용자)
+segments:
+  # ---------- 대본·훅 ----------
+  - id: G01
+    dim: 훅
+    format: 롱폼
+    episode: 대무신왕 1부 통합본
+    bad: "훅 없음, 루즈"
+    good: "전투 플래시 → 이후 10/25 줄거리 요약 훅(아는 이름 → 약자의 출발 → 결말 한 문장 → '어떻게' 질문)"
+    skill: history-longform
+    anchor: "1부 통합본: 훅 없음 → 전투 플래시"
+    catch: reviewer(유튜브 디렉터)
+  - id: G02
+    dim: 훅
+    format: 롱폼
+    episode: 대무신왕 3부 〈칠 일의 안개〉
+    bad: "사용자 '훅이 약하다'"
+    good: "첫 10초 전투 컷 플래시 → 10/25 줄거리 요약 훅으로 흡수"
+    skill: history-longform
+    anchor: "3부 완성(10/17): '훅이 약하다'"
+    catch: reviewer(유튜브 디렉터)
+  - id: G03
+    dim: 훅
+    format: 전투 쇼츠
+    episode: 4편 주필산
+    bad: "결말 선공개 훅·사신 훅 → 사용자 '안 끌린다'. 훅에 숨은 부대 실제 숫자 공개 → 검수 '반전 스포'"
+    good: "숫자 역설 단언형 훅 + 숨은 부대는 '?' 블록"
+    skill: history-battle-shorts
+    anchor: "결말 선공개 훅·사신 훅 → '안 끌린다' → 숫자 역설 단언형"
+    catch: reviewer(유튜브 디렉터)
+  - id: G04
+    dim: 판단 깊이
+    format: 롱폼
+    episode: 대무신왕 1~2부 (10/14 자기평가 약 70점)
+    bad: "판단을 따지는 분량이 작고 사용자의 관점이 안 보인다 / 전투의 웅장함·자연스러움 부족"
+    good: "판단 분석 구간(concept 2-2) 추가"
+    skill: history-longform
+    anchor: "사용자 만족도 자기평가(10/14): 약 70점"
+    catch: reviewer(작가)
+  - id: G05
+    dim: 판단 깊이
+    format: 전투 쇼츠
+    episode: 4편 주필산
+    bad: "고정의 계책·'버티기' 엔딩"
+    good: "사용자 '못 버틴 이유를 말하자' → 50만 석 군량·안시성 함락 위험으로 결전 선택을 설명"
+    skill: history-battle-shorts
+    anchor: "사용자 '못 버틴 이유를 말하자'"
+    catch: reviewer(작가)
+  - id: G06
+    dim: 판단 깊이
+    format: 전투 쇼츠
+    episode: 4편 주필산
+    bad: "'이 말을 그대로 믿은 고연수'(인물을 단순한 바보로)"
+    good: "'속셈은 알지만 화친을 당군이 지쳤다는 신호로 읽음' + 말풍선"
+    skill: history-battle-shorts
+    anchor: "'이 말을 그대로 믿은 고연수'"
+    catch: reviewer(작가)
+  - id: G07
+    dim: 회수
+    format: 전투 쇼츠
+    episode: 4편 주필산
+    bad: "진흙 회수 엔딩(연결을 내레이션이 말하지 않음) → '이게 왜 중요하지?'"
+    good: "상책 회수 엔딩, 연결을 내레이션으로 말함"
+    skill: history-battle-shorts
+    anchor: "진흙 회수 엔딩(연결 설명 없음)"
+    catch: reviewer(첫 시청자)
+  - id: G08
+    dim: 완급
+    format: 전투 쇼츠
+    episode: 4편 주필산
+    bad: "배경 56초 vs 핵심 포위 22초"
+    good: "4·5장면 합침, 포위 섬멸 문장·고리·카운터·도장 추가"
+    skill: history-battle-shorts
+    anchor: "배경 56초 vs 포위 22초"
+    catch: reviewer(유튜브 디렉터)
+  - id: G09
+    dim: 문체
+    format: 롱폼
+    episode: 대무신왕 3부 초안
+    bad: "'~한 것입니다' 문단 맺음 12회 → '딱딱하다'"
+    good: "편당 3회 이하"
+    skill: history-longform
+    anchor: "3부 초안 12회 → '딱딱하다' 피드백"
+    catch: lint(대본 어미 카운트 — 세션 2)
+  - id: G10
+    dim: 문체
+    format: 전투 쇼츠
+    episode: 3편
+    bad: "새 인물 설명·장군 역할 칩('우중문 = 작전 결정권')"
+    good: "인물 소개는 짧은 수식어만, 칩 없음"
+    skill: history-battle-shorts
+    anchor: "새 인물을 주절주절 설명하지 않는다"
+    catch: reviewer(첫 시청자)
+  # ---------- 지도·도식 ----------
+  - id: G11
+    dim: 지도 문법
+    format: 전투 쇼츠
+    episode: 4편 주필산
+    bad: "진을 붉은 선 하나로 → '굉장히 어색'"
+    good: "'ㅗ' 블록 6개 + 블록 안 병종 도트"
+    skill: history-battle-shorts
+    anchor: "진형을 선 하나로 그으면 '굉장히 어색'"
+    catch: 컴포넌트(세션 2 unit block)
+  - id: G12
+    dim: 지도 문법
+    format: 전투 쇼츠
+    episode: 3편
+    bad: "선 굵기 = 병력(Minard식 띠) '너무 별로', 병사 아이콘 100개 '별로'"
+    good: "블록 면적으로 병력, 아이콘 1개"
+    skill: history-battle-shorts
+    anchor: "Minard식 띠 — '너무 별로'"
+    catch: 컴포넌트
+  - id: G13
+    dim: 지도 문법
+    format: 전투 쇼츠
+    episode: 4편 주필산 첫 장면
+    bad: "허공에 띄운 블록 숫자 비교만 → '좀 별로'"
+    good: "지도 위 숨은 부대 + 세 방향 관통"
+    skill: history-battle-shorts
+    anchor: "허공에 띄운 숫자 비교만으로는 첫 장면의 '맛'이 없다"
+    catch: reviewer(유튜브 디렉터)
+  - id: G14
+    dim: 지도 정확성
+    format: 전투 쇼츠
+    episode: 4편 주필산
+    bad: "다리를 능선(202m)에 / 1만 1천 좌표가 장면마다 다름 / 주필산 라벨 35km 밖 / 안시성 14km 오차"
+    good: "DEM 고도 확인, 부대 좌표 상수, 실제 경위도로 표식, Wikidata 좌표"
+    skill: history-battle-shorts
+    anchor: "다리를 능선(202m)에"
+    catch: lint(layout 좌표 상수·DEM 검사 — 세션 2)
+  - id: G15
+    dim: 지도 배치
+    format: 전투 쇼츠
+    episode: 3편
+    bad: "진영 블록이 목표 성 위에 겹침"
+    good: "떼어 놓고 거리 선 '30리'"
+    skill: history-battle-shorts
+    anchor: "진영 블록이 성 위 → 떼고 '30리'"
+    catch: lint(layout_overlap)
+  - id: G16
+    dim: 화면 글자
+    format: 롱폼
+    episode: 대무신왕 3부
+    bad: "지도 위 붉은 상자 + 검은 띠 라벨 보드 → '개별루'(웹 UI 같음)"
+    good: "먹 글씨, 이후 태그·칩 전면 삭제(C5)"
+    skill: history-longform
+    anchor: "사용자: '개별루'"
+    catch: lint(남은 태그 grep — qa.py)
+  - id: G17
+    dim: 화면 글자
+    format: 롱폼
+    episode: 대무신왕 3부
+    bad: "선택지·작전 설명을 지도 화살표·인장으로 → '구리다'"
+    good: "실사 은유 컷(창벽·빈 군량 자루·안개 속 빈 길)"
+    skill: history-longform
+    anchor: "(사용자 '구리다')"
+    catch: reviewer(유튜브 디렉터)
+  # ---------- 영상 ----------
+  - id: G18
+    dim: 영상 움직임
+    format: 롱폼
+    episode: 대무신왕 3부 v2
+    bad: "새 영상 약 140초뿐, 같은 컷 5회 반복, 5초 클립을 1.1~3.5배 늘린 컷 25개"
+    good: "Kling 3.0 pro + 조각 편집(야간 탈출 4컷 A/B '훨씬 괜찮다')"
+    skill: history-longform
+    anchor: "같은 컷 5회 반복"
+    catch: lint(video_static·컷 반복 — 세션 2)
+  - id: G19
+    dim: 영상 움직임
+    format: 전투 쇼츠
+    episode: 2편
+    bad: "정지 화면끼리 크로스페이드"
+    good: "움직이는 꼬리 xfade"
+    skill: history-battle-shorts
+    anchor: "정지 화면끼리 크로스페이드 → 움직이는 꼬리 xfade"
+    catch: lint(video_static)
+  - id: G20
+    dim: AI 티
+    format: 롱폼
+    episode: 백제 1편 〈온조〉 시안
+    bad: "사신 립싱크(AI 티)"
+    good: "립싱크 폐기"
+    skill: history-longform-craft
+    anchor: "사신 립싱크 폐기(AI 티)"
+    catch: 사용자
+  # ---------- 오디오 ----------
+  - id: G21
+    dim: 내레이션
+    format: 전투 쇼츠
+    episode: 4편 주필산 0:08
+    bad: "'6…' — 장면 끝에 다음 문단 첫 음절 '육' 잔존(재녹음 2번으로 헛수고)"
+    good: "고립 음절 검사로 발견"
+    skill: history-battle-shorts
+    anchor: "0:08 '6…'"
+    catch: lint(audio_isolated_syllable)
+  - id: G22
+    dim: 내레이션
+    format: 전투 쇼츠
+    episode: 4편 주필산
+    bad: "문장 중간 쉼 7곳('버티기는 / 33년')"
+    good: "−40dB 0.1초 이상 쉼 자동 점검 후 0.07초로"
+    skill: history-battle-shorts
+    anchor: "문장 중간 쉼 자동 점검"
+    catch: lint(audio_midpause)
+  - id: G23
+    dim: 내레이션
+    format: 쇼츠
+    episode: 초기 쇼츠
+    bad: "할아버지 이야기꾼 목소리 '별로'"
+    good: "Harrison — 사용자 '굳'"
+    skill: history-shorts
+    anchor: "할아버지 이야기꾼은 사용자가 '별로'라고 해 폐기"
+    catch: 사용자
+  - id: G24
+    dim: 음악
+    format: 롱폼
+    episode: 대무신왕 3부
+    bad: "-"
+    good: "장면별 곡 배정(곡 제목·RMS 곡선) — 사용자 '굳굳'"
+    skill: history-longform
+    anchor: "3부 음악 (10/17, 사용자 승인 '굳굳')"
+    catch: 사용자
+  # ---------- 운영 ----------
+  - id: G25
+    dim: 운영
+    format: 롱폼
+    episode: 백제 1편 〈온조〉 시안
+    bad: "-"
+    good: "시안과 함께 '편집장이라면 무엇을 지적할지' 자체 검수 목록 제출 → 반응 좋음"
+    skill: history-longform-craft
+    anchor: "자체 검수 목록을 함께 내면 반응이 좋았다"
+    catch: 관문(모든 시안 제출 시 필수)
+  - id: G26
+    dim: 운영
+    format: 전투 쇼츠
+    episode: 4편 주필산
+    bad: "연출을 말로만 설명"
+    good: "정지 시안부터 보여 줌"
+    skill: history-battle-shorts
+    anchor: "연출을 말로만 설명 → 정지 시안부터"
+    catch: 관문(애니매틱)
