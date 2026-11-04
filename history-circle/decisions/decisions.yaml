@@ -10,8 +10,8 @@ source_skills:
     lines: 459
     md5: c20a1d24db1f2d9746977b72c903486a
   history-longform-craft:
-    lines: 126
-    md5: 585b6b280143ca6ac40bd50f3837d91a
+    lines: 160
+    md5: 323a3b42fafe30f40e8241abaff45fbe
   history-longform:
     lines: 368
     md5: 8b407b4e83b2c1930ef42a0b5eac949f
@@ -28,11 +28,11 @@ source_skills:
     lines: 1702
     md5: 5a9c4ebb20bfd8cb4283bd9c54003be0
 counts:
-  raw_total: 273
+  raw_total: 277
   curated_items: 58
   linked_by_curation: 238
-  kept_verbatim: 35
-  pending_user: 9
+  kept_verbatim: 39
+  pending_user: 0
 meta:
   principle: 충돌 시 날짜가 붙은 최신 사용자 결정 우선. 날짜가 같거나 없으면 channel-concept > longform·architecture-shorts > shorts (10/23)
   principle_sources:
@@ -105,7 +105,7 @@ topics:
     current: 합니다체 바탕 + '~죠/~요/~인데, 하지만' 이어 말하기 대화체, 평서 '~다.' 종결 0회, 같은 어미 연속 0회. 롱폼은 딜레마 + 수 싸움 + 떡밥 (11/02)
     status: 현행
     sources:
-    - longform-craft:55 (11/02)
+    - longform-craft:57 (11/02)
     - shorts:201 (10/23)
     - shorts:10 (10/19)
     - longform:95 (10/16)
@@ -210,8 +210,9 @@ topics:
 - name: 지도
   items:
   - key: map_version
-    current: 지도 바탕 = v4-S(실제 고도·하천 + 삼국전투기 스타일 산지), 롱폼·쇼츠 공통. v3의 '국경은 지형(분수령)·세력 면 진한 저채도' 문법은 v4-S 위에서 유지
-    status: 사용자확정대기
+    current: 지도 바탕 = v4-S(실제 고도·하천 + 삼국전투기 스타일 산지), 롱폼·쇼츠 공통. v3의 '국경 = 지형 분수령', '세력 면 진한 저채도', '그 시점 기록으로 영역' 문법은 v4-S 위에서 유지. 다른 스킬의 'v3' 표기는 재구조화 때 'v4-S'로 교체
+    status: 현행
+    confirmed: 11/04 사용자 확정(추천값 일괄)
     sources:
     - map-v4:10 (10/28)
     - map-v4:84 (10/31)
@@ -226,8 +227,9 @@ topics:
     - shorts:1052 (09/28)
     conflict: C1
   - key: map_unit_marker
-    current: '부대 표시: 전투 해설 쇼츠 = ''ㅗ'' 블록 + 블록 안 병종 도트 아이콘(글자·범례 없음, 11/2). 롱폼 = 도트 기마병 스프라이트(10/16)'
-    status: 사용자확정대기
+    current: '부대 표시: 전략·전술 도식은 ''ㅗ'' 블록(블록 안 병종 도트 아이콘, 글자·범례 없음)을 포맷 공통 컴포넌트로. 도트 기마병 스프라이트는 ''매 편 도트''(장식)로만'
+    status: 현행
+    confirmed: 11/04 사용자 확정(추천값 일괄)
     sources:
     - battle-shorts:88 (11/02)
     - longform:193 (10/16)
@@ -250,8 +252,9 @@ topics:
     - channel-concept:222 (10/12)
     - longform:83 (10/12)
   - key: map_markers_architecture
-    current: 건축 시리즈 지도 표지 = render.py markers(붉은 원 + 이름 + 부제)
-    status: 사용자확정대기
+    current: 건축 시리즈 지도 표지 = render.py markers(붉은 원 + 이름). 화면 태그성 부제([통설] 등)는 C5에 따라 화면에서 빼고 설명란으로
+    status: 현행
+    confirmed: 11/04 사용자 확정(추천값 일괄)
     sources:
     - architecture-shorts:23 (10/19)
     conflict: C5
@@ -294,8 +297,9 @@ topics:
     - shorts:255 (09/28)
     - production-standards:135 (10/23)
   - key: faction_colors
-    current: 세력 색 RGB — conflicts.md C4에서 확정 필요(고구려 (96,34,29) / 부여 (42,58,86) / 백제 황금 (232,184,56) / 신라 주홍 (226,96,52) / 당 (70,74,84) / 왜 (206,32,46) / 마한 (178,120,168) / 말갈 (118,86,62) / 낙랑 = 올리브 (70,74,22) 또는 먹회색 (84,88,102))
-    status: 사용자확정대기
+    current: '세력 색 RGB: 고구려 (96,34,29) / 부여 (42,58,86) / 백제 황금 (232,184,56) / 신라 주홍 (226,96,52) / 당 (70,74,84) / 왜 (206,32,46) / 마한 (178,120,168) / 말갈 (118,86,62) / 낙랑 먹회색 (84,88,102). 낙랑과 당이 한 화면에서 구분이 약하면 그 편만 낙랑 올리브 (70,74,22) 예외로 원장에 기록'
+    status: 현행
+    confirmed: 11/04 사용자 확정(추천값 일괄)
     sources:
     - channel-concept:220 (10/12)
     - map-v4:54 (10/29)
@@ -328,36 +332,37 @@ topics:
     - longform:101 (10/17)
     - longform:240 (10/17)
     - longform:102 (10/23)
-    - longform-craft:51 (10/30)
-    - longform-craft:57 (11/02)
-    - longform-craft:58 (11/02)
+    - longform-craft:53 (10/30)
+    - longform-craft:59 (11/02)
+    - longform-craft:60 (11/02)
     - channel-concept:303 (10/23)
     - channel-concept:338 (10/23)
   - key: parallax
     current: 시점 흔들기 = 층 분리(B안)
     status: 현행
     sources:
-    - longform-craft:53 (10/30)
-    - longform-craft:111 (10/30)
+    - longform-craft:55 (10/30)
+    - longform-craft:119 (10/30)
   - key: realshot_hook
     current: 실사 훅 연출(11/02~03, 4차c 품질 승인) — longform-craft 9절
     status: 현행
     sources:
-    - longform-craft:118 (11/02)
-    - longform-craft:60 (11/03)
-    - longform-craft:59 (11/03)
+    - longform-craft:126 (11/02)
+    - longform-craft:62 (11/03)
+    - longform-craft:61 (11/03)
   - key: judgment_screen
     current: 판단 분석 화면 = 먹 글씨(붉은 상자 라벨 금지). 판세 계기판 삭제
     status: 현행
     sources:
     - longform:99 (10/17)
     - longform:260 (10/17)
-    - longform-craft:61 (11/03)
+    - longform-craft:63 (11/03)
   - key: on_screen_tags
-    current: 화면의 [기록]/[통설]/[해석]/[연출] 태그·칩 전부 삭제(11/02) — 롱폼 확정. 쇼츠·건축 적용 범위는 C5
-    status: 사용자확정대기
+    current: 화면의 [기록]/[통설]/[해석]/[연출] 태그·칩은 전 포맷(롱폼·쇼츠·전투·건축)에서 삭제. 구분은 대본 태그 열 + 설명란 고지 + 문장 표현('~로 읽힌다')으로
+    status: 현행
+    confirmed: 11/04 사용자 확정(추천값 일괄)
     sources:
-    - longform-craft:56 (11/02)
+    - longform-craft:58 (11/02)
     - shorts:19 (10/04)
     conflict: C5
   - key: gore
@@ -418,8 +423,9 @@ topics:
     sources:
     - battle-shorts:66 (11/03)
   - key: longform_captions
-    current: 롱폼 자막 서체·크기 — C7 확정 필요(10/4 나눔명조 ExtraBold 56 vs map-v4 레터박스 NotoSansKR Bold 46 vs craft 배역 대사 나눔명조 Bold 44)
-    status: 사용자확정대기
+    current: '롱폼 자막: 내레이션 = NotoSansKR Bold 46(레터박스 아래 띠), 배역 대사 = 나눔명조 Bold 44 금색 따옴표. 온조 시안 실제 값과 다르면 시안 값 우선'
+    status: 현행
+    confirmed: 11/04 사용자 확정(추천값 일괄)
     sources:
     - longform:75 (10/04)
     conflict: C7
@@ -427,7 +433,7 @@ topics:
     current: 내레이션 숫자는 한글로 쓰고 자막은 숫자로 따로
     status: 현행
     sources:
-    - longform-craft:72 (10/30)
+    - longform-craft:77 (10/30)
   원문_보존:
   - id: shorts:1541
     date: 10/07
@@ -440,31 +446,41 @@ topics:
     status: 현행
     sources:
     - longform:70 (09/30)
-    - longform-craft:72 (10/30)
+    - longform-craft:77 (10/30)
     - battle-shorts:144 (10/30)
     - channel-concept:111 (10/23)
     - longform:277 (10/23)
   - key: role_voices
-    current: 배역 목소리 원칙 — C8 확정 필요(10/29 '배역 목소리 폐기, 내레이터 인용' vs 11/03 '사신 목소리 Alistair')
-    status: 사용자확정대기
+    current: '배역 목소리: 기본 = 내레이터 인용(10/29). 예외는 편마다 원장에 명시(예: 온조 편 사신 Alistair, 11/03)'
+    status: 현행
+    confirmed: 11/04 사용자 확정(추천값 일괄)
     sources:
-    - longform-craft:50 (10/29)
-    - longform-craft:59 (11/03)
+    - longform-craft:52 (10/29)
+    - longform-craft:61 (11/03)
     conflict: C8
   - key: recording_unit
     current: 문단 단위 통째 녹음 → loudnorm I=-17 → whisper 단어 시각 → 분할 → 같은 atempo. 고칠 줄만 같은 설정으로 다시 녹음. 고립 음절·문장 중간 쉼 자동 점검
     status: 현행
     sources:
-    - longform-craft:72 (10/30)
+    - longform-craft:77 (10/30)
     - battle-shorts:134 (11/03)
   - key: tempo
-    current: TTS 배속 — C2 확정 필요(롱폼 1.10 / 쇼츠·전투 1.08, 편 안에서 단일 값 권장)
-    status: 사용자확정대기
+    current: 'TTS 배속: 롱폼 1.10 / 쇼츠·전투 1.08. 한 편 안에서는 단일 값(인용·마지막 장면 예외만 표에 명시). 10/5 ''전체 배속 금지''는 ''완성 영상 전체를 배속하지 않는다''로 유지'
+    status: 현행
+    confirmed: 11/04 사용자 확정(추천값 일괄)
     sources:
     - longform:76 (10/05)
     - longform:95 (10/16)
     conflict: C2
   원문_보존:
+  - id: longform-craft:64
+    date: 11/03
+    status_hint: 현행후보
+    text: '| 11/03 | 내레이션 빈 곳 없게(훅·판 깔기도 Harrison 녹음). 사신 대사 편집장안 확정(''…이게 백제의 충성심이오?'', 고증 지적에도 유지) |'
+  - id: longform-craft:97
+    date: 11/04
+    status_hint: 현행후보
+    text: '- 평가자 2명을 별도 에이전트로 동시에(11/04 확정 구성): ① 유튜브 리텐션 전략가(이탈 위험 지점·첫 30초·구간 점수) ② 역사 교양 다큐 PD(고증·구조·구간 일관성·AI 티·내레이션). 실존 인물 사칭 금지, 직무 렌즈로만'
   - id: shorts:1543
     date: 10/04
     status_hint: 현행후보
@@ -472,8 +488,9 @@ topics:
 - name: 음량·효과음
   items:
   - key: loudness
-    current: 내레이션 −17 LUFS. 최종 마스터 — C3 확정 필요(롱폼 −14 / 쇼츠 −15, TP −1.5 권장)
-    status: 사용자확정대기
+    current: '내레이션 −17 LUFS. 최종 마스터: 롱폼 −14 LUFS / 쇼츠·전투·건축 −15 LUFS, True Peak −1.5 dBTP. 효과음은 0.4초 창 RMS가 내레이션보다 3dB 이상 작게(전투 절정 구간만 −1dB까지 예외, 표에 명시)'
+    status: 현행
+    confirmed: 11/04 사용자 확정(추천값 일괄)
     sources:
     - channel-concept:111 (10/23)
     - longform:277 (10/23)
@@ -493,13 +510,13 @@ topics:
     sources:
     - longform:94 (10/16)
     - longform:281 (10/12)
-    - longform-craft:51 (10/30)
+    - longform-craft:53 (10/30)
   - key: music
     current: 음악 = 사용자 Suno 유료 곡. 롱폼 현행 곡 Gayageum Hook. 장면별 곡 배정은 Claude가 RMS 곡선으로 고르고 사용자 승인. BGM 4무드(standards)
     status: 현행
     sources:
     - longform:79 (10/06)
-    - longform-craft:54 (11/02)
+    - longform-craft:56 (11/02)
     - longform:100 (10/17)
     - longform:363 (10/17)
 - name: 영상 생성·크레딧
@@ -514,7 +531,7 @@ topics:
     - longform:92 (10/14)
     - longform:220 (10/14)
     - longform:237 (10/14)
-    - longform-craft:57 (11/02)
+    - longform-craft:59 (11/02)
     - channel-concept:143 (10/10)
   - key: credit_cap
     current: 롱폼 편당 800(560=70%에서 알림), 쇼츠 신작 편당 30 안팎. 배치마다 누적 사용량 기록
@@ -535,7 +552,7 @@ topics:
     current: 온조 기준 시트 s20 job 576bfba9… (낙랑 구간 5차 승인)
     status: 현행
     sources:
-    - longform-craft:52 (10/30)
+    - longform-craft:54 (10/30)
 - name: 관문·검수
   items:
   - key: gates
@@ -559,13 +576,18 @@ topics:
     current: 전문 한국인 내레이터 렌즈 검수 2회(별도 에이전트) + 위험 단어 치환표
     status: 현행
     sources:
-    - longform-craft:72 (10/30)
+    - longform-craft:77 (10/30)
   - key: cut_checklist
     current: 영상 규칙은 '컷 점검표 8항목' 하나로 합친다(초안은 온조 스토리보드에서) — 아직 미작성
     status: 보류
     sources:
     - channel-concept:303 (10/23)
     - channel-concept:338 (10/23)
+  원문_보존:
+  - id: longform-craft:65
+    date: 11/04
+    status_hint: 현행후보
+    text: '| 11/04 | 외부 검수 2인 → 공통 지적 전부 수정. 스타일 바이블(10절) 확정. 자동 검수(11절) 상시 |'
 - name: 운영·백업
   items:
   - key: cadence
@@ -709,7 +731,11 @@ topics:
   - id: longform-craft:8
     date: 10/28
     status_hint: 현행후보
-    text: 이 스킬은 history-longform(v2.7, 10/25)을 보완한다. 10/28~11/03 백제 1편 〈온조〉 시안에서 편집장이 확정한 규칙·파이프라인·로그 방식을 담는다.
+    text: 이 스킬은 history-longform(v2.7, 10/25)을 보완한다. 10/28~11/04 백제 1편 〈온조〉 시안에서 편집장이 확정한 규칙·파이프라인·로그 방식을 담는다.
+  - id: longform-craft:136
+    date: 11/04
+    status_hint: 현행후보
+    text: '## 10. 스타일 바이블 (11/04 확정 — 착수 전에 고정, 바꾸려면 편집장 결정)'
   - id: longform:89
     date: 10/12
     status_hint: 현행후보

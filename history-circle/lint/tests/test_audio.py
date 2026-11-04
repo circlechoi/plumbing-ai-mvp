@@ -44,6 +44,31 @@ class T(unittest.TestCase):
         r = audio_loudness.check(self.p("av.mp4"))
         self.assertTrue(r["ok"], r)
 
+    # ---- 11/04 확정: 롱폼 −14 / True Peak −1.5 ----
+    def test_loudness_longform_and_true_peak(self):
+        x = tone(8, -20)
+        write_wav(self.p("probe3.wav"), x)
+        meas = integrated_lufs(self.p("probe3.wav"))
+        lf = x * 10 ** ((-14 - meas) / 20)
+        write_wav(self.p("lf.wav"), lf)
+        self.assertTrue(audio_loudness.check(self.p("lf.wav"), "longform")["ok"])
+        spike = (x * 10 ** ((-15 - meas) / 20)).copy()
+        spike[1000] = 0.99  # 순간 피크 ≈ 0 dBTP
+        write_wav(self.p("tp_bad.wav"), spike)
+        r = audio_loudness.check(self.p("tp_bad.wav"))
+        self.assertFalse(r["ok"], r)
+        self.assertTrue(any(v["what"] == "True Peak 초과" for v in r["violations"]))
+
+    def test_sfx_climax_exception(self):
+        import json
+        vo = tone(4, -20)
+        write_wav(self.p("vo_c.wav"), vo)
+        write_wav(self.p("sfx_c.wav"), tone(4, -20.5))  # 내레이션보다 0.5dB 작음: 기본(−3dB) 실패, 절정(−1dB 예외) 통과
+        sec = self.p("sec.json")
+        json.dump([{"start": 0, "end": 4, "kind": "climax"}], open(sec, "w"))
+        self.assertFalse(audio_sfx_vs_vo.check(self.p("vo_c.wav"), self.p("sfx_c.wav"))["ok"])
+        self.assertTrue(audio_sfx_vs_vo.check(self.p("vo_c.wav"), self.p("sfx_c.wav"), sec)["ok"])
+
     # ---- sfx vs vo ----
     def test_sfx_vs_vo(self):
         vo = np.concatenate([tone(3, -20), silence(1), tone(2, -20)])
@@ -55,9 +80,9 @@ class T(unittest.TestCase):
         self.assertTrue(ok["ok"], ok)
         bad = audio_sfx_vs_vo.check(self.p("vo.wav"), self.p("sfx_bad.wav"))
         self.assertFalse(bad["ok"])
-        self.assertTrue(all(1.0 <= v["start_s"] < 2.0 for v in bad["violations"]), bad["violations"])
+        self.assertTrue(all(v["end_s"] > 1.0 and v["start_s"] < 2.0 for v in bad["violations"]), bad["violations"])  # 창이 1~2초 구간과 겹치면 정상
         # 내레이션이 쉬는 3~4초 구간의 효과음은 비교하지 않는다
-        loud_in_gap = np.concatenate([tone(3, -30), tone(1, -10), tone(2, -30)])
+        loud_in_gap = np.concatenate([tone(3.2, -30), tone(0.4, -10), tone(2.4, -30)])  # 0.4초 창 경계에 맞춤(내레이션 쉼 3~4초 안)
         write_wav(self.p("sfx_gap.wav"), loud_in_gap)
         self.assertTrue(audio_sfx_vs_vo.check(self.p("vo.wav"), self.p("sfx_gap.wav"))["ok"])
 

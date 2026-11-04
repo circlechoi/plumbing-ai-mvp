@@ -3,25 +3,35 @@
   "audio_loudness": {
     "target_lufs": {
       "value": -15.0,
-      "status": "사용자확정대기",
-      "source": "임시값·사용자 확인 필요 — 충돌: history-battle-shorts:151 'loudnorm I=-15' / history-longform:23 2부 최종 약 −13.7 LUFS / history-longform-craft:75 내레이션 loudnorm I=-17"
+      "status": "확정",
+      "source": "11/04 사용자 확정(conflicts C3): 쇼츠·전투·건축 마스터 −15 LUFS"
     },
     "tolerance_lu": {
       "value": 1.0,
       "status": "임시",
       "source": "임시값·사용자 확인 필요"
+    },
+    "target_lufs_longform": {
+      "value": -14.0,
+      "status": "확정",
+      "source": "11/04 사용자 확정(conflicts C3): 롱폼 마스터 −14 LUFS"
+    },
+    "max_true_peak_db": {
+      "value": -1.5,
+      "status": "확정",
+      "source": "11/04 사용자 확정(conflicts C3): True Peak −1.5 dBTP"
     }
   },
   "audio_sfx_vs_vo": {
     "margin_db": {
       "value": 3.0,
-      "status": "임시",
-      "source": "규칙 history-longform:93(10/16 '효과음 자동 상한 — 모든 효과음이 내레이션보다 작게'). 3dB 여유는 임시값·사용자 확인 필요. 참고 실측 history-shorts:324(내레이션 −17.5 dB RMS, 효과음 −19~−20)"
+      "status": "확정",
+      "source": "history-longform:93(10/16 효과음 < 내레이션) + 11/04 사용자 확정(C3): 내레이션보다 3dB 이상 작게"
     },
     "window_s": {
-      "value": 0.5,
-      "status": "임시",
-      "source": "임시값·사용자 확인 필요 (비교 구간 길이)"
+      "value": 0.4,
+      "status": "확정",
+      "source": "11/04 사용자 확정(C3): 0.4초 창"
     },
     "vo_active_db": {
       "value": -45.0,
@@ -32,6 +42,11 @@
       "value": -50.0,
       "status": "임시",
       "source": "임시값 — 이 RMS(dBFS) 이상이면 효과음이 울리는 구간으로 본다"
+    },
+    "climax_margin_db": {
+      "value": 1.0,
+      "status": "확정",
+      "source": "11/04 사용자 확정(C3): 전투 절정 구간만 −1dB까지 예외(구간은 sections.json의 kind=climax)"
     }
   },
   "audio_isolated_syllable": {

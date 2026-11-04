@@ -37,7 +37,7 @@ topics:
   - key: narration_style
     current: "합니다체 바탕 + '~죠/~요/~인데, 하지만' 이어 말하기 대화체, 평서 '~다.' 종결 0회, 같은 어미 연속 0회. 롱폼은 딜레마 + 수 싸움 + 떡밥 (11/02)"
     status: 현행
-    sources: [longform-craft:55, shorts:201, shorts:10, longform:95, longform:77, shorts:200, shorts:24]
+    sources: [longform-craft:57, shorts:201, shorts:10, longform:95, longform:77, shorts:200, shorts:24]
     note: "10/5 '설명하듯 이어지는 합니다체' → 10/16 대화체 → 10/23 쇼츠 합니다+죠/요 → 11/02 롱폼 떡밥·이어 말하기. 서로 누적 관계(충돌 아님)"
   - key: opponent_rational
     current: "상대를 바보로 그리지 않는다. 상대의 계산을 먼저 그럴 만하게 보여 주고, 진 쪽에도 판단의 논리를 준다"
@@ -72,13 +72,15 @@ topics:
 - name: 지도
   items:
   - key: map_version
-    current: "지도 바탕 = v4-S(실제 고도·하천 + 삼국전투기 스타일 산지), 롱폼·쇼츠 공통. v3의 '국경은 지형(분수령)·세력 면 진한 저채도' 문법은 v4-S 위에서 유지"
-    status: 사용자확정대기
+    current: "지도 바탕 = v4-S(실제 고도·하천 + 삼국전투기 스타일 산지), 롱폼·쇼츠 공통. v3의 '국경 = 지형 분수령', '세력 면 진한 저채도', '그 시점 기록으로 영역' 문법은 v4-S 위에서 유지. 다른 스킬의 'v3' 표기는 재구조화 때 'v4-S'로 교체"
+    status: 현행
+    confirmed: "11/04 사용자 확정(추천값 일괄)"
     sources: [map-v4:10, map-v4:84, longform:184, longform:82, channel-concept:207, channel-concept:219, channel-concept:322, channel-concept:223, shorts:973, shorts:985, shorts:1052]
     conflict: C1
   - key: map_unit_marker
-    current: "부대 표시: 전투 해설 쇼츠 = 'ㅗ' 블록 + 블록 안 병종 도트 아이콘(글자·범례 없음, 11/2). 롱폼 = 도트 기마병 스프라이트(10/16)"
-    status: 사용자확정대기
+    current: "부대 표시: 전략·전술 도식은 'ㅗ' 블록(블록 안 병종 도트 아이콘, 글자·범례 없음)을 포맷 공통 컴포넌트로. 도트 기마병 스프라이트는 '매 편 도트'(장식)로만"
+    status: 현행
+    confirmed: "11/04 사용자 확정(추천값 일괄)"
     sources: [battle-shorts:88, longform:193]
     conflict: C6
   - key: box_size_uniform
@@ -94,8 +96,9 @@ topics:
     status: 현행
     sources: [channel-concept:221, channel-concept:222, longform:83]
   - key: map_markers_architecture
-    current: "건축 시리즈 지도 표지 = render.py markers(붉은 원 + 이름 + 부제)"
-    status: 사용자확정대기
+    current: "건축 시리즈 지도 표지 = render.py markers(붉은 원 + 이름). 화면 태그성 부제([통설] 등)는 C5에 따라 화면에서 빼고 설명란으로"
+    status: 현행
+    confirmed: "11/04 사용자 확정(추천값 일괄)"
     sources: [architecture-shorts:23]
     conflict: C5
     note: "부제 '[통설] …' 표기가 11/02 '화면 태그 전부 삭제'와 충돌"
@@ -107,8 +110,9 @@ topics:
     status: 현행
     sources: [production-standards:14, production-standards:25, production-standards:139, shorts:252, shorts:255, production-standards:135]
   - key: faction_colors
-    current: "세력 색 RGB — conflicts.md C4에서 확정 필요(고구려 (96,34,29) / 부여 (42,58,86) / 백제 황금 (232,184,56) / 신라 주홍 (226,96,52) / 당 (70,74,84) / 왜 (206,32,46) / 마한 (178,120,168) / 말갈 (118,86,62) / 낙랑 = 올리브 (70,74,22) 또는 먹회색 (84,88,102))"
-    status: 사용자확정대기
+    current: "세력 색 RGB: 고구려 (96,34,29) / 부여 (42,58,86) / 백제 황금 (232,184,56) / 신라 주홍 (226,96,52) / 당 (70,74,84) / 왜 (206,32,46) / 마한 (178,120,168) / 말갈 (118,86,62) / 낙랑 먹회색 (84,88,102). 낙랑과 당이 한 화면에서 구분이 약하면 그 편만 낙랑 올리브 (70,74,22) 예외로 원장에 기록"
+    status: 현행
+    confirmed: "11/04 사용자 확정(추천값 일괄)"
     sources: [channel-concept:220, map-v4:54]
     conflict: C4
   - key: costume_colors
@@ -122,23 +126,24 @@ topics:
   - key: ai_look_reduction
     current: "AI 티·반복 금지(E-6): 같은 컷 반복, 5초 클립 늘이기, 긴 정지 지도 금지. 정지 화면은 구간별 상한(편당 총량 상한은 폐지). 사람 컷 3초·원경 5초. 실사는 컷당 동작 하나, 실제 카메라 이동, 채도 낮은 필름 톤. 립싱크 금지"
     status: 현행
-    sources: [longform:101, longform:240, longform:102, longform-craft:51, longform-craft:57, longform-craft:58, channel-concept:303, channel-concept:338]
+    sources: [longform:101, longform:240, longform:102, longform-craft:53, longform-craft:59, longform-craft:60, channel-concept:303, channel-concept:338]
   - key: parallax
     current: "시점 흔들기 = 층 분리(B안)"
     status: 현행
-    sources: [longform-craft:53, longform-craft:111]
+    sources: [longform-craft:55, longform-craft:119]
   - key: realshot_hook
     current: "실사 훅 연출(11/02~03, 4차c 품질 승인) — longform-craft 9절"
     status: 현행
-    sources: [longform-craft:118, longform-craft:60, longform-craft:59]
+    sources: [longform-craft:126, longform-craft:62, longform-craft:61]
   - key: judgment_screen
     current: "판단 분석 화면 = 먹 글씨(붉은 상자 라벨 금지). 판세 계기판 삭제"
     status: 현행
-    sources: [longform:99, longform:260, longform-craft:61]
+    sources: [longform:99, longform:260, longform-craft:63]
   - key: on_screen_tags
-    current: "화면의 [기록]/[통설]/[해석]/[연출] 태그·칩 전부 삭제(11/02) — 롱폼 확정. 쇼츠·건축 적용 범위는 C5"
-    status: 사용자확정대기
-    sources: [longform-craft:56, shorts:19]
+    current: "화면의 [기록]/[통설]/[해석]/[연출] 태그·칩은 전 포맷(롱폼·쇼츠·전투·건축)에서 삭제. 구분은 대본 태그 열 + 설명란 고지 + 문장 표현('~로 읽힌다')으로"
+    status: 현행
+    confirmed: "11/04 사용자 확정(추천값 일괄)"
+    sources: [longform-craft:58, shorts:19]
     conflict: C5
   - key: gore
     current: "피 수위: 튀는 피·피 묻은 얼굴·창끝까지. 상처 클로즈업·절단 금지, 참수는 화면 밖. 유튜브 '변경·합성 콘텐츠' 표시, 카테고리 교육"
@@ -164,41 +169,45 @@ topics:
     status: 현행
     sources: [battle-shorts:66]
   - key: longform_captions
-    current: "롱폼 자막 서체·크기 — C7 확정 필요(10/4 나눔명조 ExtraBold 56 vs map-v4 레터박스 NotoSansKR Bold 46 vs craft 배역 대사 나눔명조 Bold 44)"
-    status: 사용자확정대기
+    current: "롱폼 자막: 내레이션 = NotoSansKR Bold 46(레터박스 아래 띠), 배역 대사 = 나눔명조 Bold 44 금색 따옴표. 온조 시안 실제 값과 다르면 시안 값 우선"
+    status: 현행
+    confirmed: "11/04 사용자 확정(추천값 일괄)"
     sources: [longform:75]
     conflict: C7
   - key: numbers
     current: "내레이션 숫자는 한글로 쓰고 자막은 숫자로 따로"
     status: 현행
-    sources: [longform-craft:72]
+    sources: [longform-craft:77]
 
 - name: 내레이션·TTS
   items:
   - key: voice
     current: "내레이터 Harrison(qwen preset 573e5163…), language ko, instruction ≤128자 '차분한 다큐·또박또박·일정한 속도', seed 7. 판단 분석 구간은 사용자 직접 녹음(실험 E5)"
     status: 현행
-    sources: [longform:70, longform-craft:72, battle-shorts:144, channel-concept:111, longform:277]
+    sources: [longform:70, longform-craft:77, battle-shorts:144, channel-concept:111, longform:277]
   - key: role_voices
-    current: "배역 목소리 원칙 — C8 확정 필요(10/29 '배역 목소리 폐기, 내레이터 인용' vs 11/03 '사신 목소리 Alistair')"
-    status: 사용자확정대기
-    sources: [longform-craft:50, longform-craft:59]
+    current: "배역 목소리: 기본 = 내레이터 인용(10/29). 예외는 편마다 원장에 명시(예: 온조 편 사신 Alistair, 11/03)"
+    status: 현행
+    confirmed: "11/04 사용자 확정(추천값 일괄)"
+    sources: [longform-craft:52, longform-craft:61]
     conflict: C8
   - key: recording_unit
     current: "문단 단위 통째 녹음 → loudnorm I=-17 → whisper 단어 시각 → 분할 → 같은 atempo. 고칠 줄만 같은 설정으로 다시 녹음. 고립 음절·문장 중간 쉼 자동 점검"
     status: 현행
-    sources: [longform-craft:72, battle-shorts:134]
+    sources: [longform-craft:77, battle-shorts:134]
   - key: tempo
-    current: "TTS 배속 — C2 확정 필요(롱폼 1.10 / 쇼츠·전투 1.08, 편 안에서 단일 값 권장)"
-    status: 사용자확정대기
+    current: "TTS 배속: 롱폼 1.10 / 쇼츠·전투 1.08. 한 편 안에서는 단일 값(인용·마지막 장면 예외만 표에 명시). 10/5 '전체 배속 금지'는 '완성 영상 전체를 배속하지 않는다'로 유지"
+    status: 현행
+    confirmed: "11/04 사용자 확정(추천값 일괄)"
     sources: [longform:76, longform:95]
     conflict: C2
 
 - name: 음량·효과음
   items:
   - key: loudness
-    current: "내레이션 −17 LUFS. 최종 마스터 — C3 확정 필요(롱폼 −14 / 쇼츠 −15, TP −1.5 권장)"
-    status: 사용자확정대기
+    current: "내레이션 −17 LUFS. 최종 마스터: 롱폼 −14 LUFS / 쇼츠·전투·건축 −15 LUFS, True Peak −1.5 dBTP. 효과음은 0.4초 창 RMS가 내레이션보다 3dB 이상 작게(전투 절정 구간만 −1dB까지 예외, 표에 명시)"
+    status: 현행
+    confirmed: "11/04 사용자 확정(추천값 일괄)"
     sources: [channel-concept:111, longform:277]
     conflict: C3
   - key: sfx_under_vo
@@ -209,18 +218,18 @@ topics:
   - key: sfx_source
     current: "Kling 영상은 소리 끔(sound 'off' 문자열). 효과음은 mirelo로 따로, 쇼츠는 코드 합성 기본. 효과음 글자는 지도·도식에서만"
     status: 현행
-    sources: [longform:94, longform:281, longform-craft:51]
+    sources: [longform:94, longform:281, longform-craft:53]
   - key: music
     current: "음악 = 사용자 Suno 유료 곡. 롱폼 현행 곡 Gayageum Hook. 장면별 곡 배정은 Claude가 RMS 곡선으로 고르고 사용자 승인. BGM 4무드(standards)"
     status: 현행
-    sources: [longform:79, longform-craft:54, longform:100, longform:363]
+    sources: [longform:79, longform-craft:56, longform:100, longform:363]
 
 - name: 영상 생성·크레딧
   items:
   - key: video_model
     current: "실사 컷 = Kling 3.0 pro 5초(Seedance 안 씀) + 전투 문법 조각 편집. 정지 그림을 시작 프레임으로 작은 움직임만"
     status: 현행
-    sources: [longform:80, channel-concept:321, longform:91, longform:92, longform:220, longform:237, longform-craft:57, channel-concept:143]
+    sources: [longform:80, channel-concept:321, longform:91, longform:92, longform:220, longform:237, longform-craft:59, channel-concept:143]
   - key: credit_cap
     current: "롱폼 편당 800(560=70%에서 알림), 쇼츠 신작 편당 30 안팎. 배치마다 누적 사용량 기록"
     status: 현행
@@ -232,7 +241,7 @@ topics:
   - key: reference_sheet
     current: "온조 기준 시트 s20 job 576bfba9… (낙랑 구간 5차 승인)"
     status: 현행
-    sources: [longform-craft:52]
+    sources: [longform-craft:54]
 
 - name: 관문·검수
   items:
@@ -247,7 +256,7 @@ topics:
   - key: tts_review
     current: "전문 한국인 내레이터 렌즈 검수 2회(별도 에이전트) + 위험 단어 치환표"
     status: 현행
-    sources: [longform-craft:72]
+    sources: [longform-craft:77]
   - key: cut_checklist
     current: "영상 규칙은 '컷 점검표 8항목' 하나로 합친다(초안은 온조 스토리보드에서) — 아직 미작성"
     status: 보류

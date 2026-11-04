@@ -10,8 +10,8 @@ sources:
     lines: 459
     md5: c20a1d24db1f2d9746977b72c903486a
   history-longform-craft:
-    lines: 126
-    md5: 585b6b280143ca6ac40bd50f3837d91a
+    lines: 160
+    md5: 323a3b42fafe30f40e8241abaff45fbe
   history-longform:
     lines: 368
     md5: 8b407b4e83b2c1930ef42a0b5eac949f
@@ -27,9 +27,9 @@ sources:
   history-shorts:
     lines: 1702
     md5: 5a9c4ebb20bfd8cb4283bd9c54003be0
-count: 273
+count: 277
 count_by_status:
-  현행후보: 243
+  현행후보: 247
   폐기후보: 23
   보류후보: 7
 items:
@@ -1005,112 +1005,140 @@ items:
   line: 8
   kind: 날짜+결정어
   status: 현행후보
-  text: 이 스킬은 history-longform(v2.7, 10/25)을 보완한다. 10/28~11/03 백제 1편 〈온조〉 시안에서 편집장이 확정한 규칙·파이프라인·로그 방식을 담는다.
-- id: longform-craft:50
-  date: 10/29
-  skill: history-longform-craft
-  line: 50
-  kind: 변경이력표
-  status: 폐기후보
-  text: '| 10/29 | 배역 목소리 폐기, 내레이터 인용. 장 표지·세력 카드 안 씀 |'
-- id: longform-craft:51
-  date: 10/30
-  skill: history-longform-craft
-  line: 51
-  kind: 변경이력표
-  status: 현행후보
-  text: '| 10/30 | 사람 컷 3초·원경 5초, 효과음 글자 지도만, 원문 카드 밝은 배경 |'
+  text: 이 스킬은 history-longform(v2.7, 10/25)을 보완한다. 10/28~11/04 백제 1편 〈온조〉 시안에서 편집장이 확정한 규칙·파이프라인·로그 방식을 담는다.
 - id: longform-craft:52
-  date: 10/30
+  date: 10/29
   skill: history-longform-craft
   line: 52
   kind: 변경이력표
-  status: 현행후보
-  text: '| 10/30 | 온조 기준 시트 s20 job 576bfba9-2dba-4e6c-a9f9-a01391193dd6. 낙랑 구간 5차 승인 |'
+  status: 폐기후보
+  text: '| 10/29 | 배역 목소리 폐기, 내레이터 인용. 장 표지·세력 카드 안 씀 |'
 - id: longform-craft:53
   date: 10/30
   skill: history-longform-craft
   line: 53
   kind: 변경이력표
   status: 현행후보
-  text: '| 10/30 | 시점 흔들기: 층 분리(B안) 채택 |'
+  text: '| 10/30 | 사람 컷 3초·원경 5초, 효과음 글자 지도만, 원문 카드 밝은 배경 |'
 - id: longform-craft:54
-  date: 11/02
+  date: 10/30
   skill: history-longform-craft
   line: 54
   kind: 변경이력표
   status: 현행후보
-  text: '| 11/02 | BGM은 편집장 곡 Gayageum Hook(~/bgm/hookn.wav). 예고 삭제 |'
+  text: '| 10/30 | 온조 기준 시트 s20 job 576bfba9-2dba-4e6c-a9f9-a01391193dd6. 낙랑 구간 5차 승인 |'
 - id: longform-craft:55
-  date: 11/02
+  date: 10/30
   skill: history-longform-craft
   line: 55
   kind: 변경이력표
   status: 현행후보
-  text: '| 11/02 | 내레이션: 딜레마 + 수 싸움 + 떡밥, ''~죠, ~인데, 하지만'' 이어 말하기 톤. 상상 연출 허용 |'
+  text: '| 10/30 | 시점 흔들기: 층 분리(B안) 채택 |'
 - id: longform-craft:56
   date: 11/02
   skill: history-longform-craft
   line: 56
   kind: 변경이력표
   status: 현행후보
-  text: '| 11/02 | 화면의 [기록]/[통설]/[해석]/[연출] 태그·칩 전부 삭제(전 구간) |'
+  text: '| 11/02 | BGM은 편집장 곡 Gayageum Hook(~/bgm/hookn.wav). 예고 삭제 |'
 - id: longform-craft:57
   date: 11/02
   skill: history-longform-craft
   line: 57
   kind: 변경이력표
   status: 현행후보
-  text: '| 11/02 | 실사 움직임은 Kling(Seedance 안 씀). 레퍼런스 원칙: 컷당 동작 하나, 실제 카메라 이동, 디테일 → 얼굴, 채도 낮은 필름 톤 |'
+  text: '| 11/02 | 내레이션: 딜레마 + 수 싸움 + 떡밥, ''~죠, ~인데, 하지만'' 이어 말하기 톤. 상상 연출 허용 |'
 - id: longform-craft:58
   date: 11/02
   skill: history-longform-craft
   line: 58
   kind: 변경이력표
-  status: 폐기후보
-  text: '| 11/02 | 사신 립싱크 폐기(AI 티) |'
+  status: 현행후보
+  text: '| 11/02 | 화면의 [기록]/[통설]/[해석]/[연출] 태그·칩 전부 삭제(전 구간) |'
 - id: longform-craft:59
-  date: 11/03
+  date: 11/02
   skill: history-longform-craft
   line: 59
   kind: 변경이력표
   status: 현행후보
-  text: '| 11/03 | 사신 목소리 Alistair. 대사는 걸어 들어오는 컷 위 보이스오버, 얼굴은 마지막 대사에서 역광으로 처음 공개 |'
+  text: '| 11/02 | 실사 움직임은 Kling(Seedance 안 씀). 레퍼런스 원칙: 컷당 동작 하나, 실제 카메라 이동, 디테일 → 얼굴, 채도 낮은 필름 톤 |'
 - id: longform-craft:60
-  date: 11/03
+  date: 11/02
   skill: history-longform-craft
   line: 60
   kind: 변경이력표
-  status: 현행후보
-  text: '| 11/03 | 애니매틱 4차c 품질 승인 → 이 스킬에 반영 |'
+  status: 폐기후보
+  text: '| 11/02 | 사신 립싱크 폐기(AI 티) |'
 - id: longform-craft:61
   date: 11/03
   skill: history-longform-craft
   line: 61
   kind: 변경이력표
   status: 현행후보
+  text: '| 11/03 | 사신 목소리 Alistair. 대사는 걸어 들어오는 컷 위 보이스오버, 얼굴은 마지막 대사에서 역광으로 처음 공개 |'
+- id: longform-craft:62
+  date: 11/03
+  skill: history-longform-craft
+  line: 62
+  kind: 변경이력표
+  status: 현행후보
+  text: '| 11/03 | 애니매틱 4차c 품질 승인 → 이 스킬에 반영 |'
+- id: longform-craft:63
+  date: 11/03
+  skill: history-longform-craft
+  line: 63
+  kind: 변경이력표
+  status: 현행후보
   text: '| 11/03 | 판세 계기판(곡식·병력·땅 막대) 삭제. 사신 자막은 ''사신:'' 없이 금색 따옴표 |'
-- id: longform-craft:72
+- id: longform-craft:64
+  date: 11/03
+  skill: history-longform-craft
+  line: 64
+  kind: 변경이력표
+  status: 현행후보
+  text: '| 11/03 | 내레이션 빈 곳 없게(훅·판 깔기도 Harrison 녹음). 사신 대사 편집장안 확정(''…이게 백제의 충성심이오?'', 고증 지적에도 유지) |'
+- id: longform-craft:65
+  date: 11/04
+  skill: history-longform-craft
+  line: 65
+  kind: 변경이력표
+  status: 현행후보
+  text: '| 11/04 | 외부 검수 2인 → 공통 지적 전부 수정. 스타일 바이블(10절) 확정. 자동 검수(11절) 상시 |'
+- id: longform-craft:77
   date: 10/30
   skill: history-longform-craft
-  line: 72
+  line: 77
   kind: 날짜+결정어
   status: 현행후보
   text: '### 3-1. 내레이션 TTS 규칙 (10/30 확정)'
-- id: longform-craft:111
+- id: longform-craft:97
+  date: 11/04
+  skill: history-longform-craft
+  line: 97
+  kind: 날짜+결정어
+  status: 현행후보
+  text: '- 평가자 2명을 별도 에이전트로 동시에(11/04 확정 구성): ① 유튜브 리텐션 전략가(이탈 위험 지점·첫 30초·구간 점수) ② 역사 교양 다큐 PD(고증·구조·구간 일관성·AI 티·내레이션). 실존 인물 사칭 금지, 직무 렌즈로만'
+- id: longform-craft:119
   date: 10/30
   skill: history-longform-craft
-  line: 111
+  line: 119
   kind: 날짜+결정어
   status: 현행후보
   text: '## 8. 시점 흔들기 (10/30 확정)'
-- id: longform-craft:118
+- id: longform-craft:126
   date: 11/02
   skill: history-longform-craft
-  line: 118
+  line: 126
   kind: 날짜+결정어
   status: 현행후보
   text: '## 9. 실사 훅 연출 (11/02~03 확정, 4차c 품질 승인)'
+- id: longform-craft:136
+  date: 11/04
+  skill: history-longform-craft
+  line: 136
+  kind: 날짜+결정어
+  status: 현행후보
+  text: '## 10. 스타일 바이블 (11/04 확정 — 착수 전에 고정, 바꾸려면 편집장 결정)'
 - id: longform:12
   date: 10/23
   skill: history-longform

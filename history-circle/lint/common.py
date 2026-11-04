@@ -89,6 +89,19 @@ def integrated_lufs(path):
     return float("-inf") if v == "-inf" else float(v)
 
 
+def true_peak_db(path):
+    """ffmpeg ebur128 peak=true로 True Peak(dBTP)."""
+    p = subprocess.run(
+        ["ffmpeg", "-hide_banner", "-nostats", "-i", path, "-vn", "-af", "ebur128=peak=true:framelog=quiet", "-f", "null", "-"],
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
+    err = p.stderr.decode("utf-8", "replace")
+    m = re.findall(r"True peak:\s*\n\s*Peak:\s*(-?[\d.]+|-inf)\s*dBFS", err)
+    if not m:
+        raise RuntimeError("True Peak 결과를 읽지 못함: " + err[-800:])
+    return float("-inf") if m[-1] == "-inf" else float(m[-1])
+
+
 # ---------- 영상 ----------
 
 def probe_size(path):

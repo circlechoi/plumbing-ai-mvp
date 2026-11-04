@@ -31,7 +31,7 @@ def _opt(folder, name):
     return p if os.path.exists(p) else None
 
 
-def run(folder, profile="explain"):
+def run(folder, profile="explain", fmt="shorts"):
     results = []
 
     def safe(name, fn, *a):
@@ -45,12 +45,12 @@ def run(folder, profile="explain"):
     video = _opt(folder, "final.mp4") or next(iter(sorted(glob.glob(os.path.join(folder, "*.mp4")))), None)
     sections, cuts = _opt(folder, "sections.json"), _opt(folder, "cuts.json")
     if video:
-        safe("audio_loudness", audio_loudness.check, video)
+        safe("audio_loudness", audio_loudness.check, video, fmt)
         safe("video_static", video_static.check, video, profile, sections, cuts)
         safe("video_pan_repeat", video_pan_repeat.check, video, cuts)
     vo, sfx = _opt(folder, "vo.wav"), _opt(folder, "sfx.wav")
     if vo and sfx:
-        safe("audio_sfx_vs_vo", audio_sfx_vs_vo.check, vo, sfx)
+        safe("audio_sfx_vs_vo", audio_sfx_vs_vo.check, vo, sfx, sections)
     scenes = sorted(glob.glob(os.path.join(folder, "scenes", "*.wav")))
     if scenes:
         safe("audio_isolated_syllable", audio_isolated_syllable.check, scenes)
@@ -79,9 +79,10 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("folder")
     ap.add_argument("--profile", default="explain", choices=["explain", "battle"])
+    ap.add_argument("--format", default="shorts", choices=["shorts", "longform"])
     ap.add_argument("--json")
     a = ap.parse_args()
-    res = run(a.folder, a.profile)
+    res = run(a.folder, a.profile, a.format)
     if not res:
         print("검사할 파일이 없음 — 폴더 규약은 --help 참고")
         sys.exit(1)
