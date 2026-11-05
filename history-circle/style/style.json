@@ -1,0 +1,118 @@
+{
+  "_note": "역사서클 공용 스타일 토큰 v1 (11/05). 화면 틀·글씨·색·부품 크기는 이 파일 한 곳에서만 바꾼다. 부품 코드에 숫자를 쓰지 않는다. 좌표는 1080×1920 기준(롱폼은 formats.longform). status: 확정(사용자·원장) / 기존코드(sandbox 코드 값 그대로) / 임시(근거 없음, 사용자 확인 필요)",
+  "version": "1.0.0",
+  "decisions": {
+    "frame": "틀 = 4편 주필산(hud1080) 방식 = 원장 battle_title_bar·shorts 범례 띠 (11/05 사용자 '그래ㄱㄱ')",
+    "parts": "부품 = 1편 백제 멸망전(bmap3.py·scenes13.py) 방식 (11/05)",
+    "unit_marker": "부대 = 'ㅗ' 블록, components/spec.json unit (11/05 사용자 'ㅗ로 가고'). 1편 원형 나라 배지·성가퀴 상자는 부대 표식으로 쓰지 않는다",
+    "reference_set": "golden/style_ref/ — 틀 F1(4편 40s), 부품 R1~R4(1편 21·31·46·61s), R5(ㅗ 블록 시안)"
+  },
+
+  "fonts": {
+    "_source": "1편 bmap3.py JUA·NSK·BHS / 4편 anim4.py NSKf·JUAf (Google Fonts OFL)",
+    "jua": {"file": "components/fonts/Jua-Regular.ttf", "use": "지명·라벨·말풍선·카드 본문·연도 배지·워터마크·범례"},
+    "nsk": {"file": "components/fonts/NotoSansKR.ttf", "variable": true, "use": "편 제목·자막·카드 아이콘 글자"},
+    "bhs": {"file": "components/fonts/BlackHanSans-Regular.ttf", "use": "효과음 글자·터짐 표시 숫자"},
+    "forbidden_glyphs": {"value": ["·", "『", "』", "→", "×"], "status": "확정", "source": "history-battle-shorts 2절 'JUA 폰트에 없는 기호' + components 시안에서 '×' 확인"},
+    "min_px": {"value": 30, "status": "확정", "source": "history-battle-shorts 2절 '글자 최소 30px'"}
+  },
+
+  "type_scale": {
+    "_rule": "용도별 크기는 이 표만 쓴다. 크기 = 1080 기준 px. stroke = 외곽선 두께 px",
+    "title":        {"font": "nsk", "weight": "Black", "size": 52, "status": "확정", "source": "원장 battle_title_bar / anim4.py hud1080"},
+    "caption":      {"font": "nsk", "weight": "Black", "size": 56, "stroke": 8, "status": "확정", "source": "history-battle-shorts 2절 / anim4.py f2"},
+    "year_badge":   {"font": "jua", "size": 52, "status": "기존코드", "source": "anim4.py '645년' fnt(JUAf, 52)"},
+    "watermark":    {"font": "jua", "size": 46, "status": "기존코드", "source": "anim4.py '역사서클' 46"},
+    "legend":       {"font": "jua", "size": 40, "status": "기존코드", "source": "anim4.py 범례 40"},
+    "legend_note":  {"font": "jua", "size": 34, "status": "확정", "source": "history-battle-shorts 2절 '메모 34~36px'"},
+    "place":        {"font": "jua", "size": 58, "stroke": 9, "status": "기존코드", "source": "bmap3.py city size=58"},
+    "place_sub":    {"font": "jua", "size": 38, "stroke": 7, "status": "기존코드", "source": "bmap3.py city sub 38"},
+    "label":        {"font": "jua", "size": 50, "stroke": 8, "status": "기존코드", "source": "bmap3.py label 50"},
+    "water_label":  {"font": "jua", "size": 46, "stroke": 8, "status": "기존코드", "source": "bmap3.py water_label 46"},
+    "bubble":       {"font": "jua", "size": 46, "status": "기존코드", "source": "bmap3.py bubble 46"},
+    "card_text":    {"font": "jua", "size": 50, "status": "기존코드", "source": "scenes13.py S3B 카드 F(JUA, 50)"},
+    "card_icon":    {"font": "nsk", "weight": "Black", "size": 50, "size_2char": 44, "stroke": 4, "status": "기존코드", "source": "scenes13.py 카드 아이콘 44/50"},
+    "direction":    {"font": "jua", "size": 46, "status": "기존코드", "source": "bmap3.py direction 46"},
+    "inset_title":  {"font": "jua", "size": 36, "stroke": 7, "status": "기존코드", "source": "bmap3.py _inset title 36"},
+    "sfx":          {"font": "bhs", "size": 120, "stroke": 12, "rotate_deg": -8, "status": "기존코드", "source": "bmap3.py sfx"},
+    "burst_text":   {"font": "bhs", "size_ratio": 0.62, "stroke": 6, "status": "기존코드", "source": "bmap3.py burst r*.62"}
+  },
+
+  "colors": {
+    "_rule": "세력 색은 원장 값을 그대로 옮긴다. 원장이 바뀌면 이 표도 같이 바꾼다(verify가 대조)",
+    "ink":        [28, 24, 22],
+    "ink_line":   [30, 26, 24],
+    "white":      [255, 255, 255],
+    "cream":      [250, 244, 228],
+    "cream_text": [252, 246, 232],
+    "gold":       [240, 196, 80],
+    "red_target": [222, 40, 34],
+    "emphasis":   [172, 34, 28],
+    "band_black": [14, 12, 12],
+    "legend_text":[245, 240, 230],
+    "note_text":  [220, 214, 200],
+    "water_text": [40, 80, 190],
+    "place_fill": [236, 214, 140],
+    "_source_misc": "ink·cream·band_black·emphasis = anim4.py / ink_line·gold·red_target·water_text·place_fill = bmap3.py",
+    "faction": {
+      "_source": "원장 faction_colors (11/04 확정) — 영역 면",
+      "고구려": [96, 34, 29], "부여": [42, 58, 86], "백제": [232, 184, 56], "신라": [226, 96, 52],
+      "당": [70, 74, 84], "왜": [206, 32, 46], "마한": [178, 120, 168], "말갈": [118, 86, 62], "낙랑": [84, 88, 102]
+    },
+    "unit_faction": {
+      "_source": "원장 unit_faction_colors (11/04 확정) — 'ㅗ' 블록·화살표·범례 칩",
+      "고구려": [150, 52, 40], "말갈": [190, 104, 48], "수": [88, 92, 104], "당": [52, 56, 66],
+      "백제": [232, 184, 56], "신라": [226, 96, 52], "왜": [206, 32, 46]
+    },
+    "schematic": {
+      "_source": "1편 bmap3.py — 도식 컷(R4) 바탕. 지도 컷 바탕은 v4-S(mapkit)",
+      "land": [214, 190, 150], "land_dark": [190, 164, 124], "water": [118, 150, 214], "water_dark": [80, 110, 180],
+      "green": [98, 146, 92], "green_dark": [60, 100, 60], "mud": [150, 120, 90], "road": [236, 220, 188]
+    }
+  },
+
+  "frame": {
+    "_source": "4편 jupil/anim4.py hud1080 (원장 battle_title_bar, history-battle-shorts 2절, history-circle 10절 범례 띠)",
+    "canvas": {"w": 1080, "h": 1920, "map_panel": [0, 0, 1080, 1920], "status": "확정"},
+    "top_band":   {"bbox": [0, 0, 1080, 140], "fill": "band_black", "alpha": 225,
+                   "year_badge": {"xy": [44, 74], "anchor": "lm", "type": "year_badge", "color": "gold"},
+                   "watermark":  {"xy": [1036, 74], "anchor": "rm", "type": "watermark", "color": "white", "text": "역사서클"}},
+    "title_band": {"bbox": [0, 140, 1080, 236], "fill": "cream", "alpha": 238, "text_y": 190, "type": "title", "color": "ink",
+                   "emphasis": {"fill": "emphasis", "text": "cream_text", "radius": 8, "pad_x": 10, "half_h": 33, "gap": 14, "text_dy": -2},
+                   "intro": {"hidden_until_s": 1.0, "hidden_alpha": 235, "fade_s": 0.25, "status": "확정", "source": "battle-shorts 1절 '제목 띠는 1.0초에 들어온다'"}},
+    "caption":    {"center_y": 1420, "line_gap": 80, "max_w": 760, "max_lines": 2, "color": "white", "stroke_color": [20, 16, 14], "type": "caption", "fade_s": 0.12,
+                   "gradient": {"y0": 1270, "y1": 1570, "peak_alpha": 150, "power": 0.8, "to": 10}},
+    "legend_band":{"bbox": [0, 1600, 1080, 1920], "fill": "band_black", "alpha": 215, "row_y": 1650,
+                   "chip": {"x0": 40, "size": 36, "outline": [240, 240, 240], "outline_w": 3, "text_dx": 50, "step_pad": 100},
+                   "note": {"xy": [1040, 1650], "anchor": "rm", "type": "legend_note", "color": "note_text"},
+                   "status": "확정", "source": "history-circle 10절 '범례 띠 1600~1700, 그 아래도 같은 검은 띠'"},
+    "safe": {
+      "right_ui_x": 900,
+      "marker_clamp": {"x": [96, 814], "y": [300, 1230]},
+      "camera_cy": 800, "battle_cy_offset": 100,
+      "status": "확정", "source": "history-battle-shorts 2절·3절 15"
+    }
+  },
+
+  "parts": {
+    "_source": "1편 bk/bmap3.py·scenes13.py (부품 기준 R1~R4). 숫자는 1080 기준",
+    "place":     {"square": 44, "inner": 18, "outline": 7, "inner_outline": 5, "gap": 14, "text_stroke_color": "white", "target_color": "red_target"},
+    "bubble":    {"pad_x": 26, "half_h": 38, "radius": 30, "outline": 6, "fill": "white", "text": "ink", "pop_s": 0.2, "tail_default": [-40, 50]},
+    "card":      {"x0": 110, "w": 860, "half_h": 70, "radius": 26, "outline": 8, "fill": "cream", "row0_y": 470, "row_step": 190,
+                  "icon": {"dx": 28, "d": 100, "outline": 6}, "text_dx": 152, "slide_px": 160, "slide_s": 0.35, "dim_alpha": 110},
+    "direction": {"pad_x": 50, "half_h": 36, "fill": "ink", "text": "white", "tri": "gold", "tri_w": 24, "tri_h": 32},
+    "inset":     {"pad": 8, "outline": 6, "box_color": "red_target", "box_w": 7},
+    "burst":     {"spikes": 11, "fill": "red_target", "outline": 7, "pop_s": 0.28},
+    "arrow":     {"wid": 46, "outline": 8, "status": "기존코드", "source": "bmap3.py arrow(wid=46, outline=8)"},
+    "unit":      {"ref": "components/spec.json#unit", "note": "'ㅗ' 블록 규격은 spec.json 한 곳"},
+    "fort":      {"ref": "components/spec.json#fort"},
+    "figure":    {"status": "임시", "note": "인물 표식(얼굴 없음·인물별 고정 색/모자)은 1편에 없음 — 4단계에서 animatic/engine.py 표식을 옮기고 사용자 확인"},
+    "gauge":     {"status": "임시", "note": "시계/게이지 — engine.py 값을 4단계에서 옮김"}
+  },
+
+  "formats": {
+    "battle_shorts": {"frame": "frame", "status": "확정"},
+    "shorts": {"status": "임시", "note": "45초 신작·재편집은 원장 shorts_captions(송명 60/80px, 연도 배지 '史') — 기준 프레임 미확정, v1 범위 밖"},
+    "longform": {"status": "임시", "note": "원장 longform_captions(NotoSansKR Bold 46 + 나눔명조 Bold 44) — 기준 프레임 미확정, v1 범위 밖"}
+  }
+}

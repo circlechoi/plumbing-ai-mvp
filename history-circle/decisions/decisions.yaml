@@ -29,7 +29,7 @@ source_skills:
     md5: 5a9c4ebb20bfd8cb4283bd9c54003be0
 counts:
   raw_total: 277
-  curated_items: 61
+  curated_items: 66
   linked_by_curation: 238
   kept_verbatim: 39
   pending_user: 0
@@ -742,6 +742,34 @@ topics:
     date: 10/23
     status_hint: 현행후보
     text: '- **⑩ 이후 (2026-10-23 갱신)**: 롱폼 대무신왕 3부작 완성(1부 10/6 · 2부 10/14 · 3부 10/17). 재편집 숏츠: 1부 5편(10/7 — ① 예고편 0:00–0:57 ② 열 살에게 맡겼다고? ③ 매복을 길가에 안 숨겼다고? ④ 대군이 한 줄로 갇혔다고? ⑤ 붉은 까마귀), 2부 5편(history-longform 0번), 3부 진행(설정 백업 history-production-standards 4절). 신작: 온조 비트 예고편 v2(10/20, 음악만 — standards 5절). 건축: 「고구려 수도에 성이 두 개였다고?」(10/14) · 온돌 편(10/19, history-architecture-shorts). 업로드 여부·지표는 미기록 → 다음 작업 때 사용자에게 받아 적는다. 다음 롱폼 = 백제 온조(마한 병합). 롱폼 진행 상황은 history-longform 0번이 기준'
+- name: 스타일 키트
+  items:
+  - key: style_kit
+    current: 모든 편의 화면 틀·글씨·색·부품 크기는 style/style.json 한 곳에서 읽는다. 부품 코드에 숫자 하드코딩 금지. 편마다 엔진을 새로 짜지 않는다(5편 an5.py 재발 방지)
+    status: 현행
+    confirmed: 11/05 사용자 '공용 스타일 키트 v1' 지시
+    sources: []
+  - key: kit_frame
+    current: '전투 해설 쇼츠 화면 틀 = 4편 주필산 hud1080 방식(상단 검은 띠 0~140: 연도 배지·워터마크 / 제목 띠 140~236 / 자막 y1420 + 그라데이션 1270~1570 / 범례 띠 1600~1920). 값은 style.json frame'
+    status: 현행
+    confirmed: '11/05 사용자 ''그래ㄱㄱ''(추천안: 틀 B + 부품 A)'
+    sources: []
+    note: 1편(테두리 창·Jua 제목·둥근 자막 상자)은 틀 기준에서 제외. 원장 battle_title_bar와 같은 방향
+  - key: kit_parts
+    current: 틀 위 부품(지명·라벨·말풍선·카드·방향 버튼·미니맵·터짐·화살표) = 1편 백제 멸망전 방식. 값은 style.json parts·type_scale
+    status: 현행
+    confirmed: 11/05 사용자 '그래ㄱㄱ'
+    sources: []
+  - key: kit_unit_marker
+    current: 부대 표식 = 'ㅗ' 블록(components/spec.json unit). 1편의 원형 나라 배지·성가퀴 상자는 부대 표식으로 쓰지 않는다
+    status: 현행
+    confirmed: 11/05 사용자 'ㅗ로 가고'
+    sources: []
+  - key: kit_reference_set
+    current: 기준 화면 = golden/style_ref/ (틀 F1 = 4편 40초, 부품 R1~R4 = 1편 21·31·46·61초, R5 = 'ㅗ' 블록 시안). 스타일 검사기는 이 세트와 비교
+    status: 현행
+    confirmed: 11/05 사용자 '기준화면은 추천'
+    sources: []
 - name: 기타
   items: []
   원문_보존:
