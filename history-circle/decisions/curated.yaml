@@ -60,8 +60,9 @@ topics:
     status: 현행
     sources: [channel-concept:54, channel-concept:132, battle-shorts:45, channel-concept:136, channel-concept:313]
   - key: dot_sprite
-    current: "매 편 도트 그림 1곳 이상(롱폼·쇼츠·건축). 금지 구간: 죽음·비극, 판단 분석. 롱폼은 우측 하단 구석에 작게"
+    current: "매 편 도트 그림 1곳 이상(롱폼·쇼츠·건축·전투 해설 쇼츠). 전투 쇼츠는 장식 1곳. 금지 구간: 죽음·비극, 판단 분석. 롱폼은 우측 하단 구석에 작게"
     status: 현행
+    confirmed: "11/05 사용자 확정: 전투 해설 쇼츠 포함(장식 1곳)"
     sources: [channel-concept:60, channel-concept:240, channel-concept:241, channel-concept:332, shorts:192, longform:96]
     superseded: [shorts:17]
   - key: topic_filter
@@ -140,8 +141,9 @@ topics:
     status: 현행
     sources: [channel-concept:204, longform:71, longform:87, shorts:267, channel-concept:326]
   - key: signature_opening
-    current: "시그니처 오프닝(수묵화 → 먹 번짐 → 실사) 채널 고정. 쇼츠는 3초 축약판, 건축은 건물 선묘 스케치"
+    current: "시그니처 오프닝(수묵화 → 먹 번짐 → 실사) 채널 고정. 쇼츠는 3초 축약판, 건축은 건물 선묘 스케치. 전투 해설 쇼츠는 넣지 않음(1~4편 방식)"
     status: 현행
+    confirmed: "11/05 사용자 확정: 전투 해설 쇼츠 제외"
     sources: [channel-concept:59, channel-concept:228, channel-concept:231, channel-concept:323, longform:84, longform:199, shorts:188, channel-concept:363]
   - key: ai_look_reduction
     current: "AI 티·반복 금지(E-6): 같은 컷 반복, 5초 클립 늘이기, 긴 정지 지도 금지. 정지 화면은 구간별 상한(편당 총량 상한은 폐지). 사람 컷 3초·원경 5초. 실사는 컷당 동작 하나, 실제 카메라 이동, 채도 낮은 필름 톤. 립싱크 금지"
