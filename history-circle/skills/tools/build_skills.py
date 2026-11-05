@@ -229,7 +229,8 @@ def build_core():
         for it in tp["items"]:
             cur = str(it["current"]).replace("|", "\\|").replace("\n", " ")
             st = it.get("status", "현행")
-            mark = " ★11/04" if it.get("confirmed") else ("" if st == "현행" else f" ({st})")
+            cf = str(it.get("confirmed") or "")
+            mark = (" ★" + (cf[:5] if cf[:2].isdigit() else "11/04")) if cf else ("" if st == "현행" else f" ({st})")
             rows.append(f"| {it['key']}{mark} | {cur} |")
     c = led["counts"]
     meta = led["meta"]

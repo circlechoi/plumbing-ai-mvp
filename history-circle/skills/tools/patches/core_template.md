@@ -89,4 +89,14 @@ description: "역사서클 모든 작업의 첫 스킬 — 채널 정체성 요�
   - 블록 등급은 원장 unit_grades. **병력이 사료에 없으면** 등급을 임의로 정하지 말고, 쓰려는 등급과 근거(상대 비교 등)를 그 편 research.md에 적고 화면에 숫자를 쓰지 않는다(임시 — 사용자 확인 전).
   - 광역→지역 줌은 최대 3.4배까지 확대 후 크로스페이드(zoom.py max_scale).
   - 범례 띠: 쇼츠 1600~1700, 그 아래도 같은 검은 띠로 채운다.
-- 애니매틱 엔진(무음·저해상도, 크레딧 0): `history-circle/animatic/engine.py` — 흙산 단면·군량 게이지·얼굴 없는 인물 표식 등 컴포넌트에 없는 도식 포함.
+- 애니매틱 엔진(무음·저해상도, 크레딧 0): `history-circle/animatic/engine.py` — 지도 바탕 v4-S·흙산 단면 등. 엔진의 label·bubble·lord·gauge·arrow·bignum·hud는 11/06부터 스타일 키트(11절)를 거쳐 그린다(크기 인자는 무시·경고).
+
+## 11. 스타일 키트 v1 (11/06 확정) — 새 그림 직접 그리기 금지
+- **원칙: 편 코드에서 글씨·색·크기·도형을 직접 정하지 않는다. 필요한 그림은 `style/parts.py`에 부품으로 등록한 뒤 쓴다.** 새 부품의 숫자는 `style/style.json`에 넣는다. 편마다 엔진을 새로 짜지 않는다(5편 an5.py가 1편과 화면이 달라진 원인).
+- 단일 원천: `history-circle/style/style.json` — 폰트 파일, 용도별 크기표(type_scale), 색(세력 색은 원장 값 그대로), 화면 틀 좌표(frame), 부품 치수(parts). 'ㅗ' 블록·성은 `components/spec.json`.
+- 화면 틀 = 4편 주필산 방식(원장 kit_frame): 상단 검은 띠 0~140(연도 배지·워터마크) / 크림 제목 띠 140~236(NotoSansKR Black 52, 강조어 진빨강 상자) / 자막 y1420(NotoSansKR Black 56, 그라데이션 1270~1570) / 범례 띠 1600~1920.
+- 부품 = 1편 백제 멸망전 방식(원장 kit_parts): `place`(지명) · `label` · `bubble` · `card` · `direction` · `inset` · `burst` · `sfx` · `cross` · `bignum` · `arrow` · `focus_box` · `ring` · `unit`('ㅗ') · `fort`(name=) · `figure`(인물: 얼굴 없음, `parts.people`에 고정 색·모자 등록 필수) · `gauge` · `clock`. 마무리는 `parts.finish(cv, year, title, caption, legend, note)`.
+- 지도 바탕 = v4-S 유지(원장 kit_map_base).
+- 기준 화면: `golden/style_ref/` — F1(4편 40초, 틀) · R1~R4(1편 21·31·46·61초, 부품) · R5('ㅗ' 블록 시안).
+- 검사(사용자에게 보이기 전 필수, 실패하면 고친다): `lint/style_check.py tokens` · `code <편 폴더>` · `frame <png>… --caption "자막" --sheet 비교.jpg` · `layout <layout.json>` + `lint/layout_overlap.py`.
+- 임시값(첫 사용 편에서 시안 확인): 인물 표식 4명(안시성주·당 태종·의자왕·계백), 시계, 성 표식 크기. 45초 쇼츠·롱폼 틀은 v1 범위 밖(style.json formats).
