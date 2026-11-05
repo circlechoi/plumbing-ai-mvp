@@ -1,0 +1,7 @@
+검사                       결과       위반   경고  대상
+video_static             통과        0    1  animatic.mp4
+video_pan_repeat         통과        0    0  animatic.mp4
+video_repeat             통과        0    1  animatic.mp4
+script_lint              통과        0    0  script.txt
+src_text                 통과        0    0  1개 파일
+layout_overlap           통과        0    0  1개 파일

@@ -40,7 +40,7 @@ def _opt(folder, name):
     return p if os.path.exists(p) else None
 
 
-def run(folder, profile="explain", fmt="shorts", script_fmt=None, asr=False):
+def run(folder, profile="explain", fmt="shorts", script_fmt=None, asr=False, silent=False):
     results = []
 
     def safe(name, fn, *a):
@@ -54,8 +54,9 @@ def run(folder, profile="explain", fmt="shorts", script_fmt=None, asr=False):
     video = _opt(folder, "final.mp4") or next(iter(sorted(glob.glob(os.path.join(folder, "*.mp4")))), None)
     sections, cuts = _opt(folder, "sections.json"), _opt(folder, "cuts.json")
     if video:
-        safe("audio_loudness", audio_loudness.check, video, fmt)
-        safe("audio_silence", audio_silence.check, video)
+        if not silent:  # --silent: 녹음 전 무음 애니매틱 — 소리 검사는 녹음 뒤에 돌린다
+            safe("audio_loudness", audio_loudness.check, video, fmt)
+            safe("audio_silence", audio_silence.check, video)
         safe("video_static", video_static.check, video, profile, sections, cuts, fmt)
         safe("video_pan_repeat", video_pan_repeat.check, video, cuts)
         safe("video_repeat", video_repeat.check, video, cuts, fmt)
@@ -102,9 +103,10 @@ if __name__ == "__main__":
     ap.add_argument("--format", default="shorts", choices=["shorts", "longform"])
     ap.add_argument("--script-format", choices=["battle", "shorts", "longform", "architecture"])
     ap.add_argument("--asr", action="store_true")
+    ap.add_argument("--silent", action="store_true", help="무음 애니매틱: audio_loudness·audio_silence 건너뜀")
     ap.add_argument("--json")
     a = ap.parse_args()
-    res = run(a.folder, a.profile, a.format, a.script_format, a.asr)
+    res = run(a.folder, a.profile, a.format, a.script_format, a.asr, a.silent)
     if not res:
         print("검사할 파일이 없음 — 폴더 규약은 --help 참고")
         sys.exit(1)

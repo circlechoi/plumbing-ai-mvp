@@ -1,0 +1,62 @@
+[
+ {
+  "start": 0.0,
+  "end": 6.506,
+  "kind": "map",
+  "scene": 1
+ },
+ {
+  "start": 6.506,
+  "end": 15.11,
+  "kind": "map",
+  "scene": 2
+ },
+ {
+  "start": 15.11,
+  "end": 34.602,
+  "kind": "map",
+  "scene": 3
+ },
+ {
+  "start": 34.602,
+  "end": 40.652,
+  "kind": "map",
+  "scene": 4
+ },
+ {
+  "start": 40.652,
+  "end": 59.632,
+  "kind": "map",
+  "scene": 5
+ },
+ {
+  "start": 59.632,
+  "end": 73.935,
+  "kind": "diagram",
+  "scene": 6
+ },
+ {
+  "start": 73.935,
+  "end": 105.634,
+  "kind": "diagram",
+  "scene": 7
+ },
+ {
+  "start": 105.634,
+  "end": 116.523,
+  "kind": "map",
+  "scene": 8
+ },
+ {
+  "start": 116.523,
+  "end": 125.771,
+  "kind": "map",
+  "scene": 9
+ },
+ {
+  "start": 125.771,
+  "end": 137.466,
+  "kind": "diagram",
+  "scene": 10
+ }
+]
