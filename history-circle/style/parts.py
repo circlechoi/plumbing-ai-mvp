@@ -30,6 +30,8 @@ import canvas as CV  # noqa: E402
 import forts as FT  # noqa: E402
 import units as UN  # noqa: E402
 
+S_SPEC = CV.SPEC
+
 PT = S["parts"]
 TS = S["type_scale"]
 
@@ -144,7 +146,8 @@ def bubble(cv, id, xy, text, tail=None, age=99.0):
         big.alpha_composite(ov, (int(x * k * (1 - sc)), int(y * k * (1 - sc))))
         ov = big
     _merge(cv, ov)
-    return cv.add(id, "label", [box[0], box[1], box[2] - box[0], max(box[3], y + tail[1]) - box[1]])
+    # 꼬리는 말하는 블록에 닿아야 하므로 겹침 검사 대상은 상자만
+    return cv.add(id, "label", [box[0], box[1], box[2] - box[0], box[3] - box[1]])
 
 
 def card(cv, id, row, icon, icon_col, text, age=99.0, alpha=1.0):
@@ -448,9 +451,17 @@ def unit(cv, id, xy, ang, grade, faction, icon=None, hidden=False, alpha=255):
     return UN.draw_unit(cv, id, (round(xy[0]), round(xy[1])), ang, grade, fid, icon=icon, hidden=hidden, alpha=alpha)
 
 
-def fort(cv, id, xy, kind="sanseong"):
-    """성 표식 — components/forts.py(산성 sanseong·평지성 pyeongji·목책 mokchaek)."""
-    return FT.draw_fort(cv, id, (round(xy[0]), round(xy[1])), kind)
+def fort(cv, id, xy, kind="sanseong", name=None, side="d"):
+    """성 표식 — components/forts.py(산성 sanseong·평지성 pyeongji·목책 mokchaek). name = 성 이름(성 아래/위에 지명 글씨)."""
+    el = FT.draw_fort(cv, id, (round(xy[0]), round(xy[1])), kind)
+    if name:
+        half = S_SPEC["fort"]["size"]["h"] / 2
+        g = PT["place"]["gap"]
+        y = xy[1] + half + g if side == "d" else xy[1] - half - g
+        an = "ma" if side == "d" else "md"
+        bb = _txt(cv, (xy[0], y), name, "place", color("ink_line"), an, stroke_fill=color("white"))
+        cv.add("l_" + id, "label", bb)
+    return el
 
 
 # ---------------- 인물 표식·게이지·시계 ----------------

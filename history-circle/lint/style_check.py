@@ -196,7 +196,10 @@ def check_frame(png, caption=None, ref=None):
         for key, box in (("top", (0, 0, 1080, 140)), ("legend_chips", (0, 1600, 300, 1700))):
             x0, y0, x1, y1 = box
             diff = np.abs(r[y0:y1, x0:x1] - a[y0:y1, x0:x1].astype(int)).max(axis=2)
-            pct = float((diff > 40).mean() * 100)
+            # 1px 안티에일리어싱 차이는 무시: 3×3 최솟값 필터 뒤에도 남는 차이만 센다
+            from PIL import ImageFilter
+            dm = np.asarray(Image.fromarray((diff > 40).astype(np.uint8) * 255).filter(ImageFilter.MinFilter(3))) > 0
+            pct = float(dm.mean() * 100)
             res.append({"check": f"frame.ref.{key}[{name}]", "ok": pct <= TH["band_ref_diff_pct"], "have_pct": round(pct, 2)})
     return res
 

@@ -67,8 +67,7 @@ WIDE_TANG = [((420, 720), 270), ((580, 840), 270), ((440, 1000), 270)]
 def s1(u):
     cv = E.world(base("wide"), "s1")
     an = W_("안시성")
-    E.fort(cv, "f_ansi", an)
-    E.label(cv, "l_ansi", "안시성", (an[0], an[1] + 78))
+    E.SP.fort(cv, "f_ansi", an, name="안시성")
     ends = WIDE_TANG
     starts = [(640, 480), (780, 640), (700, 820)]
     g = E.ease(E.ramp(u, 0.0, 3.0))
@@ -92,8 +91,7 @@ def s2(u):
     if fade > 0:
         E.unit(cv, "u_gog_ghost", (zp[0] + 150, zp[1] + 140), 315, "XL", GOG, icon="inf", alpha=int(60 + 150 * fade))
         E.label(cv, "l_zp", "주필산 15만", (zp[0] + 150, zp[1] + 240))
-    E.fort(cv, "f_ansi", an)
-    E.label(cv, "l_ansi", "안시성", (an[0], an[1] + 78))
+    E.SP.fort(cv, "f_ansi", an, name="안시성")
     for i, ((x, y), a) in enumerate(WIDE_TANG):
         E.unit(cv, f"u_tang{i}", (x, y), a, "XL", TANG, icon="cav")
     if u >= st(2, 1):
