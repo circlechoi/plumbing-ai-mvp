@@ -1,6 +1,6 @@
 {
   "check": "script_lint",
-  "target": "../episodes/battle05_ansi/script.txt",
+  "target": "script.txt",
   "ok": true,
   "violations": [],
   "warnings": [],
@@ -8,10 +8,10 @@
     "format": "battle",
     "scenes": 10,
     "paragraphs": 10,
-    "sentences": 43,
+    "sentences": 36,
     "geot_total": 0,
     "geot_endings": 0,
     "past_ss_ratio": 0.0,
-    "people": 5
+    "people": 4
   }
 }

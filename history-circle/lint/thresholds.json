@@ -402,7 +402,10 @@
           "radio_banned": "fail",
           "fairytale_opening": "fail",
           "fairytale_suspect": "warn",
-          "forbidden_symbols": "fail"
+          "forbidden_symbols": "fail",
+          "hook_sentences": "fail",
+          "same_ending": "fail",
+          "plain_da": "fail"
         },
         "shorts": {
           "geot_endings": "fail",
@@ -413,7 +416,10 @@
           "radio_banned": "fail",
           "fairytale_opening": "fail",
           "fairytale_suspect": "warn",
-          "forbidden_symbols": "fail"
+          "forbidden_symbols": "fail",
+          "hook_sentences": "fail",
+          "same_ending": "fail",
+          "plain_da": "fail"
         },
         "architecture": {
           "geot_endings": "fail",
@@ -424,7 +430,10 @@
           "radio_banned": "fail",
           "fairytale_opening": "fail",
           "fairytale_suspect": "warn",
-          "forbidden_symbols": "fail"
+          "forbidden_symbols": "fail",
+          "hook_sentences": "fail",
+          "same_ending": "fail",
+          "plain_da": "fail"
         },
         "longform": {
           "geot_endings": "fail",
@@ -435,11 +444,24 @@
           "radio_banned": "fail",
           "fairytale_opening": "fail",
           "fairytale_suspect": "warn",
-          "forbidden_symbols": "fail"
+          "forbidden_symbols": "fail",
+          "hook_sentences": "off",
+          "same_ending": "fail",
+          "plain_da": "fail"
         }
       },
       "status": "임시",
       "source": "battle-shorts 대본 원칙(현재형·쉼표·연도·새 인물)은 전투 쇼츠 규칙 → battle만 실패, 다른 포맷은 경고. 롱폼은 풀이 종결 '~것이었습니다'를 허용하므로(longform 풀이 종결) 과거형 검사 끔. '것입니다'·라디오 기준·동화식 도입은 롱폼·쇼츠 공통 규칙이라 전 포맷 실패"
+    },
+    "max_hook_sentences": {
+      "value": 2,
+      "status": "확정",
+      "source": "원장 opening_hook: 쇼츠(신작·재편집)는 2문장 6~8초 — 11/05 안시성 리뷰 3인이 모두 지적했지만 lint가 못 잡아 추가"
+    },
+    "same_ending_tail": {
+      "value": 2,
+      "status": "확정",
+      "source": "원장 narration_style: '같은 어미 연속 0회', 평서 '~다.' 종결 0회 — 끝 음절 2개가 같으면 같은 어미로 봄(판정 방식은 임시)"
     }
   }
 }

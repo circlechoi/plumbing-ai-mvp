@@ -133,6 +133,25 @@ def check(path, fmt="shorts"):
             if re.search(w, s):
                 put("fairytale_suspect", {"what": "동화적 표현 의심(임시 목록) '%s'" % w, "line": n, "text": s[:80]})
 
+    # 훅 문장 수 (원장 opening_hook: 쇼츠 2문장)
+    if scenes:
+        hook = [m.group(0).strip() for p in scenes[0] for _, line in p for m in SENT_RE.finditer(line) if m.group(0).strip()]
+        if len(hook) > th(CHECK, "max_hook_sentences"):
+            put("hook_sentences", {"what": "훅(장면 1) %d문장(%d문장 이하)" % (len(hook), th(CHECK, "max_hook_sentences")),
+                                   "text": " / ".join(h[:30] for h in hook)})
+
+    # 같은 어미 연속·평서 '~다.' (원장 narration_style)
+    tail = th(CHECK, "same_ending_tail")
+    prev = None
+    for n, s in sents:
+        h = re.sub(r"[^가-힣]", "", s)
+        e = h[-tail:] if len(h) >= tail else None
+        if e and e == prev:
+            put("same_ending", {"what": "같은 어미 연속 '%s'" % e, "line": n, "text": s[:80]})
+        if h.endswith("다") and not h.endswith("니다") and re.search(r"다[.!…]*\s*$", s):
+            put("plain_da", {"what": "평서 '~다.' 종결", "line": n, "text": s[:80]})
+        prev = e
+
     # 새 인물 수
     if people is None:
         warn.append({"what": "'인물:' 줄 없음 — 새 인물 수 검사 건너뜀", "rule": "people"})
