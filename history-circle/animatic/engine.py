@@ -25,6 +25,16 @@ import forts as FT  # noqa: E402
 import units as UN  # noqa: E402
 import zoom as ZM  # noqa: E402
 
+sys.path.insert(0, ROOT)
+from style import kit as SK  # noqa: E402  스타일 키트 v1: 글자·말풍선·인물·게이지·화면 틀은 style.json 경유
+from style import parts as SP  # noqa: E402
+import warnings  # noqa: E402
+
+
+def _warn_size(fn, size):
+    if size is not None:
+        warnings.warn(f"engine.{fn}(size={size}) 무시 — 크기는 style.json type_scale", stacklevel=3)
+
 W, H = 1080, 1920
 TILES = os.environ.get("HC_TILES", os.path.join(HERE, ".tiles"))
 
@@ -273,25 +283,20 @@ def fort(cv, id, xy, kind="sanseong"):
     return FT.draw_fort(cv, id, (round(xy[0]), round(xy[1])), kind)
 
 
-def label(cv, id, text, xy, size=40, fill=INK, register=True):
-    el = cv.label(id, text, xy, size=size, fill=fill)
+def label(cv, id, text, xy, size=None, fill=None, register=True, kind="label"):
+    """라벨 = style.parts.label(크기는 style.json type_scale.label). size 인자는 무시(경고)."""
+    _warn_size("label", size)
+    el = SP.label(cv, id, xy, text, kind=kind, col=fill)
     if not register:
         cv.elements.remove(el)
     return el
 
 
-def bignum(cv, id, text, xy, size=120, fill=GOLD, scale=1.0):
-    """4편 bigtxt: 큰 금색 숫자(BlackHanSans + 먹 테두리). 등장 때 scale로 튀어 오름."""
-    CV.check_text("number", text)
-    if scale <= 0.02:  # battle-shorts 실패 기록: popf 첫 프레임 글자 크기 0 → 렌더 중단 → 가드
-        return None
-    k = K()
-    f = font("number", max(2, size * scale))
-    x, y = xy[0] * k, xy[1] * k
-    bb = cv.d.textbbox((x, y), text, font=f, anchor="mm", stroke_width=10 * k)
-    cv.d.text((x, y), text, font=f, fill=fill, anchor="mm", stroke_width=10 * k, stroke_fill=INK)
-    return cv.add(id, "badge", [bb[0] / k, bb[1] / k, (bb[2] - bb[0]) / k, (bb[3] - bb[1]) / k])
-
+def bignum(cv, id, text, xy, size=None, fill=None, scale=1.0):
+    """큰 숫자 = style.parts.bignum. size < small_below면 작은 판(size_small), 아니면 기본 크기."""
+    b = SK.S["parts"]["bignum"]
+    small = size is not None and size < b["small_below"]
+    return SP.bignum(cv, id, text, xy, scale=scale * (b["size_small"] / b["size"] if small else 1.0))
 
 def _arrow_pts(pts, upto):
     L = [0.0]
@@ -310,56 +315,15 @@ def _arrow_pts(pts, upto):
     return out
 
 
-def arrow(cv, id, pts, col, wid=30, upto=1.0, dashed=False, head=True, register=True, alpha=255):
-    """굵은 화살표(먹 테두리 + 색 몸통 + 삼각 머리). dashed = 점선(퇴각·우회)."""
+def arrow(cv, id, pts, col, wid=None, upto=1.0, dashed=False, head=True, register=True, alpha=255, t=0.0):
+    """화살표 = style.parts.arrow(1편 방식). col = RGB 또는 style 색 이름. upto(0~1) = 자라난 정도. wid 인자는 무시(경고)."""
+    _warn_size("arrow", wid)
     if upto <= 0.01 or len(pts) < 2:
         return None
-    k = K()
-    P = _arrow_pts(pts, upto)
-    if len(P) < 2:
-        return None
-    hl = wid * 1.5
-    (ax, ay), (bx, by) = P[-2], P[-1]
-    ang = math.atan2(by - ay, bx - ax)
-    body_end = (bx - math.cos(ang) * hl * .6, by - math.sin(ang) * hl * .6) if head else (bx, by)
-    Q = P[:-1] + [body_end]
-
-    def segs(d, w, c):
-        if dashed:
-            acc = 0
-            for a, b in zip(Q, Q[1:]):
-                L = math.hypot(b[0] - a[0], b[1] - a[1])
-                n = max(1, int(L // 20))
-                for j in range(n):
-                    if (acc + j) % 2 == 0:
-                        p = (a[0] + (b[0] - a[0]) * j / n, a[1] + (b[1] - a[1]) * j / n)
-                        q = (a[0] + (b[0] - a[0]) * (j + 1) / n, a[1] + (b[1] - a[1]) * (j + 1) / n)
-                        d.line([(p[0] * k, p[1] * k), (q[0] * k, q[1] * k)], fill=c, width=int(w * k))
-                acc += n
-        else:
-            d.line([(x * k, y * k) for x, y in Q], fill=c, width=int(w * k), joint="curve")
-            for x, y in Q:
-                r = w * k / 2
-                d.ellipse([x * k - r, y * k - r, x * k + r, y * k + r], fill=c)
-        if head:
-            tri = [(bx, by), (bx - math.cos(ang) * hl + math.sin(ang) * hl * .75, by - math.sin(ang) * hl - math.cos(ang) * hl * .75),
-                   (bx - math.cos(ang) * hl - math.sin(ang) * hl * .75, by - math.sin(ang) * hl + math.cos(ang) * hl * .75)]
-            grow = (w - wid) * .8
-            if grow > 0:
-                cx_, cy_ = sum(p[0] for p in tri) / 3, sum(p[1] for p in tri) / 3
-                tri = [(cx_ + (p[0] - cx_) * (1 + grow / hl), cy_ + (p[1] - cy_) * (1 + grow / hl)) for p in tri]
-            d.polygon([(x * k, y * k) for x, y in tri], fill=c)
-
-    def draw(d):
-        segs(d, wid + 10, INK + (alpha,))
-        segs(d, wid, tuple(col) + (alpha,))
-    overlay(cv, draw)
-    xs = [p[0] for p in P]
-    ys = [p[1] for p in P]
-    if register:
-        return cv.add(id, "arrow", [min(xs) - hl, min(ys) - hl, max(xs) - min(xs) + 2 * hl, max(ys) - min(ys) + 2 * hl])
-    return None
-
+    el = SP.arrow(cv, id, pts, col=col, age=upto * SK.S["parts"]["arrow_flow"]["grow_s"], t=t, dashed=dashed)
+    if el is not None and not register:
+        cv.elements.remove(el)
+    return el
 
 def cross(cv, id, xy, r=34, col=(150, 150, 150)):
     """회색 ✕ 표시(기각된 수). 글자 대신 선으로 그린다(JUA에 ✕ 없음)."""
@@ -371,43 +335,17 @@ def cross(cv, id, xy, r=34, col=(150, 150, 150)):
     return cv.add(id, "effect", [x - r - 11, y - r - 11, 2 * r + 22, 2 * r + 22])
 
 
-def bubble(cv, id, anchor, text, dx=0, dy=-120, size=36, fill=WHITE):
-    """말풍선(4편 balloon): 흰 둥근 상자 + 먹 테두리 + 꼬리. 등록 kind = label."""
-    CV.check_text("label", text)
-    k = K()
-    f = font("label", size)
-    tw = cv.d.textlength(text, font=f) / k
-    bw, bh = tw + 44, size + 34
+def bubble(cv, id, anchor, text, dx=0, dy=-120, size=None, fill=None, age=99.0):
+    """말풍선 = style.parts.bubble(1편 방식). 꼬리는 anchor(말하는 블록)를 향한다."""
+    _warn_size("bubble", size)
     cx, cy = anchor[0] + dx, anchor[1] + dy
-    x0, y0 = cx - bw / 2, cy - bh / 2
-    tail = [(cx - 16, y0 + bh - 2), (cx + 16, y0 + bh - 2), (anchor[0], anchor[1] - 6)] if dy < 0 else \
-           [(cx - 16, y0 + 2), (cx + 16, y0 + 2), (anchor[0], anchor[1] + 6)]
-    cv.d.polygon([(x * k, y * k) for x, y in tail], fill=INK)
-    cv.d.rounded_rectangle([x0 * k, y0 * k, (x0 + bw) * k, (y0 + bh) * k], radius=22 * k, fill=fill, outline=INK, width=5 * k)
-    t2 = [(p[0], p[1] + (-5 if dy < 0 else 5)) for p in tail[:2]] + [(anchor[0], anchor[1] - 16 if dy < 0 else anchor[1] + 16)]
-    cv.d.polygon([(x * k, y * k) for x, y in t2], fill=fill)
-    cv.d.text((cx * k, cy * k), text, font=f, fill=INK, anchor="mm")
-    return cv.add(id, "label", [x0, y0, bw, bh])
+    return SP.bubble(cv, id, (cx, cy), text, tail=(anchor[0] - cx, anchor[1] - cy - (8 if dy < 0 else -8)), age=age)
 
 
-def lord(cv, id, xy, r=26, bow=0.0):
-    """얼굴 없는 인물 표식(스타일 바이블 '지도에 얼굴 금지'): 크림 원 + 금색 테두리. bow = 고개 숙임(아래로 이동)."""
-    k = K()
-    x, y = xy[0], xy[1] + 10 * bow
-    cv.d.ellipse([(x - r) * k, (y - r) * k, (x + r) * k, (y + r) * k], fill=CREAM, outline=GOLD, width=7 * k)
-    cv.d.ellipse([(x - r - 4) * k, (y - r - 4) * k, (x + r + 4) * k, (y + r + 4) * k], outline=INK, width=3 * k)
-    return cv.add(id, "icon", [x - r - 4, y - r - 4, 2 * r + 8, 2 * r + 8])
-
-
-# 도트 절 스프라이트(얼굴 없는 실루엣, 12×16). 1 = 먹, 2 = 금(관), 3 = 옷
-_BOW = [
-    ["....22......", "...1111.....", "...1111.....", "....11......", "..133331....", ".13333331...", ".13333331...",
-     "..133331....", "..133331....", "..133331....", "..133331....", "..133331....", "..11..11....", "..11..11....",
-     "..11..11....", ".111..111..."],
-    ["............", "............", "............", "............", "...22.......", "..1111......", "..11113331..",
-     "...1133331..", "....133331..", "...1333331..", "..133331....", "..133331....", "..11..11....", "..11..11....",
-     "..11..11....", ".111..111..."],
-]
+def lord(cv, id, xy, r=None, bow=0.0, person="안시성주", name=None):
+    """얼굴 없는 인물 표식 = style.parts.figure(인물별 고정 색·모자, style.json parts.people)."""
+    _warn_size("lord", r)
+    return SP.figure(cv, id, xy, person, bow=bow, name=name)
 
 
 def dot_bow(cv, id, xy, phase, px=7):
@@ -423,18 +361,10 @@ def dot_bow(cv, id, xy, phase, px=7):
     return cv.add(id, "icon", [x0, y0, 12 * px, 16 * px])
 
 
-def gauge(cv, id, xy, frac, text="군량", w=300, h=44, blink=False):
-    """군량 게이지(battle-shorts 3편 실패 교훈: '바닥'이면 0~10%). 25% 아래 깜빡임."""
-    k = K()
-    x, y = xy
-    cv.d.rounded_rectangle([x * k, y * k, (x + w) * k, (y + h) * k], radius=10 * k, fill=(40, 36, 34), outline=INK, width=5 * k)
-    f = max(0.0, min(1.0, frac))
-    col = (200, 60, 40) if f < .25 else (226, 170, 60)
-    if not (blink and f < .25):
-        cv.d.rounded_rectangle([(x + 6) * k, (y + 6) * k, (x + 6 + (w - 12) * f) * k, (y + h - 6) * k], radius=6 * k, fill=col)
-    el1 = label(cv, id + "_t", text, (x - 70, y + h / 2), size=40)
-    cv.add(id, "badge", [x, y, w, h])
-    return el1
+def gauge(cv, id, xy, frac, text="군량", w=None, h=None, blink=False):
+    """게이지 = style.parts.gauge."""
+    _warn_size("gauge", w)
+    return SP.gauge(cv, id, xy, frac, text=text, blink=blink)
 
 
 def mound_section(cv, id, mound_h, wall_h, collapse=0.0, owner=None, crack=0.0, base_y=1120):
@@ -483,101 +413,18 @@ def mound_section(cv, id, mound_h, wall_h, collapse=0.0, owner=None, crack=0.0, 
 
 # ---------------- HUD (4편 hud1080) ----------------
 
-def hud(cv, title_parts, year, subtitle, sub_alpha=1.0, legend=None, note=None):
-    """제목 띠·자막·범례. title_parts = [(글자, 강조여부)]."""
-    k = K()
-    # 자막 그라데이션 1270~1570 (anim4 GRAD: 150*sin^0.8)
-    ov = Image.new("RGBA", (1, H * k), (0, 0, 0, 0))
-    od = ImageDraw.Draw(ov)
-    for yy in range(1270 * k, 1570 * k):
-        a = int(150 * math.sin(math.pi * (yy / k - 1270) / 300) ** .8)
-        od.point((0, yy), fill=(10, 10, 10, a))
-    cv.im.alpha_composite(ov.resize(cv.im.size))
-    d = ImageDraw.Draw(cv.im)
-    cv.d = d
-    # 위 검은 띠 + 연도·채널명
-    d.rectangle([0, 0, W * k, 140 * k], fill=(14, 12, 12))
-    fy = font("label", 52)
-    d.text((44 * k, 74 * k), year, font=fy, fill=GOLD, anchor="lm")
-    d.text((1036 * k, 74 * k), "역사서클", font=font("label", 46), fill=WHITE, anchor="rm")
-    cv.add("year", "badge", [44, 48, 140, 52])
-    # 크림 제목 띠 + 강조어 진빨강 상자
-    d.rectangle([0, 140 * k, W * k, 236 * k], fill=(250, 244, 228))
-    ft = font("number", 52)
-    PADH = 14
-    tot = sum(d.textlength(p, font=ft) / k for p, _ in title_parts) + 2 * PADH
-    x = 540 - tot / 2
-    for p, hl in title_parts:
-        CV.check_text("number", p)
-        w_ = d.textlength(p, font=ft) / k
-        if hl:
-            x += PADH
-            d.rounded_rectangle([(x - 10) * k, (190 - 33) * k, (x + w_ + 10) * k, (190 + 33) * k], radius=8 * k, fill=HOT)
-            d.text((x * k, 188 * k), p, font=ft, fill=(252, 246, 232), anchor="lm")
-            x += w_ + PADH
-        else:
-            d.text((x * k, 190 * k), p, font=ft, fill=(28, 24, 22), anchor="lm")
-            x += w_
-    cv.add("title", "title", [540 - tot / 2, 150, tot, 80])
-    # 자막(Jua 56, 760px 넘으면 두 줄)
-    if subtitle:
-        CV.check_text("label", subtitle)
-        f2 = font("label", 56)
-        lines = [subtitle]
-        if d.textlength(subtitle, font=f2) / k > 760:
-            wds = subtitle.split(" ")
-            best = None
-            for i in range(1, len(wds)):
-                a1, b1 = " ".join(wds[:i]), " ".join(wds[i:])
-                m = max(d.textlength(a1, font=f2), d.textlength(b1, font=f2)) / k
-                if m > 960:
-                    continue
-                score = m - (220 if a1.endswith(",") else 0)  # 쉼표 뒤에서 끊기를 우선(구절 중간 끊김 방지)
-                if best is None or score < best[0]:
-                    best = (score, [a1, b1])
-            if best is None:  # 두 줄로도 960px를 넘으면 900px 기준으로 세 줄
-                lines3, cur = [], ""
-                for w_ in wds:
-                    nxt = (cur + " " + w_).strip()
-                    if cur and d.textlength(nxt, font=f2) / k > 900:
-                        lines3.append(cur)
-                        cur = w_
-                    else:
-                        cur = nxt
-                lines3.append(cur)
-                best = (0, lines3)
-            lines = best[1]
-        y0 = 1420 - (len(lines) - 1) * 40
-        al = int(255 * sub_alpha)
-        tl = Image.new("RGBA", cv.im.size, (0, 0, 0, 0))
-        td = ImageDraw.Draw(tl)
-        for n, ln in enumerate(lines):
-            td.text((540 * k, (y0 + n * 80) * k), ln, font=f2, fill=(255, 255, 255, al), anchor="mm", stroke_width=8 * k, stroke_fill=(20, 16, 14, al))
-        cv.im.alpha_composite(tl)
-        cv.d = ImageDraw.Draw(cv.im)
-        wmax = max(d.textlength(ln, font=f2) for ln in lines) / k
-        cv.add("subtitle", "subtitle", [540 - wmax / 2, y0 - 40, wmax, 80 * len(lines)])
-    # 범례 띠 1600~1700 (4편)
-    d = cv.d
-    if legend:
-        d.rectangle([0, 1600 * k, W * k, 1700 * k], fill=(14, 12, 12))
-        x = 40
-        fl = font("label", 40)
-        for i, (c, n) in enumerate(legend):
-            d.rectangle([x * k, 1632 * k, (x + 36) * k, 1668 * k], fill=tuple(c), outline=(240, 240, 240), width=3 * k)
-            d.text(((x + 50) * k, 1650 * k), n, font=fl, fill=(245, 240, 230), anchor="lm")
-            wn = d.textlength(n, font=fl) / k
-            cv.add(f"legend{i}", "badge", [x, 1632, 50 + wn, 36])
-            x += 80 + wn + 20
-        if note:
-            CV.check_text("label", note)
-            fn = font("label", 34)
-            d.text((1040 * k, 1650 * k), note, font=fn, fill=(220, 214, 200), anchor="rm")
-            wn = d.textlength(note, font=fn) / k
-            cv.add("note", "badge", [1040 - wn, 1632, wn, 36])
+def hud(cv, title_parts, year, subtitle, sub_alpha=1.0, legend=None, note=None, t=99.0, first_scene=False):
+    """화면 틀 = style.kit.draw_frame(4편 hud1080 방식, style.json frame). legend = 세력 이름(한글) 목록."""
+    names = []
+    for it in legend or []:
+        names.append(it[1] if isinstance(it, (tuple, list)) else it)
+    age = 99.0 if sub_alpha >= 1 else sub_alpha * SK.S["frame"]["caption"]["fade_s"]
+    out = SK.draw_frame(cv.im, year=year, title=title_parts, caption=subtitle, legend=names, note=note or "",
+                        t=t, caption_age=age, first_scene=first_scene, scale=K())
+    cv.im = out.convert("RGBA")
+    cv.d = ImageDraw.Draw(cv.im)
+    return cv
 
-
-# ---------------- 카메라·출력 ----------------
 
 def cam(img, z=1.0, cx=540, cy=960):
     """anim4.cam: 확대 z, 중심(cx, cy) 출력 좌표. 화면 밖으로 나가지 않게 고정."""

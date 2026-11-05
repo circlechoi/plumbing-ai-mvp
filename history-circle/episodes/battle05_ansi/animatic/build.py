@@ -68,7 +68,7 @@ def s1(u):
     cv = E.world(base("wide"), "s1")
     an = W_("안시성")
     E.fort(cv, "f_ansi", an)
-    E.label(cv, "l_ansi", "안시성", (an[0], an[1] + 78), size=44)
+    E.label(cv, "l_ansi", "안시성", (an[0], an[1] + 78))
     ends = WIDE_TANG
     starts = [(640, 480), (780, 640), (700, 820)]
     g = E.ease(E.ramp(u, 0.0, 3.0))
@@ -91,20 +91,17 @@ def s2(u):
     fade = 1 - E.ramp(u, 1.0, st(2, 1))
     if fade > 0:
         E.unit(cv, "u_gog_ghost", (zp[0] + 150, zp[1] + 140), 315, "XL", GOG, icon="inf", alpha=int(60 + 150 * fade))
-        E.label(cv, "l_zp", "주필산 15만", (zp[0] + 150, zp[1] + 240), size=38)
+        E.label(cv, "l_zp", "주필산 15만", (zp[0] + 150, zp[1] + 240))
     E.fort(cv, "f_ansi", an)
-    E.label(cv, "l_ansi", "안시성", (an[0], an[1] + 78), size=44)
+    E.label(cv, "l_ansi", "안시성", (an[0], an[1] + 78))
     for i, ((x, y), a) in enumerate(WIDE_TANG):
         E.unit(cv, f"u_tang{i}", (x, y), a, "XL", TANG, icon="cav")
     if u >= st(2, 1):
         g = E.ease(E.ramp(u, st(2, 1), st(2, 1) + 1.2))
-        E.arrow(cv, "a_pyong", [(an[0] + 60, an[1] + 60), (560, 1110), (850, 1200)], E.GOLD, wid=22, upto=g, dashed=True)
+        E.arrow(cv, "a_pyong", [(an[0] + 60, an[1] + 60), (560, 1110), (850, 1200)], "gold", upto=g, dashed=True)
         if g > .9:
-            E.label(cv, "l_py", "평양 방향", (700, 1150), size=36)
-        pulse = .5 + .5 * math.sin(u * 6)
-        k = E.K()
-        cv.d.rectangle([(an[0] - 70) * k, (an[1] - 70) * k, (an[0] + 70) * k, (an[1] + 70) * k], outline=(255, 214, 90), width=int((6 + 4 * pulse) * k))
-        cv.add("box_ansi", "effect", [an[0] - 74, an[1] - 74, 148, 148])
+            E.label(cv, "l_py", "평양 방향", (700, 1150))
+        E.SP.focus_box(cv, "box_ansi", an, 70, t=u)
     return cv, dict(z=E.lerp(1.05, 1.0, u / TL[2]["dur"]), cx=500, cy=880)
 
 
@@ -114,10 +111,10 @@ def s3(u):
     for nm, xy, kind, lxy in (("ansi", an, "sanseong", (an[0], an[1] + 78)), ("ogol", og, "sanseong", (og[0] - 10, og[1] - 80)),
                               ("gunan", ga, "sanseong", (ga[0] + 20, ga[1] + 78)), ("sin", sx, "sanseong", (sx[0], sx[1] + 78))):
         E.fort(cv, "f_" + nm, xy, kind)
-    E.label(cv, "l_ansi", "안시성", (an[0], an[1] + 78), size=44)
-    E.label(cv, "l_ogol", "오골성", (og[0] - 10, og[1] - 80), size=40)
-    E.label(cv, "l_gunan", "건안성", (ga[0], ga[1] - 74), size=36)
-    E.label(cv, "l_sin", "신성", (sx[0], sx[1] + 78), size=40)
+    E.label(cv, "l_ansi", "안시성", (an[0], an[1] + 78))
+    E.label(cv, "l_ogol", "오골성", (og[0] - 10, og[1] - 80))
+    E.label(cv, "l_gunan", "건안성", (ga[0], ga[1] - 74))
+    E.label(cv, "l_sin", "신성", (sx[0], sx[1] + 78))
     b1, b2 = WIDE_TANG[0][0], WIDE_TANG[1][0]
     E.unit(cv, "u_tang0", b1, 270, "XL", TANG, icon="cav")
     E.unit(cv, "u_tang1", b2, 270, "XL", TANG, icon="cav")
@@ -126,14 +123,14 @@ def s3(u):
     route = [(b2[0] + 70, b2[1] + 60), (640, 1060), (og[0] - 50, og[1] - 10), (860, 1205)]
     E.arrow(cv, "a_fast", route, E.GOLD, wid=22, upto=g, dashed=True)
     if g > .5:
-        E.label(cv, "l_fast", "빠른 길", (600, 1010), size=36)
+        E.label(cv, "l_fast", "빠른 길", (600, 1010))
     if u < st(3, 2):
         E.bubble(cv, "b_go", b1, "늙은 장수부터 치시지요", dx=140, dy=-150)
     else:
         E.bubble(cv, "b_jang", b1, "천자는 요행을 바라지 않습니다", dx=140, dy=-150)
         if u > st(3, 2) + .6:
             E.cross(cv, "x_fast", (700, 1100))
-        E.label(cv, "l_safe", "안전한 길", (an[0] + 10, an[1] - 96), size=36)
+        E.label(cv, "l_safe", "안전한 길", (an[0] + 10, an[1] - 96))
     if u >= st(3, 4):
         a = E.ease(E.ramp(u, st(3, 4), st(3, 4) + .6))
         E.unit(cv, "u_gog_sin", (sx[0] - 168, sx[1] + 70), 180, "L", GOG, icon="inf", alpha=int(255 * a))
@@ -157,7 +154,7 @@ def ansi_region(cv, lab=True):
     an = R_("안시성")
     E.fort(cv, "f_ansi", an)
     if lab:
-        E.label(cv, "l_ansi", "안시성", (an[0], an[1] + 84), size=44)
+        E.label(cv, "l_ansi", "안시성", (an[0], an[1] + 84))
     return an
 
 
@@ -169,7 +166,7 @@ def s4(u):
         dx, dy = (x - an[0]) * .6 * (1 - g), (y - an[1]) * .6 * (1 - g)
         E.unit(cv, f"u_tang{i}", (x + dx, y + dy), a, "L", TANG, icon="cav")
     if u >= st(4, 1):
-        E.label(cv, "l_cost", "안전한 길의 값", (540, 1060), size=40)
+        E.label(cv, "l_cost", "안전한 길의 값", (540, 1060))
     if u >= st(4, 2):
         E.bignum(cv, "n_time", "시간", (540, 1160), size=96, scale=E.popf(u - st(4, 2)))
     return cv, dict(z=E.lerp(1.0, 1.03, E.ramp(u, ZOOM_S, TL[4]["dur"])), cx=540, cy=820)
@@ -192,7 +189,7 @@ def s5(u):
             E.arrow(cv, f"a_bnc{i}", [(tx, ty), (bx + 14, by - 14)], (200, 200, 205), wid=10, upto=1, head=False, register=False)
     E.lord(cv, "lord", (an[0], an[1] - 96))
     if st(5, 2) <= u < st(5, 3) + .4:
-        E.bubble(cv, "b_threat", SIEGE[0][0], "성을 빼앗으면 남자는 모두 묻겠다", dx=170, dy=-210, size=34)
+        E.bubble(cv, "b_threat", SIEGE[0][0], "성을 빼앗으면 남자는 모두 묻겠다", dx=170, dy=-210)
         g = E.ramp(u, st(5, 2) + 1.2, st(5, 2) + 1.8)
         if g > 0:
             k = E.K()
@@ -222,12 +219,12 @@ def s6(u):
     cv = E.plain("s6")
     s = section_state(6, u)
     (px, py), (wx0, wx1, wt) = E.mound_section(cv, "sec", **s)
-    E.label(cv, "l_title", "안시성 동남쪽 (개념도)", (540, 330), size=40)
-    E.label(cv, "l_mound", "흙산", (300, 1190), size=44)
-    E.label(cv, "l_wall", "성벽", (710, 1190), size=44)
+    E.label(cv, "l_title", "안시성 동남쪽 (개념도)", (540, 330))
+    E.label(cv, "l_mound", "흙산", (300, 1190))
+    E.label(cv, "l_wall", "성벽", (710, 1190))
     if u < st(6, 1):
         ph = (u % 1.2) / 1.2
-        E.arrow(cv, "a_try", [(240, 760), (E.lerp(240, wx0 - 6, ph), E.lerp(760, wt + 60, ph))], (200, 200, 205), wid=12, upto=1, register=False)
+        E.arrow(cv, "a_try", [(240, 760), (E.lerp(240, wx0 - 6, ph), E.lerp(760, wt + 60, ph))], "muted", upto=1, register=False)
     if u >= st(6, 2):
         days = int(60 * E.ramp(u, st(6, 2), TL[6]["dur"] - .5))
         E.bignum(cv, "n_60", f"{days}일", (300, 520), size=96)
@@ -238,22 +235,17 @@ def s7(u):
     cv = E.plain("s7")
     s = section_state(7, u)
     (px, py), (wx0, wx1, wt) = E.mound_section(cv, "sec", **s)
-    E.label(cv, "l_title", "안시성 동남쪽 (개념도)", (540, 330), size=40)
+    E.label(cv, "l_title", "안시성 동남쪽 (개념도)", (540, 330))
     fx = {}
     if u < 1.0:
         fx["flash"] = .45 * (1 - E.ramp(u, 0.25, 0.45)) if u > .25 else 0
         fx["shake"] = E.ramp(u, .2, .3) * (1 - E.ramp(u, .6, 1.0))
     if st(7, 2) <= u < st(7, 4):
-        k = E.K()
-        r = 44 + 6 * math.sin(u * 9)
-        cv.d.ellipse([(wx0 + 30 - r) * k, (wt + 30 - r) * k, (wx0 + 30 + r) * k, (wt + 30 + r) * k], outline=(222, 40, 34), width=8 * k)
-        cv.add("gap", "effect", [wx0 + 30 - r, wt + 30 - r, 2 * r, 2 * r])
+        E.SP.ring(cv, "gap", (wx0 + 30, wt + 30), 44 + 6 * math.sin(u * 9))
     if st(7, 3) <= u < st(7, 5) + 1.0:
-        k = E.K()
-        on = int(u * 3) % 2 == 0
-        if on:
-            cv.d.ellipse([(px - 50) * k, (py - 120) * k, (px + 50) * k, (py - 20) * k], outline=(222, 40, 34), width=8 * k)
-        E.label(cv, "l_empty", "빈 자리", (px - 150, py - 110), size=40, fill=(172, 34, 28))
+        if int(u * 3) % 2 == 0:
+            E.SP.ring(cv, "post", (px, py - 70), 50)
+        E.label(cv, "l_empty", "빈 자리", (px - 150, py - 110), fill="emphasis")
     if st(7, 4) <= u:
         E.lord(cv, "lord", (wx1 - 30, wt - 64))
     if st(7, 5) <= u:
@@ -265,13 +257,13 @@ def s7(u):
     if st(7, 7) <= u:
         E.unit(cv, "u_tang", (150, 1040), 90, "M", TANG, icon="cav")
         ph = ((u - st(7, 7)) % 1.0)
-        E.arrow(cv, "a_up", [(220, 1000), (E.lerp(220, px - 120, ph), E.lerp(1000, py + 60, ph))], E.UNIT["tang"], wid=16, upto=1, register=False)
+        E.arrow(cv, "a_up", [(220, 1000), (E.lerp(220, px - 120, ph), E.lerp(1000, py + 60, ph))], E.SK.faction("당"), upto=1, register=False)
         n = min(3, 1 + int((u - st(7, 7)) / 1.0))
         E.bignum(cv, "n_3d", ["하루", "이틀", "사흘"][n - 1], (720, 560), size=96)
         if u < st(7, 8) + .5:
-            E.bubble(cv, "b_sol", (150, 990), "저 산을 다시 올라가라고?", dx=150, dy=-350, size=36)
+            E.bubble(cv, "b_sol", (150, 990), "저 산을 다시 올라가라고?", dx=150, dy=-350)
     if st(7, 8) <= u:
-        E.label(cv, "l_own", "고구려의 성벽", (px, py - 170), size=44, fill=(120, 30, 24))
+        E.label(cv, "l_own", "고구려의 성벽", (px, py - 170), fill=E.SK.faction("고구려"))
     return cv, dict(z=E.lerp(1.05, 1.0, u / TL[7]["dur"]), cx=540, cy=900, **fx)
 
 
@@ -316,7 +308,7 @@ def s10(u):
     cv = E.plain("s10")
     k = E.K()
     if u < st(10, 1):
-        E.label(cv, "l_noname", "이름은 기록에 없음", (540, 560), size=52)
+        E.label(cv, "l_noname", "이름은 기록에 없음", (540, 560))
         if u > .8:
             E.label(cv, "l_yang", "양만춘 = 후대에 전해진 이름", (540, 700), size=44, fill=(90, 84, 70))
     else:
@@ -326,7 +318,7 @@ def s10(u):
         E.bignum(cv, "n_hold", "버티기", (540, 700), size=130, scale=E.popf(u - st(10, 1) - .3))
         if u >= st(10, 2):
             E.fort(cv, "f_ansi", (430, 1080))
-            E.label(cv, "l_ansi", "안시성", (580, 1080), size=48)
+            E.label(cv, "l_ansi", "안시성", (580, 1080))
     return cv, dict(z=E.lerp(1.0, 1.04, u / TL[10]["dur"]), cx=540, cy=880)
 
 

@@ -91,21 +91,9 @@ class Canvas:
         self.d.text((x, y), text, font=f, fill=fill, anchor="mm", stroke_width=sw * K, stroke_fill=stroke)
         return self.add(id, "label", [bb[0] / K, bb[1] / K, (bb[2] - bb[0]) / K, (bb[3] - bb[1]) / K])
 
-    def subtitle(self, text, y=1420, size=56):
-        """쇼츠 하단 자막(그라데이션 1270~1570 + 흰 글씨). 자막띠 안이라 kind=subtitle."""
-        g0, g1 = 1270, 1570
-        ov = Image.new("RGBA", self.im.size, (0, 0, 0, 0))
-        od = ImageDraw.Draw(ov)
-        for yy in range(g0 * K, g1 * K):
-            t = (yy - g0 * K) / ((g1 - g0) * K)
-            a = int(170 * (1 - abs(t - .5) * 2) ** .6)
-            od.line([(0, yy), (self.W * K, yy)], fill=(20, 18, 16, a))
-        self.im.alpha_composite(ov)
-        check_text("label", text)
-        f = font("label", size * K)
-        bb = self.d.textbbox((self.W * K / 2, y * K), text, font=f, anchor="mm")
-        self.d.text((self.W * K / 2, y * K), text, font=f, fill=WHITE, anchor="mm", stroke_width=5 * K, stroke_fill=INK)
-        return self.add("subtitle", "subtitle", [bb[0] / K, bb[1] / K, (bb[2] - bb[0]) / K, (bb[3] - bb[1]) / K])
+    def subtitle(self, text, y=None, size=None):
+        """폐지(11/05 스타일 키트 v1): 자막은 style.kit.draw_frame(style.parts.finish)만 그린다."""
+        raise RuntimeError("Canvas.subtitle 폐지 — style.parts.finish(cv, caption=...)를 쓴다")
 
     def save(self, path, **kw):
         out = self.im.resize((self.W, self.H), Image.LANCZOS).convert("RGB")

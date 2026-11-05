@@ -76,7 +76,7 @@ def c_battle():
         draw_unit(cv, k, nxy, ang, g, fk, icon=ic)
     draw_fort(cv, "ansi", fort_xy, "sanseong")
     cv.label("ansi_l", "안시성", (fort_xy[0] + 130, fort_xy[1]), 40)
-    cv.subtitle("고구려군은 산을 따라 진을 칩니다")
+    # 자막은 style.parts.finish가 그린다(Canvas.subtitle 폐지)
     return cv
 
 

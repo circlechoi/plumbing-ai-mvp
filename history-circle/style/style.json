@@ -52,6 +52,7 @@
     "legend_text":[245, 240, 230],
     "note_text":  [220, 214, 200],
     "water_text": [40, 80, 190],
+    "muted":      [200, 200, 205],
     "place_fill": [236, 214, 140],
     "_source_misc": "ink·cream·band_black·emphasis = anim4.py / ink_line·gold·red_target·water_text·place_fill = bmap3.py",
     "faction": {
@@ -64,6 +65,7 @@
       "고구려": [150, 52, 40], "말갈": [190, 104, 48], "수": [88, 92, 104], "당": [52, 56, 66],
       "백제": [232, 184, 56], "신라": [226, 96, 52], "왜": [206, 32, 46]
     },
+    "faction_ids": {"_note": "components/spec.json palette.unit_faction 키와의 대응", "고구려": "goguryeo", "말갈": "malgal", "수": "sui", "당": "tang", "백제": "baekje", "신라": "silla", "왜": "wa"},
     "schematic": {
       "_source": "1편 bmap3.py — 도식 컷(R4) 바탕. 지도 컷 바탕은 v4-S(mapkit)",
       "land": [214, 190, 150], "land_dark": [190, 164, 124], "water": [118, 150, 214], "water_dark": [80, 110, 180],
@@ -98,7 +100,7 @@
     "_source": "1편 bk/bmap3.py·scenes13.py (부품 기준 R1~R4). 숫자는 1080 기준",
     "place":     {"square": 44, "inner": 18, "outline": 7, "inner_outline": 5, "gap": 14, "text_stroke_color": "white", "target_color": "red_target"},
     "bubble":    {"pad_x": 26, "half_h": 38, "radius": 30, "outline": 6, "fill": "white", "text": "ink", "pop_s": 0.2, "tail_default": [-40, 50]},
-    "card":      {"x0": 110, "w": 860, "half_h": 70, "radius": 26, "outline": 8, "fill": "cream", "row0_y": 470, "row_step": 190,
+    "card":      {"text": "ink", "x0": 110, "w": 860, "half_h": 70, "radius": 26, "outline": 8, "fill": "cream", "row0_y": 470, "row_step": 190,
                   "icon": {"dx": 28, "d": 100, "outline": 6}, "text_dx": 152, "slide_px": 160, "slide_s": 0.35, "dim_alpha": 110},
     "direction": {"pad_x": 50, "half_h": 36, "fill": "ink", "text": "white", "tri": "gold", "tri_w": 24, "tri_h": 32},
     "inset":     {"pad": 8, "outline": 6, "box_color": "red_target", "box_w": 7},
@@ -106,8 +108,24 @@
     "arrow":     {"wid": 46, "outline": 8, "status": "기존코드", "source": "bmap3.py arrow(wid=46, outline=8)"},
     "unit":      {"ref": "components/spec.json#unit", "note": "'ㅗ' 블록 규격은 spec.json 한 곳"},
     "fort":      {"ref": "components/spec.json#fort"},
-    "figure":    {"status": "임시", "note": "인물 표식(얼굴 없음·인물별 고정 색/모자)은 1편에 없음 — 4단계에서 animatic/engine.py 표식을 옮기고 사용자 확인"},
-    "gauge":     {"status": "임시", "note": "시계/게이지 — engine.py 값을 4단계에서 옮김"}
+    "arrow_flow": {"period": 70, "seg": 26, "speed": 90, "width_ratio": 0.22, "min_w": 3, "lighten": 45, "alpha": 200, "head_len_ratio": 1.9, "head_w_ratio": 1.2, "tail": 0.5, "grow_s": 0.7},
+    "dashed":    {"dash": 26, "width_ratio": 0.45, "status": "기존코드", "source": "engine.py arrow dashed(퇴각·우회)"},
+    "focus_box": {"color": [255, 214, 90], "w": 6, "pulse_w": 4, "pulse_hz": 0.95, "status": "기존코드", "source": "spec.json zoom.shorts box_rgb·box_w (줌 직전 금색 박스)"},
+    "ring":      {"color": "red_target", "w": 8, "dash": 18, "status": "기존코드", "source": "5편 build.py s7 붉은 원(빈 자리·틈) + 1편 위치 미상 점선 원"},
+    "cross":     {"r": 34, "w_outer": 22, "w_inner": 12, "color": [150, 150, 150], "status": "기존코드", "source": "engine.py cross"},
+    "bignum":    {"font": "bhs", "size": 120, "size_small": 76, "small_below": 80, "stroke": 10, "color": "gold", "status": "기존코드", "source": "engine.py bignum (4편 bigtxt)"},
+    "figure":    {"r": 26, "fill": "cream", "ring": 7, "edge": 3, "hats": ["none", "crown", "helmet", "hood"],
+                  "status": "임시", "source": "engine.py lord(크림 원 + 금색 테두리) + 사용자 요청 '인물별 고정 색/모자'",
+                  "note": "얼굴 없음. 인물별 색·모자는 people에 등록하고 편마다 새로 정하지 않는다"},
+    "people":    {"_rule": "인물 표식 등록부. 새 인물은 여기에 먼저 등록한 뒤 쓴다",
+                  "안시성주": {"ring": [240, 196, 80], "hat": "helmet", "alias": "양만춘(후대 이름)", "status": "임시"},
+                  "당 태종": {"ring": [52, 56, 66], "hat": "crown", "status": "임시"},
+                  "의자왕": {"ring": [232, 184, 56], "hat": "crown", "status": "임시"},
+                  "계백": {"ring": [232, 184, 56], "hat": "helmet", "status": "임시"}},
+    "gauge":     {"w": 300, "h": 44, "radius": 10, "outline": 5, "inset": 6, "bg": [40, 36, 34], "ok": [226, 170, 60], "low": [200, 60, 40], "low_at": 0.25, "label_dx": -70,
+                  "status": "기존코드", "source": "engine.py gauge(군량)"},
+    "clock":     {"r": 46, "outline": 6, "bg": "cream", "fill": "ink", "hand": "red_target", "label_dy": 70,
+                  "status": "임시", "source": "5편 시계 표식을 키트 부품으로(크기는 지명 글씨와 맞춤)"}
   },
 
   "formats": {

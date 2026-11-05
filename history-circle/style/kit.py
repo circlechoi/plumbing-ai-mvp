@@ -58,12 +58,37 @@ def _ramp(t, a, b):
     return max(0.0, min(1.0, (t - a) / max(1e-6, b - a)))
 
 
-def _gradient(h):
+class _SDraw:
+    """출력 좌표(1080 기준)로 받아 scale배 내부 해상도에 그린다."""
+
+    def __init__(self, im, s):
+        self.d = ImageDraw.Draw(im, "RGBA")
+        self.s = s
+
+    def _p(self, v):
+        return [x * self.s for x in v]
+
+    def rectangle(self, box, **kw):
+        if "width" in kw:
+            kw["width"] = max(1, int(round(kw["width"] * self.s)))
+        self.d.rectangle(self._p(box), **kw)
+
+    def rounded_rectangle(self, box, radius, **kw):
+        self.d.rounded_rectangle(self._p(box), radius=radius * self.s, **kw)
+
+    def text(self, xy, text, font, stroke_width=0, **kw):
+        self.d.text(self._p(xy), text, font=font, stroke_width=int(round(stroke_width * self.s)), **kw)
+
+    def textlength(self, text, font):
+        return self.d.textlength(text, font=font) / self.s
+
+
+def _gradient(h, s=1):
     g = S["frame"]["caption"]["gradient"]
     col = np.zeros((h, 1), np.float32)
     span = g["y1"] - g["y0"]
-    for y in range(g["y0"], min(h, g["y1"])):
-        col[y] = g["peak_alpha"] * math.sin(math.pi * (y - g["y0"]) / span) ** g["power"] / 255
+    for y in range(int(g["y0"] * s), min(h, int(g["y1"] * s))):
+        col[y] = g["peak_alpha"] * math.sin(math.pi * (y / s - g["y0"]) / span) ** g["power"] / 255
     return col, g["to"]
 
 
@@ -81,26 +106,29 @@ def wrap_caption(text, d, f):
     return best[1] if best else [text]
 
 
-def draw_frame(im, year, title, caption=None, legend=(), note="", t=99.0, caption_age=99.0, first_scene=False):
-    """지도 이미지(1080×1920 RGB) 위에 화면 틀을 얹는다.
+def draw_frame(im, year, title, caption=None, legend=(), note="", t=99.0, caption_age=99.0, first_scene=False, scale=1):
+    """지도 이미지 위에 화면 틀을 얹는다. im 크기 = 1080×1920 × scale(엔진 내부 배율 K로 그릴 때 scale=K).
 
     title = [(글자, 강조여부), ...], legend = 세력 이름 목록(unit_faction 키), t = 장면 시작 후 초.
     """
     F = S["frame"]
     W, H = F["canvas"]["w"], F["canvas"]["h"]
-    if im.size != (W, H):
-        raise ValueError(f"캔버스는 {W}×{H}")
+    s = scale
+    if im.size != (int(W * s), int(H * s)):
+        raise ValueError(f"캔버스는 {W}×{H}×{s}")
+    mode = im.mode
     a = np.asarray(im.convert("RGB")).astype(np.float32)
-    g, to = _gradient(H)
+    g, to = _gradient(int(H * s), s)
     a = a * (1 - g[..., None]) + to * g[..., None]
     im = Image.fromarray(a.astype(np.uint8))
-    d = ImageDraw.Draw(im, "RGBA")
+    d = _SDraw(im, s)
+    fnt = lambda key, size=None: font(key, scale=s, size=size)
 
     tb = F["top_band"]
     d.rectangle(tb["bbox"], fill=color(tb["fill"]) + (tb["alpha"],))
     yb, wm = tb["year_badge"], tb["watermark"]
-    d.text(yb["xy"], check_text(year), font=font(yb["type"]), fill=color(yb["color"]), anchor=yb["anchor"])
-    d.text(wm["xy"], wm["text"], font=font(wm["type"]), fill=color(wm["color"]), anchor=wm["anchor"])
+    d.text(yb["xy"], check_text(year), font=fnt(yb["type"]), fill=color(yb["color"]), anchor=yb["anchor"])
+    d.text(wm["xy"], wm["text"], font=fnt(wm["type"]), fill=color(wm["color"]), anchor=wm["anchor"])
 
     ti = F["title_band"]
     intro = ti["intro"]
@@ -109,7 +137,7 @@ def draw_frame(im, year, title, caption=None, legend=(), note="", t=99.0, captio
     else:
         al = int(ti["alpha"] * (_ramp(t, intro["hidden_until_s"], intro["hidden_until_s"] + intro["fade_s"]) if first_scene else 1))
         d.rectangle(ti["bbox"], fill=color(ti["fill"]) + (al,))
-        f = font(ti["type"])
+        f = fnt(ti["type"])
         em = ti["emphasis"]
         n_em = sum(1 for _, h in title if h)
         total = sum(d.textlength(check_text(p), font=f) for p, _ in title) + 2 * em["gap"] * n_em
@@ -129,7 +157,7 @@ def draw_frame(im, year, title, caption=None, legend=(), note="", t=99.0, captio
 
     if caption:
         c = F["caption"]
-        f2 = font(c["type"])
+        f2 = fnt(c["type"])
         lines = wrap_caption(check_text(caption), d, f2)
         al = int(255 * _ramp(caption_age, 0, c["fade_s"]))
         y0 = c["center_y"] - (len(lines) - 1) * c["line_gap"] / 2
@@ -140,7 +168,7 @@ def draw_frame(im, year, title, caption=None, legend=(), note="", t=99.0, captio
     lb = F["legend_band"]
     d.rectangle(lb["bbox"], fill=color(lb["fill"]) + (lb["alpha"],))
     ch = lb["chip"]
-    fl = font("legend")
+    fl = fnt("legend")
     x = ch["x0"]
     y = lb["row_y"]
     for name in legend:
@@ -150,5 +178,5 @@ def draw_frame(im, year, title, caption=None, legend=(), note="", t=99.0, captio
         x += ch["step_pad"] + d.textlength(name, font=fl)
     if note:
         nt = lb["note"]
-        d.text(nt["xy"], check_text(note), font=font(nt["type"]), fill=color(nt["color"]), anchor=nt["anchor"])
-    return im
+        d.text(nt["xy"], check_text(note), font=fnt(nt["type"]), fill=color(nt["color"]), anchor=nt["anchor"])
+    return im.convert(mode) if mode != "RGB" else im
