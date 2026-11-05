@@ -4,7 +4,8 @@
 - 쇼츠(history-battle-shorts 3절 13, 4편): 광역 지도에 전장 범위 금색 박스 → 1.15초 동안 박스 중심으로 확대 →
   0.55초 크로스페이드로 전장 지도. 확대하는 그림에는 라벨·성 아이콘을 넣지 않는다.
 - 롱폼(history-longform-craft): 광역 지도를 지역도와 같은 경위도 창까지 0.55초 지수 확대 + 줌 블러 → 0.45초 섞기.
-배율은 고정값(4편 3.4배)이 아니라 두 지도의 경위도 창에서 계산한다(같은 경위도 창 원칙).
+배율은 두 지도의 경위도 창에서 계산한다(같은 경위도 창 원칙). 단 쇼츠는 max_scale(기본 3.4배, 4편 원문)을
+넘지 않는다 — 넘으면 그 배율에서 멈추고 크로스페이드로 지역 지도를 잇는다(11/05 안시성 편 약 20배 → 금색 박스가 화면을 덮음).
 
 입력 지도는 이미 렌더된 바탕 이미지(라벨·아이콘 없는 판)와 그 경위도 창.
 경위도 → 픽셀은 창 안에서 선형으로 본다(지역 규모에서 충분, 광역이 넓으면 오차 — 추정).
@@ -64,14 +65,18 @@ def _zoom_blur(img, strength):
     return acc
 
 
-def zoom_frames(wide_img, wide_win, region_img, region_win, fmt="shorts", fps=24):
-    """광역 → 지역 프레임 목록(PIL RGB). 마지막 프레임 = 지역 지도 그대로."""
+def zoom_frames(wide_img, wide_win, region_img, region_win, fmt="shorts", fps=24, max_scale=None):
+    """광역 → 지역 프레임 목록(PIL RGB). 마지막 프레임 = 지역 지도 그대로.
+    max_scale: 쇼츠 확대 상한(None이면 spec zoom.max_scale). 롱폼은 같은 경위도 창 원칙대로 상한 없음."""
     out_wh = region_img.size
     wide = wide_img.convert("RGB").resize(out_wh, Image.LANCZOS) if wide_img.size != out_wh else wide_img.convert("RGB")
     reg = region_img.convert("RGB")
     x0, y0, x1, y1 = wide_win.rect_in(out_wh, region_win)
     tcx, tcy = (x0 + x1) / 2, (y0 + y1) / 2
     s_end = min(out_wh[0] / (x1 - x0), out_wh[1] / (y1 - y0))  # 지역 창이 화면을 채우는 배율
+    if fmt == "shorts":
+        cap = Z["max_scale"]["value"] if max_scale is None else max_scale
+        s_end = min(s_end, cap)
     W, H = out_wh
     frames = []
     p = Z[fmt]

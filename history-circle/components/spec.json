@@ -75,16 +75,16 @@
         "id": "legend_band",
         "bbox": [
           0,
-          1790,
+          1600,
           1080,
-          130
+          320
         ],
         "allow_kinds": [
           "badge",
           "label"
         ],
-        "status": "임시",
-        "source": "history-battle-shorts 2절 '맨 아래 검은 띠 = 나라 범례 고정' — 띠 높이 수치 없음, 130px는 임시값"
+        "status": "확정",
+        "source": "history-battle-shorts 2절 '맨 아래 검은 띠 = 나라 범례 고정' + 4편 anim4 hud1080 범례 위치 1600~1700(세션 3 애니매틱에서 확인). 1700 아래도 같은 검은 띠로 채움(11/05, 이전 임시값 1790~1920 폐기)"
       }
     ],
     "longform": [
@@ -416,6 +416,11 @@
       "value": 1.5,
       "status": "임시",
       "source": "history-battle-shorts 3절 14 '장면 사이 배율·위치가 크게 다르면 한 프레임 컷 금지' — '크게'의 수치 1.5배는 임시"
+    },
+    "max_scale": {
+      "value": 3.4,
+      "status": "확정",
+      "source": "history-battle-shorts 3절 13 '1.15초 동안 박스 중심으로 3.4배 확대 → 0.55초 크로스페이드'. 경위도 창 배율이 이보다 크면(안시성 편 약 20배) 3.4배에서 멈추고 크로스페이드(11/05 시험에서 발견)"
     }
   },
   "font": {

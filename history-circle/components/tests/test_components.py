@@ -121,6 +121,40 @@ class T(unittest.TestCase):
             self.assertEqual(len(fr), n)
             self.assertEqual(fr[-1].getpixel((0, 0)), (40, 120, 60))
 
+    def test_zoom_max_scale(self):
+        """쇼츠 확대는 max_scale(4편 3.4배)을 넘지 않는다 — 11/05 안시성 편 약 20배 문제."""
+        import zoom as Zm
+        seen = []
+        orig = Zm._crop
+
+        def spy(img, cx, cy, s, out_wh):
+            seen.append(s)
+            return orig(img, cx, cy, s, out_wh)
+        Zm._crop = spy
+        try:
+            W, H = 108, 192
+            wide = Image.new("RGB", (W, H), (200, 180, 140))
+            reg = Image.new("RGB", (W, H), (40, 120, 60))
+            ww, rw = Win(121.0, 126.0, 38.0, 43.0), Win(122.80, 122.85, 40.70, 40.79)  # 창 배율 100배 안팎
+            Zm.zoom_frames(wide, ww, reg, rw, fmt="shorts")
+            self.assertAlmostEqual(max(seen), 3.4, places=6)
+            seen.clear()
+            Zm.zoom_frames(wide, ww, reg, rw, fmt="shorts", max_scale=2.0)
+            self.assertAlmostEqual(max(seen), 2.0, places=6)
+            seen.clear()
+            Zm.zoom_frames(wide, ww, reg, rw, fmt="longform")  # 롱폼은 같은 경위도 창 원칙 — 상한 없음
+            self.assertGreater(max(seen), 3.4)
+        finally:
+            Zm._crop = orig
+
+    def test_legend_band_forbidden(self):
+        """맨 아래 검은 띠(1600~1920)에는 블록을 둘 수 없다(범례 배지·라벨만)."""
+        cv = Canvas("shorts")
+        draw_unit(cv, "a", (400, 1800), 0, "M", "goguryeo")
+        r = self._lint(cv)
+        zones = {v.get("zone") for v in r["violations"] if v["what"] == "금지 영역 침범"}
+        self.assertIn("legend_band", zones)
+
 
 if __name__ == "__main__":
     unittest.main()
