@@ -10,3 +10,5 @@
 - {skill: history-longform, line_has: "### E-3. 지도 (v3, 10/12 확정)", old: "### E-3. 지도 (v3, 10/12 확정)", new: "### E-3. 지도 (v3 문법, 10/12 확정 — 바탕은 v4-S, history-map-v4 우선 · 원장 C1)", why: C1}
 - {skill: history-longform, line_has: "도트 기마병 스프라이트(spr/rd0~1.png, 10/16 사용자 요청)", old: "10/16 사용자 요청)", new: "10/16 사용자 요청) → 11/04 원장 C6: 전략·전술 도식의 부대 표시는 'ㅗ' 블록(history-battle-shorts 3절) 공통, 도트 기마병은 '매 편 도트' 장식으로만", why: C6}
 - {skill: history-production-standards, line_has: "새 지도는 지도 키트", old: "(longform E-3 mapkit, shorts L-0 지도 v3)", new: "(history-map-v4 v4-S — 원장 C1 11/04. 이전 표기 'longform E-3 mapkit, shorts L-0 지도 v3'는 archive.md)", why: C1}
+- {skill: history-battle-shorts, line_has: "결정적 전술이 보이나(7절)", old: "(7절)", new: "(7절 → reference-upload.md)", why: "11/05 시험: 이동된 절 포인터"}
+- {skill: history-longform-craft, line_has: "- qa.py 영상 [--asr]", old: "- qa.py 영상 [--asr] [소스.py…]:", new: "- qa.py 영상 [--asr] [소스.py…] (현행: `lint/run_all.py <폴더> --format longform [--asr]`가 qa.py 항목을 흡수, 11/05):", why: "11/05 검사 도구 통합"}

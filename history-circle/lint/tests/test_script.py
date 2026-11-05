@@ -33,7 +33,7 @@ BAD = """인물: 가, 나, 다, 라, 마, 바
 
 네 번째 것입니다.
 
-화면: 북쪽 산 · 태종
+라벨: 북쪽 산 · 태종
 """
 
 
@@ -103,3 +103,22 @@ class T2(unittest.TestCase):
         # 롱폼은 훅 길이(15초)가 달라 문장 수 검사를 끈다
         r2 = script_lint.check(self.w(bad), "longform")
         self.assertNotIn("hook_sentences", [v["rule"] for v in r2["violations"]])
+
+
+class T3(unittest.TestCase):
+    """11/05: '화면:' 제작 메모의 기호는 화면 글자가 아니다. 라벨·따옴표 문구만 검사."""
+
+    def w(self, text):
+        fd, p = tempfile.mkstemp(suffix=".txt")
+        os.write(fd, text.encode("utf-8"))
+        os.close(fd)
+        return p
+
+    def test_memo_not_screen(self):
+        ok = "인물: 가\n\n# 1\n성이 버팁니다.\n화면: 광역 → 지역 줌, 블록 등급 L·M\n라벨: 안시성\n"
+        self.assertTrue(script_lint.check(self.w(ok), "battle")["ok"])
+        bad1 = "인물: 가\n\n# 1\n성이 버팁니다.\n라벨: 건안성·신성\n"
+        bad2 = "인물: 가\n\n# 1\n성이 버팁니다.\n화면: 말풍선 \"늙은 장수·치시지요\"\n"
+        for b in (bad1, bad2):
+            r = script_lint.check(self.w(b), "battle")
+            self.assertIn("forbidden_symbols", [v["rule"] for v in r["violations"]])

@@ -161,7 +161,12 @@ def check(path, fmt="shorts"):
 
     # 화면 문자열 금지 기호
     for n, line in screen:
-        bad = [c for c in th(CHECK, "forbidden_symbols") if c in line]
+        # 실제 화면 글자만 본다: '라벨:' 줄 전체 + '화면:' 메모 안의 따옴표 문구(말풍선 등). 제작 메모(→ 등)는 제외(11/05 오탐 수정)
+        if line.startswith(("화면:", "[화면]")):
+            shown = " ".join(a or b for a, b in re.findall(r'"([^"]*)"|“([^”]*)”', line))
+        else:
+            shown = line
+        bad = [c for c in th(CHECK, "forbidden_symbols") if c in shown]
         if bad:
             put("forbidden_symbols", {"what": "화면 문자열 금지 기호", "symbols": bad, "line": n, "text": line[:80]})
 

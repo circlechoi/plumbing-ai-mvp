@@ -162,8 +162,12 @@ description: "역사서클 모든 작업의 첫 스킬 — 채널 정체성 요�
   - 근거 사례는 `golden/segments.yaml` 26구간(G01~G26)이다.
 - 리뷰어 입력에는 이 원장 표와 채점표, 관련 골든 구간을 고정으로 넣는다.
 - 시안을 낼 때는 자체 점수와 '편집장이라면 무엇을 지적할지' 목록을 함께 낸다(G25).
-- 렌더 뒤 자동 검사: `lint/run_all.py <편 폴더> --format shorts|longform`
-  - 검사 항목: 음량, 효과음 대 내레이션, 고립 음절, 문장 중간 쉼, 정지 구간, 같은 방향 팬, 지도 겹침
+- **자체 점수는 참고용이다. 관문 통과는 독립 리뷰어 점수로 판정한다.** (11/05 안시성 시험: 자체 9점 vs 리뷰어 평균 6.7점)
+- 대본 검사(리뷰어에게 넘기기 전): `lint/script_lint.py script.txt --format battle|shorts|longform|architecture`
+  - 훅 문장 수(쇼츠 2문장), 같은 어미 연속, 평서 '~다.' 종결, '것입니다' 과다, 과거형 ㅆ, 연도 첫머리, 쉼표, 새 인물 수, 금지 기호
+- 렌더 뒤 자동 검사: `lint/run_all.py <편 폴더> --format shorts|longform --profile explain|battle [--silent] [--asr]`
+  - 검사 항목: 음량·True Peak, 효과음 대 내레이션, 고립 음절, 문장 중간 쉼, 소리 빈 구간, 정지·같은 화면·검은 화면, 같은 방향 팬, 컷 반복·클립 늘림, 화면 태그, 지도 겹침
+  - qa.py(롱폼 온조 편)의 항목은 run_all에 흡수됐다(11/05). 녹음 전 애니매틱은 `--silent`.
   - 실패하면 사용자에게 보이기 전에 고친다.
 
 ## 5. 사용자 결정 > 검수 의견 (history-production-standards 원문)
@@ -187,3 +191,19 @@ description: "역사서클 모든 작업의 첫 스킬 — 채널 정체성 요�
 - Claude는 움직임을 볼 수 없고 소리를 들을 수 없다.
 - 그래서 정지 프레임·수치·음성 인식 결과로만 확인했다고 보고한다.
 - 재생해서 확인할 구간(초)을 짚어 준다.
+
+## 9. 파일 규약 (11/05 안시성 시험에서 추가)
+- 편 폴더: `history-circle/episodes/<포맷><번호>_<이름>/` — research.md(고증·원문 대조표) · beats.md · script.txt · reviews.md · selfscore.md · animatic/
+- script.txt 형식(script_lint가 읽는다):
+  - `제목:` 한 줄, `인물:` 쉼표로 구분(새 인물 수 검사)
+  - `# 장면 N — 이름 (약 N초)`로 장면 구분
+  - 내레이션 문장은 접두 없이 한 줄씩
+  - `화면:` = 제작 메모(기호 검사 안 함, 따옴표 안 문구만 화면 글자로 검사) / `라벨:` = 실제 화면 글자(전체 검사)
+- 원문 대조: 이 Claude Code 환경에서 wikisource·encykorea가 막히면 Higgsfield sandbox에서 받아 대조한다(읽기만, 크레딧 없음). 대조표는 research.md에.
+
+## 10. 지도 컴포넌트와 애니매틱 엔진 (11/05)
+- 'ㅗ' 블록·요새·줌·레이아웃 내보내기: `history-circle/components/` (규격 원본 `spec.json`)
+  - 블록 등급은 원장 unit_grades. **병력이 사료에 없으면** 등급을 임의로 정하지 말고, 쓰려는 등급과 근거(상대 비교 등)를 그 편 research.md에 적고 화면에 숫자를 쓰지 않는다(임시 — 사용자 확인 전).
+  - 광역→지역 줌은 최대 3.4배까지 확대 후 크로스페이드(zoom.py max_scale).
+  - 범례 띠: 쇼츠 1600~1700, 그 아래도 같은 검은 띠로 채운다.
+- 애니매틱 엔진(무음·저해상도, 크레딧 0): `history-circle/animatic/engine.py` — 흙산 단면·군량 게이지·얼굴 없는 인물 표식 등 컴포넌트에 없는 도식 포함.
