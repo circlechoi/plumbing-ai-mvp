@@ -29,7 +29,7 @@ source_skills:
     md5: 5a9c4ebb20bfd8cb4283bd9c54003be0
 counts:
   raw_total: 277
-  curated_items: 58
+  curated_items: 61
   linked_by_curation: 238
   kept_verbatim: 39
   pending_user: 0
@@ -226,6 +226,20 @@ topics:
     - shorts:985 (09/28)
     - shorts:1052 (09/28)
     conflict: C1
+  - key: unit_grades
+    current: '''ㅗ'' 블록 등급(같은 등급 = 픽셀 크기 완전 동일): S 5천 미만 / M 5천~1만 5천 / L 1만 5천~4만 / XL 4만 이상. 면적 배율 S 0.6 · M 1.0(150×64) · L 1.5 · XL 2.2. 병력 비율 자체를 보여 줄 때만 면적 ∝ 병력 블록을 따로 쓴다. 규격 원본 = components/spec.json'
+    status: 현행
+    confirmed: 11/05 사용자 확정(임시값 그대로)
+    sources: []
+    anchors:
+    - components/spec.json unit.grades
+  - key: map_fort_icon
+    current: '성 표식: 쇼츠·전투·건축 = components/forts.py 3종(산성·평지성·목책, 96×96)만 사용, 성 아이콘 격자로 영토 표현 금지. 롱폼 지도 = 성·부대 아이콘·핀 금지(스타일 바이블 원문대로), 성 위치는 지명 글자로'
+    status: 현행
+    confirmed: 11/05 사용자 확정(롱폼 금지 유지)
+    sources: []
+    anchors:
+    - 'history-longform-craft: 성·부대 아이콘, 핀 금지'
   - key: map_unit_marker
     current: '부대 표시: 전략·전술 도식은 ''ㅗ'' 블록(블록 안 병종 도트 아이콘, 글자·범례 없음)을 포맷 공통 컴포넌트로. 도트 기마병 스프라이트는 ''매 편 도트''(장식)로만'
     status: 현행
@@ -304,6 +318,15 @@ topics:
     - channel-concept:220 (10/12)
     - map-v4:54 (10/29)
     conflict: C4
+    scope: '11/05 사용자 확정: 이 값은 지도 영역 면(진한 저채도)용. ''ㅗ'' 블록·화살표는 진한 원색 팔레트 unit_faction_colors를 쓴다'
+  - key: unit_faction_colors
+    current: '블록·화살표 세력 색(진한 원색): 고구려 적갈 (150,52,40) / 말갈 주황 (190,104,48) / 수 회청 (88,92,104) / 당 먹회색 (52,56,66) / 백제 황금 (232,184,56) / 신라 주홍 (226,96,52) / 왜 (206,32,46). 영역 면은 faction_colors'
+    status: 현행
+    confirmed: 11/05 사용자 확정(두 팔레트 분리 — 영역 면 vs 블록)
+    sources: []
+    anchors:
+    - 'history-battle-shorts: 고구려 적갈 (150,52,40)'
+    conflict: C9
   - key: costume_colors
     current: '전투 컷 세력 색 엄수: 고구려 붉은 옷·붉은 깃발 / 부여 흰 옷·짙은 모피. 돌격 컷은 앞에 적의 색만, 뒤에 아군의 색만'
     status: 현행
