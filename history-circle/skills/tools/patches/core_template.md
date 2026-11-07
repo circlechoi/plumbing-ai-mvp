@@ -64,10 +64,13 @@ description: "역사서클 모든 작업의 첫 스킬 — 채널 정체성 요�
 - 검수 뒤에 바뀐 것도 다시 보여 준다(production-standards 0-1, 10/25).
 - Kling은 `sound: "off"`를 문자열로 넣는다. `false`로 넣으면 소리가 켜져 12.5 크레딧이 나간다(longform F, 10/16 사고).
 
-## 7. 백업
-- 렌더·빌드 코드는 git(`history-circle/kit/`)이 원본이다.
-- sandbox에서 새로 만들거나 고친 스크립트는 세션이 끝날 때마다 묶어서 백업한다.
-  - 방법: media_upload 일반 파일로 올리고, 위치·md5를 `kit/MANIFEST.md`에 기록한다.
+## 7. 백업 — 원본은 GitHub 하나 (11/07)
+- 원본 = GitHub `circlechoi/plumbing-ai-mvp` 브랜치 `claude/history-circle-quality-variance-txrqut`의 `history-circle/`(공개). sandbox는 작업 공간일 뿐이다.
+- 세션 시작: sandbox에 최신본을 받는다 — `curl -sSL https://codeload.github.com/circlechoi/plumbing-ai-mvp/tar.gz/claude/history-circle-quality-variance-txrqut | tar -xz` 후 `history-circle/`을 `~/history-circle/`에 덮어쓴다.
+- **세션 끝(또는 사용자에게 결과를 넘길 때)마다 GitHub에 반영한다.** 키트(style/·components/·animatic/·lint/), 원장(curated.yaml → build_ledger → verify), 편 폴더(episodes/<편>/ — 대본·고증·작업 코드는 `work/`)를 빠짐없이.
+  - sandbox는 GitHub에 쓸 수 없다. git이 되는 작업 공간(Claude Code)에서 커밋·push하고, 파일은 sandbox에서 묶어 media_upload → 그 주소로 받는다. 받을 수 없으면 텍스트 파일을 옮기고 md5로 대조한다.
+  - 편 작업 코드를 `~/ansi/` 같은 저장소 밖 폴더에만 두지 않는다(5편 사례: 112개 파일이 sandbox에만 남음).
+- 큰 바이너리(영상·음성·기준 프레임 PNG)는 media_upload로 올리고 주소·md5를 해당 폴더 MANIFEST/README에 기록한다.
 - 같은 스크립트를 번호만 바꿔 쌓지 않는다(예: normvo1~12, run2~38). 현행 파일 하나만 두고, 이전 판은 git 이력으로 남긴다.
 
 ## 8. Claude의 한계 (매번 밝힌다)
