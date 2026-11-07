@@ -49,6 +49,7 @@ def font(type_key, scale=1.0, size=None):
 
 def check_text(s):
     bad = [g for g in S["fonts"]["forbidden_glyphs"]["value"] if g in s]
+    bad += [ch for ch in s if "\u4e00" <= ch <= "\u9fff"]  # 한자 금지(rules.no_hanja)
     if bad:
         raise GlyphError(f"금지 기호 {bad} in {s!r}")
     return s
@@ -94,6 +95,11 @@ def _gradient(h, s=1):
 
 def wrap_caption(text, d, f):
     c = S["frame"]["caption"]
+    if "\n" in text:  # 자막 조각 경계에서 줄바꿈(단어 중간 끊김 방지)
+        parts = [p for p in text.split("\n") if p]
+        if all(d.textlength(p, font=f) <= c["max_w"] for p in parts):
+            return parts
+        text = " ".join(parts)
     if d.textlength(text, font=f) <= c["max_w"]:
         return [text]
     ws = text.split(" ")

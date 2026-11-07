@@ -1,432 +1,434 @@
 {
-  "_note": "역사서클 지도 컴포넌트 규격 — 이 파일 한 곳에서만 바꾼다. status: 확정(스킬·원장 근거) / 기존코드(sandbox 코드 값을 그대로 옮김, 사용자 확인 전) / 임시(근거 없음, 사용자 확인 필요)",
-  "supersample": {
-    "value": 2,
-    "status": "기존코드",
-    "source": "~/salsu/bmap3.py 'K = 2'"
+ "_note": "역사서클 지도 컴포넌트 규격 — 이 파일 한 곳에서만 바꾼다. status: 확정(스킬·원장 근거) / 기존코드(sandbox 코드 값을 그대로 옮김, 사용자 확인 전) / 임시(근거 없음, 사용자 확인 필요)",
+ "supersample": {
+  "value": 2,
+  "status": "기존코드",
+  "source": "~/salsu/bmap3.py 'K = 2'"
+ },
+ "canvas": {
+  "shorts": {
+   "w": 1080,
+   "h": 1920,
+   "status": "확정",
+   "source": "history-battle-shorts 3절 'PANEL(0,0,1080,1920)'"
   },
-  "canvas": {
-    "shorts": {
-      "w": 1080,
-      "h": 1920,
-      "status": "확정",
-      "source": "history-battle-shorts 3절 'PANEL(0,0,1080,1920)'"
-    },
-    "longform": {
-      "w": 1920,
-      "h": 1080,
-      "panel": [
-        0,
-        138,
-        1920,
-        804
-      ],
-      "status": "확정",
-      "source": "history-map-v4 '롱폼 = bmap16(16:9 레터박스 패널 1920×804, PANEL=(0,138,1920,942)'"
-    }
-  },
-  "forbidden": {
-    "shorts": [
-      {
-        "id": "title_band",
-        "bbox": [
-          0,
-          0,
-          1080,
-          236
-        ],
-        "allow_kinds": [
-          "title",
-          "badge"
-        ],
-        "status": "확정",
-        "source": "history-battle-shorts 2절 '상단 = 편 제목 고정 한 줄(크림색 띠 140~236 …) 그 위 검은 띠'"
-      },
-      {
-        "id": "subtitle_band",
-        "bbox": [
-          0,
-          1270,
-          1080,
-          300
-        ],
-        "allow_kinds": [
-          "subtitle"
-        ],
-        "status": "확정",
-        "source": "history-battle-shorts 2절 '하단 = 내레이션 자막(… y≈1420, 자막 뒤 세로 그라데이션 1270~1570)'"
-      },
-      {
-        "id": "right_ui",
-        "bbox": [
-          900,
-          236,
-          180,
-          1034
-        ],
-        "allow_kinds": [
-          "arrow",
-          "effect"
-        ],
-        "status": "확정",
-        "source": "history-battle-shorts 2절 '오른쪽 끝 x>900에 중요한 표식·라벨 금지(쇼츠 좋아요·댓글 버튼에 가림)'"
-      },
-      {
-        "id": "legend_band",
-        "bbox": [
-          0,
-          1600,
-          1080,
-          320
-        ],
-        "allow_kinds": [
-          "badge",
-          "label"
-        ],
-        "status": "확정",
-        "source": "history-battle-shorts 2절 '맨 아래 검은 띠 = 나라 범례 고정' + 4편 anim4 hud1080 범례 위치 1600~1700(세션 3 애니매틱에서 확인). 1700 아래도 같은 검은 띠로 채움(11/05, 이전 임시값 1790~1920 폐기)"
-      }
-    ],
-    "longform": [
-      {
-        "id": "top_letterbox",
-        "bbox": [
-          0,
-          0,
-          1920,
-          138
-        ],
-        "allow_kinds": [
-          "badge",
-          "title"
-        ],
-        "status": "확정",
-        "source": "history-map-v4 5절 '위 띠 왼쪽 = 연도 배지'"
-      },
-      {
-        "id": "bottom_letterbox",
-        "bbox": [
-          0,
-          942,
-          1920,
-          138
-        ],
-        "allow_kinds": [
-          "subtitle"
-        ],
-        "status": "확정",
-        "source": "history-map-v4 5절 '아래 띠 = 자막'"
-      }
-    ]
-  },
-  "palette": {
-    "ink": {
-      "rgb": [
-        30,
-        26,
-        24
-      ],
-      "status": "기존코드",
-      "source": "bmap3.py INK"
-    },
-    "unit_outline": {
-      "rgb": [
-        28,
-        24,
-        22
-      ],
-      "status": "기존코드",
-      "source": "jupil/unit.py outline"
-    },
-    "cream": {
-      "rgb": [
-        250,
-        244,
-        228
-      ],
-      "status": "기존코드",
-      "source": "jupil/pv.py CREAM"
-    },
-    "gold_hidden": {
-      "rgb": [
-        255,
-        214,
-        90
-      ],
-      "status": "기존코드",
-      "source": "jupil/anim4.py 숨은 부대 '?'·점선 (255,214,90)"
-    },
-    "hot": {
-      "rgb": [
-        206,
-        44,
-        36
-      ],
-      "status": "기존코드",
-      "source": "jupil/pv.py HOT"
-    },
-    "unit_faction": {
-      "_source": "history-battle-shorts 3절 16 '백제 황금 / 신라 주홍 / 고구려 적갈 (150,52,40) / 말갈 주황 (190,104,48) / 수 회청 (88,92,104) / 당 먹회색 (52,56,66)' — 블록·화살표용(진한 원색)",
-      "goguryeo": [
-        150,
-        52,
-        40
-      ],
-      "malgal": [
-        190,
-        104,
-        48
-      ],
-      "sui": [
-        88,
-        92,
-        104
-      ],
-      "tang": [
-        52,
-        56,
-        66
-      ],
-      "baekje": [
-        232,
-        184,
-        56
-      ],
-      "silla": [
-        226,
-        96,
-        52
-      ],
-      "wa": [
-        206,
-        32,
-        46
-      ],
-      "status": "확정",
-      "conflict": "해소 11/05(원장 C9): 블록·화살표 = 이 팔레트, 영역 면 = territory_faction(C4)"
-    },
-    "territory_faction": {
-      "_source": "decisions.yaml faction_colors (11/04 C4 확정) — 영역 면용",
-      "goguryeo": [
-        96,
-        34,
-        29
-      ],
-      "buyeo": [
-        42,
-        58,
-        86
-      ],
-      "baekje": [
-        232,
-        184,
-        56
-      ],
-      "silla": [
-        226,
-        96,
-        52
-      ],
-      "tang": [
-        70,
-        74,
-        84
-      ],
-      "wa": [
-        206,
-        32,
-        46
-      ],
-      "mahan": [
-        178,
-        120,
-        168
-      ],
-      "malgal": [
-        118,
-        86,
-        62
-      ],
-      "nangnang": [
-        84,
-        88,
-        102
-      ],
-      "status": "확정"
-    }
-  },
-  "unit": {
-    "_source": "history-battle-shorts 3절 9 '넓은 직사각형 + 앞쪽 짧은 돌기(바라보는 방향)… 병종은 블록 안 작은 도트 아이콘(크림 외곽선)… 글자·범례는 쓰지 않는다' / 원장 C6 'ㅗ 블록 = 포맷 공통'",
-    "base": {
-      "w": 150,
-      "h": 64,
-      "nub_w": 34,
-      "nub_h": 30,
-      "outline_w": 7,
-      "nub_outline_w": 6,
-      "icon_scale": 2.2,
-      "status": "기존코드",
-      "source": "jupil/unit.py unit(w=150, h=70, nub=(34,30), width 7/6, iscale=2.2) + layout.py ub(h=64)"
-    },
-    "angle": {
-      "rule": "0 = 위(북), 시계 방향(도)",
-      "status": "기존코드",
-      "source": "jupil/unit.py docstring"
-    },
-    "grades": {
-      "_rule": "같은 등급은 픽셀 크기가 완전히 같다. 등급이 오를수록 면적이 커진다(병력 순서 유지). 돌기·외곽선·아이콘 크기는 등급과 무관하게 고정.",
-      "order": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "area_factor": {
-        "S": 0.6,
-        "M": 1.0,
-        "L": 1.5,
-        "XL": 2.2
-      },
-      "troops_upper": {
-        "S": 5000,
-        "M": 15000,
-        "L": 40000,
-        "XL": null
-      },
-      "status": "확정",
-      "source": "스킬에 등급 규칙 없음(전투 쇼츠는 군단 블록을 같은 크기로 씀: jupil 150×64). 면적 비율·경계 병력은 임시값 — 사용자 확인 필요. 병력 비율을 그대로 보여 줄 때는 3-3 '블록 면적 축소'(면적 ∝ 병력)를 따로 쓴다 → 11/05 사용자 확정(원장 unit_grades)"
-    },
-    "hidden": {
-      "fill_rgb": [
-        30,
-        26,
-        24
-      ],
-      "fill_alpha": 115,
-      "dash": [
-        24,
-        14
-      ],
-      "dash_w": 6,
-      "mark": "?",
-      "status": "확정",
-      "source": "history-battle-shorts 3절 10 '숨은 부대 = 반투명 먹색 블록 + 금색 점선 테두리 + 금색 숨은 부대 칩' · 4편 훅 '?' 블록. 투명도·점선 간격 수치는 임시"
-    },
-    "icons": {
-      "inf": "icons/inf_w.png",
-      "cav": "icons/cav_w.png",
-      "hvy": "icons/hvy_w.png",
-      "mal": "icons/mal_w.png",
-      "tcav": "icons/tcav_w.png",
-      "_names": {
-        "inf": "보병(창·방패)",
-        "cav": "기병",
-        "hvy": "중기병(개마)",
-        "mal": "말갈 기병",
-        "tcav": "돌궐 기병"
-      },
-      "status": "기존코드",
-      "source": "~/jupil/icons/*_w.png (크림 외곽선판, icons.py로 생성)",
-      "missing": "궁병 아이콘은 기존 코드에 없음 — 새로 그리지 않음(사용자 결정 필요)"
-    }
-  },
-  "fort": {
-    "_source": "history-map-v4 5절 '목책·성 = 성벽 기호' / history-longform-craft '성 아이콘 TB.fort(흙 둔덕 + 목책 + 망루)' · 2절 '목책은 흙 둔덕 위 통나무 이중열 + 도랑' / 산성: 오노성(백제 산성)·안시성(영성자산성설)",
-    "size": {
-      "w": 96,
-      "h": 96,
-      "status": "임시",
-      "source": "크기 근거 없음 — 'ㅗ' 블록 M(150×64)과 같은 화면에서 읽히는 크기로 임시"
-    },
-    "kinds": {
-      "sanseong": {
-        "name": "산성",
-        "shape": "봉우리 위 성벽 고리(톱니 성가퀴)"
-      },
-      "pyeongji": {
-        "name": "평지성",
-        "shape": "네모 성벽 기호 + 성문"
-      },
-      "mokchaek": {
-        "name": "목책",
-        "shape": "흙 둔덕 + 통나무 이중열 + 망루"
-      }
-    },
-    "allowed": {
-      "shorts": {
-        "value": true,
-        "note": "단독 성 표식은 사용. 금지: 성 아이콘 격자로 영토 표현(2편 실패 → 영토 색 변화), 확대(줌) 그림 안의 성 아이콘(3절 13)",
-        "source": "history-battle-shorts 10절 2편·3절 13"
-      },
-      "longform": {
-        "value": false,
-        "note": "11/04 스타일 바이블 '성·부대 아이콘, 핀 금지'를 글자 그대로 읽음. 10/30 'TB.fort' 사용 기록보다 최신. '성·부대 아이콘(은 쓰고) 핀 금지'로 읽을 여지가 있어 사용자 확인 필요 → 11/05 사용자 확정: 금지 유지",
-        "source": "history-longform-craft 10절 지도 행",
-        "status": "확정"
-      }
-    },
-    "colors": {
-      "wall": [
-        214,
-        204,
-        182
-      ],
-      "earth": [
-        150,
-        112,
-        70
-      ],
-      "wood": [
-        120,
-        88,
-        56
-      ],
-      "status": "임시",
-      "source": "wood = jupil/icons.py WOOD, earth = 방패색(150,112,70). 성벽 돌색은 임시"
-    }
-  },
-  "zoom": {
-    "shorts": {
-      "box_rgb": [
-        255,
-        214,
-        90
-      ],
-      "box_w": 8,
-      "box_lead_s": 0.4,
-      "zoom_s": 1.15,
-      "xfade_s": 0.55,
-      "easing": "ease",
-      "status": "확정",
-      "source": "history-battle-shorts 3절 13 '광역 지도에 전장 범위 금색 박스 → 1.15초 동안 박스 중심으로 3.4배 확대 → 0.55초 크로스페이드로 전장 지도'(배율은 경위도 창에서 계산)"
-    },
-    "longform": {
-      "zoom_s": 0.55,
-      "xfade_s": 0.45,
-      "easing": "exp",
-      "blur": true,
-      "status": "확정",
-      "source": "history-longform-craft '광역 지도를 지역도와 같은 경위도 창… 0.55초 지수 확대 + 줌 블러 → 지역도로 0.45초 섞기'"
-    },
-    "rule_no_labels_in_zoom": {
-      "value": true,
-      "source": "history-battle-shorts 3절 13 '확대하는 그림에는 라벨·성 아이콘을 넣지 않는다'"
-    },
-    "cut_scale_ratio_max": {
-      "value": 1.5,
-      "status": "임시",
-      "source": "history-battle-shorts 3절 14 '장면 사이 배율·위치가 크게 다르면 한 프레임 컷 금지' — '크게'의 수치 1.5배는 임시"
-    },
-    "max_scale": {
-      "value": 3.4,
-      "status": "확정",
-      "source": "history-battle-shorts 3절 13 '1.15초 동안 박스 중심으로 3.4배 확대 → 0.55초 크로스페이드'. 경위도 창 배율이 이보다 크면(안시성 편 약 20배) 3.4배에서 멈추고 크로스페이드(11/05 시험에서 발견)"
-    }
-  },
-  "font": {
-    "label": "fonts/Jua-Regular.ttf",
-    "number": "fonts/BlackHanSans-Regular.ttf",
-    "status": "기존코드",
-    "source": "bmap3.py JUA·BHS (Google Fonts OFL)"
+  "longform": {
+   "w": 1920,
+   "h": 1080,
+   "panel": [
+    0,
+    138,
+    1920,
+    804
+   ],
+   "status": "확정",
+   "source": "history-map-v4 '롱폼 = bmap16(16:9 레터박스 패널 1920×804, PANEL=(0,138,1920,942)'"
   }
+ },
+ "forbidden": {
+  "shorts": [
+   {
+    "id": "title_band",
+    "bbox": [
+     0,
+     0,
+     1080,
+     236
+    ],
+    "allow_kinds": [
+     "title",
+     "badge"
+    ],
+    "status": "확정",
+    "source": "history-battle-shorts 2절 '상단 = 편 제목 고정 한 줄(크림색 띠 140~236 …) 그 위 검은 띠'"
+   },
+   {
+    "id": "subtitle_band",
+    "bbox": [
+     0,
+     1270,
+     1080,
+     300
+    ],
+    "allow_kinds": [
+     "subtitle"
+    ],
+    "status": "확정",
+    "source": "history-battle-shorts 2절 '하단 = 내레이션 자막(… y≈1420, 자막 뒤 세로 그라데이션 1270~1570)'"
+   },
+   {
+    "id": "right_ui",
+    "bbox": [
+     900,
+     236,
+     180,
+     1034
+    ],
+    "allow_kinds": [
+     "arrow",
+     "effect"
+    ],
+    "status": "확정",
+    "source": "history-battle-shorts 2절 '오른쪽 끝 x>900에 중요한 표식·라벨 금지(쇼츠 좋아요·댓글 버튼에 가림)'"
+   },
+   {
+    "id": "legend_band",
+    "bbox": [
+     0,
+     1600,
+     1080,
+     320
+    ],
+    "allow_kinds": [
+     "badge",
+     "label"
+    ],
+    "status": "확정",
+    "source": "history-battle-shorts 2절 '맨 아래 검은 띠 = 나라 범례 고정' + 4편 anim4 hud1080 범례 위치 1600~1700(세션 3 애니매틱에서 확인). 1700 아래도 같은 검은 띠로 채움(11/05, 이전 임시값 1790~1920 폐기)"
+   }
+  ],
+  "longform": [
+   {
+    "id": "top_letterbox",
+    "bbox": [
+     0,
+     0,
+     1920,
+     138
+    ],
+    "allow_kinds": [
+     "badge",
+     "title"
+    ],
+    "status": "확정",
+    "source": "history-map-v4 5절 '위 띠 왼쪽 = 연도 배지'"
+   },
+   {
+    "id": "bottom_letterbox",
+    "bbox": [
+     0,
+     942,
+     1920,
+     138
+    ],
+    "allow_kinds": [
+     "subtitle"
+    ],
+    "status": "확정",
+    "source": "history-map-v4 5절 '아래 띠 = 자막'"
+   }
+  ]
+ },
+ "palette": {
+  "ink": {
+   "rgb": [
+    30,
+    26,
+    24
+   ],
+   "status": "기존코드",
+   "source": "bmap3.py INK"
+  },
+  "unit_outline": {
+   "rgb": [
+    28,
+    24,
+    22
+   ],
+   "status": "기존코드",
+   "source": "jupil/unit.py outline"
+  },
+  "cream": {
+   "rgb": [
+    250,
+    244,
+    228
+   ],
+   "status": "기존코드",
+   "source": "jupil/pv.py CREAM"
+  },
+  "gold_hidden": {
+   "rgb": [
+    255,
+    214,
+    90
+   ],
+   "status": "기존코드",
+   "source": "jupil/anim4.py 숨은 부대 '?'·점선 (255,214,90)"
+  },
+  "hot": {
+   "rgb": [
+    206,
+    44,
+    36
+   ],
+   "status": "기존코드",
+   "source": "jupil/pv.py HOT"
+  },
+  "unit_faction": {
+   "_source": "history-battle-shorts 3절 16 '백제 황금 / 신라 주홍 / 고구려 적갈 (150,52,40) / 말갈 주황 (190,104,48) / 수 회청 (88,92,104) / 당 먹회색 (52,56,66)' — 블록·화살표용(진한 원색)",
+   "goguryeo": [
+    150,
+    52,
+    40
+   ],
+   "malgal": [
+    190,
+    104,
+    48
+   ],
+   "sui": [
+    88,
+    92,
+    104
+   ],
+   "tang": [
+    52,
+    56,
+    66
+   ],
+   "baekje": [
+    232,
+    184,
+    56
+   ],
+   "silla": [
+    226,
+    96,
+    52
+   ],
+   "wa": [
+    206,
+    32,
+    46
+   ],
+   "status": "확정",
+   "conflict": "해소 11/05(원장 C9): 블록·화살표 = 이 팔레트, 영역 면 = territory_faction(C4)"
+  },
+  "territory_faction": {
+   "_source": "decisions.yaml faction_colors (11/04 C4 확정) — 영역 면용",
+   "goguryeo": [
+    96,
+    34,
+    29
+   ],
+   "buyeo": [
+    42,
+    58,
+    86
+   ],
+   "baekje": [
+    232,
+    184,
+    56
+   ],
+   "silla": [
+    226,
+    96,
+    52
+   ],
+   "tang": [
+    70,
+    74,
+    84
+   ],
+   "wa": [
+    206,
+    32,
+    46
+   ],
+   "mahan": [
+    178,
+    120,
+    168
+   ],
+   "malgal": [
+    118,
+    86,
+    62
+   ],
+   "nangnang": [
+    84,
+    88,
+    102
+   ],
+   "status": "확정"
+  }
+ },
+ "unit": {
+  "_source": "history-battle-shorts 3절 9 '넓은 직사각형 + 앞쪽 짧은 돌기(바라보는 방향)… 병종은 블록 안 작은 도트 아이콘(크림 외곽선)… 글자·범례는 쓰지 않는다' / 원장 C6 'ㅗ 블록 = 포맷 공통'",
+  "base": {
+   "w": 150,
+   "h": 64,
+   "nub_w": 34,
+   "nub_h": 30,
+   "outline_w": 7,
+   "nub_outline_w": 6,
+   "icon_scale": 2.2,
+   "status": "기존코드",
+   "source": "jupil/unit.py unit(w=150, h=70, nub=(34,30), width 7/6, iscale=2.2) + layout.py ub(h=64)"
+  },
+  "angle": {
+   "rule": "0 = 위(북), 시계 방향(도)",
+   "status": "기존코드",
+   "source": "jupil/unit.py docstring"
+  },
+  "grades": {
+   "_rule": "같은 등급은 픽셀 크기가 완전히 같다. 등급이 오를수록 면적이 커진다(병력 순서 유지). 돌기·외곽선·아이콘 크기는 등급과 무관하게 고정.",
+   "order": [
+    "S",
+    "M",
+    "L",
+    "XL"
+   ],
+   "area_factor": {
+    "S": 0.6,
+    "M": 1.0,
+    "L": 1.5,
+    "XL": 2.2
+   },
+   "troops_upper": {
+    "S": 5000,
+    "M": 15000,
+    "L": 40000,
+    "XL": null
+   },
+   "status": "확정",
+   "source": "스킬에 등급 규칙 없음(전투 쇼츠는 군단 블록을 같은 크기로 씀: jupil 150×64). 면적 비율·경계 병력은 임시값 — 사용자 확인 필요. 병력 비율을 그대로 보여 줄 때는 3-3 '블록 면적 축소'(면적 ∝ 병력)를 따로 쓴다 → 11/05 사용자 확정(원장 unit_grades)"
+  },
+  "hidden": {
+   "fill_rgb": [
+    30,
+    26,
+    24
+   ],
+   "fill_alpha": 115,
+   "dash": [
+    24,
+    14
+   ],
+   "dash_w": 6,
+   "mark": "?",
+   "status": "확정",
+   "source": "history-battle-shorts 3절 10 '숨은 부대 = 반투명 먹색 블록 + 금색 점선 테두리 + 금색 숨은 부대 칩' · 4편 훅 '?' 블록. 투명도·점선 간격 수치는 임시"
+  },
+  "icons": {
+   "inf": "icons/inf_w.png",
+   "cav": "icons/cav_w.png",
+   "hvy": "icons/hvy_w.png",
+   "mal": "icons/mal_w.png",
+   "tcav": "icons/tcav_w.png",
+   "_names": {
+    "inf": "보병(창·방패)",
+    "cav": "기병",
+    "hvy": "중기병(개마)",
+    "mal": "말갈 기병",
+    "tcav": "돌궐 기병",
+    "tinf": "당 보병(남색)"
+   },
+   "status": "기존코드",
+   "source": "~/jupil/icons/*_w.png (크림 외곽선판, icons.py로 생성)",
+   "missing": "궁병 아이콘은 기존 코드에 없음 — 새로 그리지 않음(사용자 결정 필요)",
+   "tinf": "icons/tinf_w.png"
+  }
+ },
+ "fort": {
+  "_source": "history-map-v4 5절 '목책·성 = 성벽 기호' / history-longform-craft '성 아이콘 TB.fort(흙 둔덕 + 목책 + 망루)' · 2절 '목책은 흙 둔덕 위 통나무 이중열 + 도랑' / 산성: 오노성(백제 산성)·안시성(영성자산성설)",
+  "size": {
+   "w": 96,
+   "h": 96,
+   "status": "임시",
+   "source": "크기 근거 없음 — 'ㅗ' 블록 M(150×64)과 같은 화면에서 읽히는 크기로 임시"
+  },
+  "kinds": {
+   "sanseong": {
+    "name": "산성",
+    "shape": "봉우리 위 성벽 고리(톱니 성가퀴)"
+   },
+   "pyeongji": {
+    "name": "평지성",
+    "shape": "네모 성벽 기호 + 성문"
+   },
+   "mokchaek": {
+    "name": "목책",
+    "shape": "흙 둔덕 + 통나무 이중열 + 망루"
+   }
+  },
+  "allowed": {
+   "shorts": {
+    "value": true,
+    "note": "단독 성 표식은 사용. 금지: 성 아이콘 격자로 영토 표현(2편 실패 → 영토 색 변화), 확대(줌) 그림 안의 성 아이콘(3절 13)",
+    "source": "history-battle-shorts 10절 2편·3절 13"
+   },
+   "longform": {
+    "value": false,
+    "note": "11/04 스타일 바이블 '성·부대 아이콘, 핀 금지'를 글자 그대로 읽음. 10/30 'TB.fort' 사용 기록보다 최신. '성·부대 아이콘(은 쓰고) 핀 금지'로 읽을 여지가 있어 사용자 확인 필요 → 11/05 사용자 확정: 금지 유지",
+    "source": "history-longform-craft 10절 지도 행",
+    "status": "확정"
+   }
+  },
+  "colors": {
+   "wall": [
+    214,
+    204,
+    182
+   ],
+   "earth": [
+    150,
+    112,
+    70
+   ],
+   "wood": [
+    120,
+    88,
+    56
+   ],
+   "status": "임시",
+   "source": "wood = jupil/icons.py WOOD, earth = 방패색(150,112,70). 성벽 돌색은 임시"
+  }
+ },
+ "zoom": {
+  "shorts": {
+   "box_rgb": [
+    255,
+    214,
+    90
+   ],
+   "box_w": 8,
+   "box_lead_s": 0.4,
+   "zoom_s": 1.15,
+   "xfade_s": 0.55,
+   "easing": "ease",
+   "status": "확정",
+   "source": "history-battle-shorts 3절 13 '광역 지도에 전장 범위 금색 박스 → 1.15초 동안 박스 중심으로 3.4배 확대 → 0.55초 크로스페이드로 전장 지도'(배율은 경위도 창에서 계산)"
+  },
+  "longform": {
+   "zoom_s": 0.55,
+   "xfade_s": 0.45,
+   "easing": "exp",
+   "blur": true,
+   "status": "확정",
+   "source": "history-longform-craft '광역 지도를 지역도와 같은 경위도 창… 0.55초 지수 확대 + 줌 블러 → 지역도로 0.45초 섞기'"
+  },
+  "rule_no_labels_in_zoom": {
+   "value": true,
+   "source": "history-battle-shorts 3절 13 '확대하는 그림에는 라벨·성 아이콘을 넣지 않는다'"
+  },
+  "cut_scale_ratio_max": {
+   "value": 1.5,
+   "status": "임시",
+   "source": "history-battle-shorts 3절 14 '장면 사이 배율·위치가 크게 다르면 한 프레임 컷 금지' — '크게'의 수치 1.5배는 임시"
+  },
+  "max_scale": {
+   "value": 3.4,
+   "status": "확정",
+   "source": "history-battle-shorts 3절 13 '1.15초 동안 박스 중심으로 3.4배 확대 → 0.55초 크로스페이드'. 경위도 창 배율이 이보다 크면(안시성 편 약 20배) 3.4배에서 멈추고 크로스페이드(11/05 시험에서 발견)"
+  }
+ },
+ "font": {
+  "label": "fonts/Jua-Regular.ttf",
+  "number": "fonts/BlackHanSans-Regular.ttf",
+  "status": "기존코드",
+  "source": "bmap3.py JUA·BHS (Google Fonts OFL)"
+ }
 }

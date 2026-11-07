@@ -141,9 +141,9 @@ topics:
     status: 현행
     sources: [channel-concept:204, longform:71, longform:87, shorts:267, channel-concept:326]
   - key: signature_opening
-    current: "시그니처 오프닝(수묵화 → 먹 번짐 → 실사) 채널 고정. 쇼츠는 3초 축약판, 건축은 건물 선묘 스케치. 전투 해설 쇼츠는 넣지 않음(1~4편 방식)"
+    current: "시그니처 오프닝(수묵화 → 먹 번짐 → 실사) 채널 고정. 쇼츠는 3초 축약판, 건축은 건물 선묘 스케치. 전투 해설 쇼츠는 시그니처 대신 실사 컷 2개(훅 첫 3초 + 절정 2~3초, Kling 3.0 pro 5초, 정지 시안 2장씩 먼저) 위에 제목 띠·자막을 얹는다(5편 안시성부터)"
     status: 현행
-    confirmed: "11/05 사용자 확정: 전투 해설 쇼츠 제외"
+    confirmed: "11/05 사용자 확정: 전투 해설 쇼츠 제외 → 11/06 사용자 '실사컷ㄱㄱ'(안시성 C1 토산·C2 고구려 깃발, 편당 약 21.5크레딧)"
     sources: [channel-concept:59, channel-concept:228, channel-concept:231, channel-concept:323, longform:84, longform:199, shorts:188, channel-concept:363]
   - key: ai_look_reduction
     current: "AI 티·반복 금지(E-6): 같은 컷 반복, 5초 클립 늘이기, 긴 정지 지도 금지. 정지 화면은 구간별 상한(편당 총량 상한은 폐지). 사람 컷 3초·원경 5초. 실사는 컷당 동작 하나, 실제 카메라 이동, 채도 낮은 필름 톤. 립싱크 금지"
@@ -361,4 +361,55 @@ topics:
     current: "기준 화면 = golden/style_ref/ (틀 F1 = 4편 40초, 부품 R1~R4 = 1편 21·31·46·61초, R5 = 'ㅗ' 블록 시안). 스타일 검사기는 이 세트와 비교"
     status: 현행
     confirmed: "11/05 사용자 '기준화면은 추천'"
+    sources: []
+  - key: battle_sound
+    current: "전투 해설 쇼츠도 BGM 3곡(긴장 → 전투 → 여운, ~/salsu/bgm) + 코드 효과음(북·전환·타격·붕괴·바람) + 내레이션 덕킹 필수. 소리 없는 애니매틱을 완성본처럼 보이지 않는다"
+    status: 현행
+    confirmed: "11/06 사용자 '80점 기준' 대화 — 5편에서 BGM·효과음 누락이 감점 1순위"
+    sources: []
+  - key: map_territory
+    current: "세력 영역은 style/territory.py territories()로만 칠한다: 이웃 세력은 경계 꼭짓점 공유, 해안 쪽은 바다로 넉넉히 뻗은 뒤 육지 마스크로 자름(빈틈 금지). 손으로 해안선 따라 찍기 금지"
+    status: 현행
+    confirmed: "11/06 사용자 지적(산둥·한강 유역 빈틈)"
+    sources: []
+  - key: no_hanja
+    current: "화면 글자는 모두 한글. 한자 병기·한자 깃발·한자 원문 카드 금지(원문은 한글 번역 + 출처). style/kit.py check_text가 한자를 막는다"
+    status: 현행
+    confirmed: "11/06 사용자 '한자는 빼고'"
+    sources: []
+  - key: siege_no_unit_block
+    current: "공성 단면(옆에서 본 성·토산) 장면에는 'ㅗ' 블록을 쓰지 않고 병사 대열로 그린다. 'ㅗ' 블록은 지도 장면 전용"
+    status: 현행
+    confirmed: "11/06 사용자 '전투씬에는 굳이 ㅗ를 넣을 필요가?'"
+    sources: []
+  - key: visual_review_gate
+    current: "사용자에게 보이기 전 장면별 대표 프레임(전체 해상도)을 만든 사람이 아닌 검수자가 채점, 8/10 미만 또는 필수 불합격(한자·영역 빈틈·겹침/잘림·핵심 장면 미판독·이전 지적 재발) 하나라도 있으면 고쳐서 재검수. 체크리스트 lint/visual_review.md"
+    status: 현행
+    confirmed: "11/06 사용자 '검수 받을 수 있게 해봐'"
+    sources: []
+  - key: script_dup_check
+    current: "대본 확정 전 장면끼리 같은 판단·같은 정보가 두 번 나오는지 점검(예: 안시성 '건너뛰기'와 '지름길'은 같은 '성을 두고 지나가기' → 하나만). 마지막 문장은 제목을 되받아 맺는다"
+    status: 현행
+    confirmed: "11/06 사용자 '25초에도 40초에도 또 나오고', '마지막이 맥 없이 끝나지 않아?'"
+    sources: []
+  - key: tts_one_take
+    current: "훅 포함 전 장면을 문단 단위로 한 번에 녹음(따로 녹음한 훅은 속도가 달라짐). speech_rate 파라미터로 길이를 맞추지 않는다(발음이 서두름) — 길이는 대본으로 줄인다"
+    status: 현행
+    confirmed: "11/06 사용자 '훅 부분 속도도 제대로 해서 한번에 녹음'"
+    sources: []
+  - key: proactive_proposals
+    current: "결과물을 낼 때마다 Claude가 먼저 '본 문제 + 개선 제안'을 붙인다(사용자가 아이디어를 주기 전에). 비교 기준은 직전 편 최종본"
+    status: 현행
+    confirmed: "11/06 사용자 '너가 나한테 아이디어를 주면 좋겠는데'"
+    sources: []
+
+  - key: battle_thumbnail
+    current: "전투 해설 쇼츠 썸네일 = 위쪽 지도(그 편의 핵심 전술 지도 장면을 엔진에서 HUD 없이 원본 렌더) + 아래쪽 실사컷 프레임, 경계는 부드럽게 섞는다 → 가운데 띠(y 760~1420)만 어둡게 → 큰 문구 3줄 = 영상 제목, 핵심어 하나만 금색. '역사서클' 표시는 지도 글자와 겹치면 오른쪽 아래(x 1010, y 1810). 코드 0크레딧(~/ansi/th). 시안은 지도+실사(추천) / 지도만 / 실사만을 함께 보여주고 사용자가 고른다"
+    status: 현행
+    confirmed: "11/06 사용자 '썸네일에 우리의 트레이드 마크 지도를 좀 보여주는건 어때?' → 안시성 C안(지도+실사) 'c은 굳'"
+    sources: []
+  - key: insta_caption
+    current: "인스타 릴스 캡션은 사용자 말투로 쓴다: '⚔️ ○○ 전투(연도) | 전투 해설' → 2~3줄 개인 감상 구어체(예: 'A vs B', '대단해욥', '~더라구요', 아쉬운 점·더 궁금해지는 점) → 출처 한 줄 → 지도·AI 재현 고지 한 줄 → 해시태그. 숫자 훅·설명조 문장은 쓰지 않는다. 링크 없음. 감상 속 고증이 틀린 표현은 고친 안과 근거를 함께 낸다"
+    status: 현행
+    confirmed: "11/06 사용자 안시성 캡션 예시 '대충 난 이런 스타일이야'"
     sources: []
